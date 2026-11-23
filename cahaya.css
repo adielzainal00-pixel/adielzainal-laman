@@ -210,3 +210,11 @@ img,video{max-width:100%;display:block}
 
 .pb:hover,.btn:hover{box-shadow:0 8px 22px -8px rgba(99,102,241,.6)}
 .kira input{accent-color:#6366F1}
+
+/* Seragam semua kotak: satu warna gradien macam kad kit (draf-seragam-semua). Promo merah kekal. */
+:root{--seragam:linear-gradient(135deg,#D3E3FD,#E9DDFF 55%,#FFDAD6);--garis-s:rgba(79,70,229,.25)}
+.kad-ai,.angka div,.bid div,.bid div:nth-child(n),.suara,.kes-kad,.testimoni figure,.kotak,.produk,.prinsip li,.faq details{background:var(--seragam);border:0}
+.produk.utama{background:var(--seragam);box-shadow:0 0 0 2px #6366F1}
+.msg,.pilihan button,.hasil,.kira-hasil,.bid b{background:transparent;border:1px solid var(--garis-s);box-shadow:none}
+.msg .ok button+button{background:transparent}
+.kuiz-bar{background:rgba(255,255,255,.5)}

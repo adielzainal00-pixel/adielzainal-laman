@@ -30,8 +30,12 @@
   .kad-kit .tip{font-size:.88rem;padding:10px 12px;background:var(--kad2);margin:0 0 12px;color:inherit}
   .butang-kit{display:inline-block;padding:11px 18px;background:var(--aksen);color:var(--aksen-ink);text-decoration:none;font-weight:600}
   .butang-baris{display:flex;flex-wrap:wrap;gap:10px}
+  .kad-kit ol.repo{margin:0 0 14px;padding-left:1.3rem;display:grid;gap:10px}
+  .kad-kit ol.repo a{font-weight:700;color:inherit}
+  .kad-kit ol.repo span{display:block;font-size:.88rem;color:var(--pudar)}
   .butang-kit.kedua{background:transparent;color:inherit;border:1px solid var(--garis-kuat)}
   .kad-kit pre.kod{margin:0 0 8px;padding:10px 12px;background:#16181d;color:#F6F1E8;font-size:.8rem;overflow-x:auto;white-space:pre}
+  .kad-kit pre.kod.balut{white-space:pre-wrap;font-size:.9rem}
   .salin{margin:0 0 12px;padding:6px 12px;font-size:.82rem;border:1px solid var(--garis);background:var(--kad2);cursor:pointer}
   .seterusnya{margin-top:30px;padding:20px;border:1px solid var(--garis-kuat);text-align:left}
   .seterusnya h2{font-size:1.2rem;margin:0 0 6px}
@@ -71,6 +75,19 @@
 <script>
 /* SENARAI KIT: tambah kit baru di sini sahaja. id = kata kunci huruf kecil (jadi pautan adielzainal.com/kit?k=id). Yang terbaru di atas. */
 var KIT = [
+  { id: "repo", kunci: "REPO", tajuk: "5 repo GitHub yang saya guna sendiri",
+    terang: "Semua percuma dan open source. Bintang disemak 23 Nov 2026.",
+    senarai: [
+      ["Claude skills (Anthropic)", "Skill rasmi untuk Claude. ~199K bintang.", "https://github.com/anthropics/skills"],
+      ["HyperFrames (HeyGen)", "Buat dan edit video guna kod. ~89K bintang.", "https://github.com/heygen-com/hyperframes"],
+      ["Remotion", "Buat video dengan React. Percuma untuk individu dan syarikat kecil. ~75K bintang.", "https://github.com/remotion-dev/remotion"],
+      ["Lemo-Opuscar", "99 gaya filem animasi untuk Claude Code. ~20K bintang.", "https://github.com/lemomo-ai/lemo-opuscar"],
+      ["yt-dlp", "Muat turun video untuk rujukan. ~210K bintang.", "https://github.com/yt-dlp/yt-dlp"]
+    ],
+    kod: "Apa repo ni, selamat ke untuk aku guna, dan macam mana dia boleh bantu bisnes aku?",
+    kodTajuk: "Salin link repo, masukkan dalam Claude Code, kemudian tanya:", salinLabel: "Salin soalan", balut: true,
+    tip: "Sebelum install, semak jumlah bintang dan tarikh kemas kini terakhir, dan minta Claude baca kod repo itu dahulu.",
+    pautan: "https://github.com/anthropics/skills", label: "Mula dengan Claude skills" },
   { id: "motion", kunci: "MOTION", tajuk: "Lemo-Opuscar: 99 gaya filem untuk Claude Code",
     terang: "Projek open source untuk buat motion graphics guna kod, tanpa AI video. Watercolor, kartun lama, LEGO, pulau 3D.",
     kod: "claude plugin marketplace add lemomo-ai/lemo-opuscar\nclaude plugin install lemo-opuscar@lemolab",
@@ -96,7 +113,8 @@ var KIT = [
   document.getElementById("senarai").innerHTML = senarai.map(function (x) {
     return '<article class="kad-kit' + (x.id === k ? " sasar" : "") + '" id="' + esc(x.id) + '">' +
       '<span class="kunci">' + esc(x.kunci) + '</span><h2>' + esc(x.tajuk) + '</h2><p>' + esc(x.terang) + '</p>' +
-      (x.kod ? '<p style="margin:0 0 6px">' + esc(x.kodTajuk || "") + '</p><pre class="kod"><code>' + esc(x.kod) + '</code></pre><button type="button" class="salin" data-kod="' + esc(x.kod) + '">Salin command</button>' : '') +
+      (x.senarai ? '<ol class="repo">' + x.senarai.map(function (r) { return '<li><a href="' + esc(r[2]) + '" target="_blank" rel="noopener">' + esc(r[0]) + ' →</a><span>' + esc(r[1]) + '</span></li>'; }).join("") + '</ol>' : '') +
+      (x.kod ? '<p style="margin:0 0 6px">' + esc(x.kodTajuk || "") + '</p><pre class="kod' + (x.balut ? ' balut' : '') + '"><code>' + esc(x.kod) + '</code></pre><button type="button" class="salin" data-kod="' + esc(x.kod) + '">' + esc(x.salinLabel || "Salin command") + '</button>' : '') +
       (x.tip ? '<p class="tip">💡 ' + esc(x.tip) + '</p>' : '') +
       '<div class="butang-baris"><a class="butang-kit" href="' + esc(x.pautan) + '" target="_blank" rel="noopener">' + esc(x.label) + ' →</a>' +
       (x.pautan2 ? '<a class="butang-kit kedua" href="' + esc(x.pautan2) + '" target="_blank" rel="noopener">' + esc(x.label2) + ' →</a>' : '') + '</div></article>';

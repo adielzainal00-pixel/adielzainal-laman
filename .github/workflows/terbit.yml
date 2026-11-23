@@ -46,9 +46,11 @@ jobs:
         env:
           PR: ${{ github.event.pull_request.number }}
         run: |
+          set -o pipefail
           npx --yes "$WRANGLER" versions upload --preview-alias "pr-$PR" --message "PR #$PR ${GITHUB_SHA::7}" 2>&1 | tee upload.log
           url=$(grep -oE 'https://pr-[^ ]+\.workers\.dev' upload.log | tail -1)
           [ -n "$url" ] || url=$(grep -oE 'https://[^ ]+\.workers\.dev' upload.log | tail -1)
+          [ -n "$url" ] || { echo "::error::Tiada pautan preview dalam output wrangler"; exit 1; }
           echo "url=$url" >> "$GITHUB_OUTPUT"
 
       - name: Komen pautan preview

@@ -50,3 +50,12 @@
 /* susunan: nav, lencana, nama, salam, foto */
 .hero-a{display:flex;flex-direction:column;align-items:center}
 .hero-a nav{order:1;width:100%}.hero-a .lencana{order:2}.hero-a .nama{order:3;font-size:clamp(40px,6.4vw,72px)}.hero-a .pil{order:4}.hero-a .foto{order:5}
+
+/* Kad seragam: semua kad kit guna gradien sama macam kotak "Langkah seterusnya" (draf-kad-seragam) */
+.isi-a .kad-kit,.isi-a .kad-kit.sasar{background:linear-gradient(135deg,#D3E3FD,#E9DDFF 55%,#FFDAD6);border:0;box-shadow:none}
+.isi-a .kad-kit.sasar{box-shadow:0 0 0 2px #6366F1}
+.isi-a .kad-kit .kunci{background:transparent;border:1px solid rgba(79,70,229,.35);color:#3730A3}
+.isi-a .kad-kit .tip{background:transparent;border:1px solid rgba(79,70,229,.25)}
+.isi-a .kad-kit .salin,.isi-a .kad-kit .butang-kit.kedua{background:transparent}
+.isi-a .senarai,.isi-a .senarai>*{min-width:0;max-width:100%}
+.isi-a .kad-kit pre.kod{max-width:100%;box-sizing:border-box}

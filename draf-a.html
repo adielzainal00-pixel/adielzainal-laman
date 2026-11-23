@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Draf A | Adiel Zainal, automasi AI untuk perniagaan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--hitam:#1C1D20;--kelabu:#5B5D63;--garis:#E3E3E3;--laut:#0E7C86;--laut-gelap:#0A5E66;--lembut:#F4F4F2}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;color:var(--hitam);background:#fff;-webkit-font-smoothing:antialiased;font-size:17px;line-height:1.6}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--laut);outline-offset:3px}
+.tt{font-family:'Inter Tight',Inter,sans-serif;letter-spacing:-.03em}
+.pad{padding-left:9vw;padding-right:9vw}
+small.tag{display:block;font-size:13px;color:#999;margin-bottom:30px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;height:100vh;min-height:660px;overflow:hidden;color:#fff;background:#A9B0B6}
+.hero .foto{position:absolute;inset:0;background:url(aset/pantai-penuh.webp) center 30%/cover;filter:saturate(.85) brightness(.93)}
+.hero .foto:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,24,30,.35),rgba(20,24,30,0) 28%,rgba(20,24,30,0) 55%,rgba(20,24,30,.5))}
+nav.atas{position:absolute;inset:0 0 auto;display:flex;justify-content:space-between;align-items:center;padding:34px 44px;z-index:5;font-size:17px}
+nav.atas .menu{display:flex;gap:40px}
+nav.atas .menu a{position:relative}
+nav.atas .menu a:after{content:'';position:absolute;left:50%;bottom:-12px;width:5px;height:5px;border-radius:50%;background:currentColor;transform:translateX(-50%) scale(0);transition:.25s}
+nav.atas .menu a:hover:after{transform:translateX(-50%) scale(1)}
+.promo{position:absolute;top:96px;left:44px;z-index:5;font-size:14px;background:rgba(255,255,255,.16);backdrop-filter:blur(8px);border-radius:99px;padding:8px 16px}
+.promo b{font-weight:500;font-variant-numeric:tabular-nums}
+.pil{position:absolute;left:0;top:44%;z-index:5;display:flex;align-items:center;gap:26px;background:var(--hitam);border-radius:0 99px 99px 0;padding:20px 18px 20px 44px;font-size:16px;line-height:1.3}
+.pil .tanda{width:64px;height:64px;border-radius:50%;background:var(--laut);display:grid;place-items:center}
+.pil .tanda i{width:12px;height:12px;border-radius:50%;background:#fff;animation:denyut 2s ease-in-out infinite}
+@keyframes denyut{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.55)}60%{box-shadow:0 0 0 14px rgba(255,255,255,0)}}
+.peranan{position:absolute;right:9%;top:36%;z-index:5;font-size:clamp(22px,2.2vw,32px);line-height:1.3}
+.peranan svg{display:block;margin-bottom:30px}
+.nama{position:absolute;bottom:3vh;left:0;white-space:nowrap;font-family:'Inter Tight';font-weight:400;font-size:clamp(110px,15vw,230px);letter-spacing:-.045em;line-height:1;z-index:4;will-change:transform}
+.nama span{padding-right:.35em}
+
+/* ---------- butang bulat ---------- */
+.bulat{width:190px;height:190px;border-radius:50%;background:var(--hitam);color:#fff;display:grid;place-items:center;text-align:center;font-size:17px;transition:background .3s,transform .3s;flex-shrink:0}
+.bulat:hover{background:var(--laut);transform:scale(1.04)}
+.pil-btn{display:inline-block;border:1px solid var(--garis);border-radius:99px;padding:20px 34px;font-size:17px;transition:.3s}
+.pil-btn:hover{background:var(--hitam);color:#fff;border-color:var(--hitam)}
+
+/* ---------- pengenalan ---------- */
+.intro{padding-top:170px;padding-bottom:120px;display:grid;grid-template-columns:1.6fr 1fr;gap:6vw;position:relative}
+.intro h1{font-weight:400;font-size:clamp(28px,2.7vw,40px);line-height:1.32;letter-spacing:-.02em}
+.intro p{color:var(--kelabu);font-size:18px}
+.intro .bulat{position:absolute;right:30vw;bottom:-60px;z-index:2}
+.angka{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--garis);border-bottom:1px solid var(--garis)}
+.angka{margin-top:40px}.angka div{padding:40px 3vw 40px 0}
+.angka b{display:block;font-family:'Inter Tight';font-weight:400;font-size:clamp(40px,4.4vw,64px);letter-spacing:-.04em;line-height:1.1}
+.angka span{color:var(--kelabu);font-size:15px}
+.industri{overflow:hidden;white-space:nowrap;padding:26px 0;color:#999;font-size:15px}
+.industri div{display:inline-block;animation:jalan 40s linear infinite}
+.industri span{margin-right:44px}
+@keyframes jalan{to{transform:translateX(-50%)}}
+
+/* ---------- senarai baris (gaya utama) ---------- */
+.senarai{padding-top:110px;padding-bottom:110px}
+.baris{display:flex;justify-content:space-between;align-items:center;gap:30px;padding:52px 3vw;border-top:1px solid var(--garis);transition:opacity .3s}
+.baris:last-of-type{border-bottom:1px solid var(--garis)}
+.baris h3{font-family:'Inter Tight';font-weight:400;font-size:clamp(36px,5.2vw,80px);letter-spacing:-.035em;line-height:1.05;transition:transform .4s}
+.baris > span{max-width:360px;color:var(--kelabu);font-size:16px;line-height:1.5}
+.senarai:hover .baris{opacity:.35}
+.senarai .baris:hover{opacity:1}
+.baris:hover h3{transform:translateX(-10px)}
+.intai{position:fixed;left:0;top:0;width:360px;height:280px;pointer-events:none;z-index:50;transform:translate(-50%,-50%) scale(0);transition:transform .35s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px;text-align:center;font-family:'Inter Tight';font-size:24px;line-height:1.2;letter-spacing:-.02em}
+.intai.on{transform:translate(-50%,-50%) scale(1)}
+.intai small{font-family:Inter;font-size:14px;color:#444;margin-top:10px;letter-spacing:0}
+
+/* ---------- portfolio ---------- */
+.portfolio{padding-top:40px;padding-bottom:110px;display:grid;grid-template-columns:.8fr 1.2fr;gap:7vw;align-items:center}
+.portfolio video{width:100%;max-width:380px;aspect-ratio:9/16;border-radius:20px;background:#000;display:block}
+.portfolio h2,.tajuk2{font-family:'Inter Tight';font-weight:400;font-size:clamp(40px,4.6vw,72px);letter-spacing:-.04em;line-height:1.02}
+.portfolio p{color:var(--kelabu);margin:20px 0 30px;max-width:520px}
+.portfolio ol{list-style:none;border-top:1px solid var(--garis)}
+.portfolio li{display:flex;gap:22px;padding:16px 0;border-bottom:1px solid var(--garis)}
+.portfolio li b{font-weight:400;color:#999;font-variant-numeric:tabular-nums}
+.suara{display:flex;align-items:center;gap:14px;margin-top:26px;background:var(--lembut);border-radius:99px;padding:10px 20px 10px 10px;max-width:max-content}
+.suara button{width:44px;height:44px;border-radius:50%;border:0;background:var(--hitam);color:#fff;cursor:pointer;display:grid;place-items:center}
+.suara span{font-size:15px}
+
+/* ---------- rekod prestasi ---------- */
+.gelap{background:var(--hitam);color:#fff}
+.rekod{padding-top:120px;padding-bottom:120px}
+.rekod .atas{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:end;margin-bottom:60px}
+.rekod .atas p{color:#9a9b9f}
+.kos{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.kos td{padding:26px 0;border-top:1px solid #3a3b3f;font-size:18px}
+.kos td.n{font-family:'Inter Tight';font-size:clamp(26px,3vw,44px);letter-spacing:-.03em}
+.kos td.r{text-align:right;color:#9a9b9f;font-size:15px}
+.kos td.h{text-align:right;font-family:'Inter Tight';font-size:clamp(26px,3vw,44px);letter-spacing:-.03em;width:260px;white-space:nowrap}
+.kos tr.beza td{color:#77787c}
+.kos tr.beza td.h{color:#FF8A6B}
+.rekod .nota{color:#9a9b9f;margin-top:30px;font-size:15px;max-width:640px}
+
+/* ---------- kata pelanggan ---------- */
+.kata{padding-top:120px;padding-bottom:120px}
+.kata .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px 40px;margin-top:56px}
+.kata blockquote{font-size:20px;line-height:1.5;border-top:1px solid var(--garis);padding-top:22px}
+.kata cite{display:block;font-style:normal;color:#999;font-size:14px;margin-top:14px}
+
+/* ---------- kuiz & kira ---------- */
+.dua{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--garis)}
+.dua > div{padding:110px 9vw 110px}
+.dua > div:first-child{border-right:1px solid var(--garis);padding-right:5vw}
+.dua > div:last-child{padding-left:5vw}
+.dua h2{font-family:'Inter Tight';font-weight:400;font-size:clamp(32px,3.2vw,50px);letter-spacing:-.035em;line-height:1.05;margin-bottom:14px}
+.dua p.s{color:var(--kelabu);margin-bottom:34px}
+.pilihan{display:grid;gap:10px}
+.pilihan button{display:flex;justify-content:space-between;align-items:center;gap:16px;text-align:left;border:1px solid var(--garis);background:#fff;border-radius:18px;padding:20px 22px;font:inherit;cursor:pointer;transition:.25s}
+.pilihan button:hover{border-color:var(--hitam)}
+.pilihan button small{display:block;color:var(--kelabu);font-size:14px;margin-top:2px}
+.hasil{border-radius:22px;background:var(--lembut);padding:28px;margin-top:6px}
+.hasil h3{font-family:'Inter Tight';font-weight:500;font-size:26px;letter-spacing:-.02em}
+.hasil p{color:var(--kelabu);margin:8px 0 18px}
+.hasil .aksi{display:flex;gap:10px;flex-wrap:wrap}
+.hasil .aksi a,.hasil .aksi button{border-radius:99px;padding:13px 22px;font:inherit;font-size:15px;border:1px solid var(--hitam);background:var(--hitam);color:#fff;cursor:pointer}
+.hasil .aksi button{background:transparent;color:var(--hitam)}
+.slider label{display:flex;justify-content:space-between;font-size:15px;margin-top:22px}
+.slider output{font-weight:500}
+.slider input{width:100%;accent-color:var(--laut);margin-top:8px}
+.jumlah{margin-top:34px;border-top:1px solid var(--garis);padding-top:26px}
+.jumlah b{display:block;font-family:'Inter Tight';font-weight:400;font-size:clamp(48px,5vw,76px);letter-spacing:-.045em;line-height:1}
+.jumlah p{color:var(--kelabu);margin-top:8px;font-size:15px}
+
+/* ---------- program ---------- */
+.program{padding-top:120px;padding-bottom:120px}
+.program .atas{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:50px;flex-wrap:wrap}
+.program .atas p{color:#9a9b9f;max-width:420px}
+.kira-masa{display:flex;gap:26px;font-variant-numeric:tabular-nums}
+.kira-masa div{text-align:center}.kira-masa b{display:block;font-family:'Inter Tight';font-weight:400;font-size:40px;letter-spacing:-.03em}.kira-masa span{font-size:13px;color:#9a9b9f}
+.prog{border-top:1px solid #3a3b3f}
+.prog details{border-bottom:1px solid #3a3b3f}
+.prog summary{list-style:none;display:grid;grid-template-columns:1fr 200px 170px 40px;align-items:center;gap:20px;padding:40px 0;cursor:pointer}
+.prog summary::-webkit-details-marker{display:none}
+.prog summary h3{font-family:'Inter Tight';font-weight:400;font-size:clamp(30px,3.8vw,58px);letter-spacing:-.035em;line-height:1.05;transition:transform .4s}
+.prog summary:hover h3{transform:translateX(10px)}
+.prog summary .jenis{color:#9a9b9f;font-size:15px}
+.prog summary .hg{text-align:right;font-family:'Inter Tight';font-size:28px;letter-spacing:-.02em}
+.prog summary .hg s{display:block;font-family:Inter;font-size:14px;color:#77787c;letter-spacing:0}
+.prog summary .plus{width:40px;height:40px;border-radius:50%;border:1px solid #3a3b3f;display:grid;place-items:center;transition:transform .3s}
+.prog details[open] .plus{transform:rotate(45deg);background:var(--laut);border-color:var(--laut)}
+.prog .isi{display:grid;grid-template-columns:1.2fr 1fr;gap:6vw;padding:0 0 46px}
+.prog .isi p{color:#b9babd}
+.prog .isi ul{list-style:none}
+.prog .isi li{padding:11px 0;border-top:1px solid #2c2d31;color:#d7d8db;font-size:15px}
+.prog .isi a{display:inline-block;margin-top:24px;background:var(--laut);color:#fff;border-radius:99px;padding:18px 30px;transition:background .3s}
+.prog .isi a:hover{background:#fff;color:var(--hitam)}
+.prog .isi a.garis{background:transparent;border:1px solid #3a3b3f}
+
+/* ---------- tentang ---------- */
+.tentang{padding-top:130px;padding-bottom:130px;display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:center}
+.tentang .gambar{aspect-ratio:4/5;border-radius:8px;background:url(aset/pantai-potret.webp) center/cover,url(aset/pantai-penuh.webp) center 25%/cover}
+.tentang p{color:var(--kelabu);margin-top:22px}
+.garis-masa{margin-top:36px;border-top:1px solid var(--garis)}
+.garis-masa div{display:grid;grid-template-columns:120px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--garis);font-size:15px}
+.garis-masa b{font-weight:500}
+
+/* ---------- soalan ---------- */
+.soalan{padding-top:40px;padding-bottom:130px;display:grid;grid-template-columns:1fr 1.6fr;gap:6vw}
+.soalan details{border-top:1px solid var(--garis)}
+.soalan details:last-child{border-bottom:1px solid var(--garis)}
+.soalan summary{list-style:none;display:flex;justify-content:space-between;gap:20px;padding:26px 0;font-size:20px;cursor:pointer}
+.soalan summary::-webkit-details-marker{display:none}
+.soalan summary:after{content:'+';font-size:26px;line-height:1;transition:transform .3s;color:#999}
+.soalan details[open] summary:after{transform:rotate(45deg)}
+.soalan details p{color:var(--kelabu);padding:0 40px 26px 0}
+
+/* ---------- kaki ---------- */
+footer{background:var(--hitam);color:#fff;padding-top:140px;padding-bottom:30px}
+footer .atas{display:flex;align-items:center;gap:28px;padding-bottom:80px;border-bottom:1px solid #3a3b3f;position:relative}
+footer .av{width:96px;height:96px;border-radius:50%;background:url(aset/pantai-penuh.webp) center 28%/240%;flex-shrink:0}
+footer h2{font-family:'Inter Tight';font-weight:400;font-size:clamp(46px,6vw,96px);letter-spacing:-.04em;line-height:1}
+footer .atas .bulat{position:absolute;right:8vw;bottom:-95px;background:var(--laut)}
+footer .atas .bulat:hover{background:#fff;color:var(--hitam)}
+footer .ajak{color:#9a9b9f;max-width:520px;margin-top:130px}
+footer .pils{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap}
+footer .pils a{border-color:#3a3b3f}
+footer .pils a:hover{background:var(--laut);border-color:var(--laut)}
+footer .bawah{display:flex;justify-content:space-between;gap:30px;margin-top:110px;font-size:14px;color:#9a9b9f;flex-wrap:wrap}
+footer .bawah b{display:block;font-weight:400;color:#fff;margin-top:8px}
+
+.draf{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:60;background:#fff;color:var(--hitam);border-radius:99px;padding:8px 16px;font-size:13px;box-shadow:0 8px 24px -8px rgba(0,0,0,.35)}
+
+@media(max-width:860px){
+  .pad{padding-left:22px;padding-right:22px}
+  nav.atas{padding:24px 22px}nav.atas .menu{gap:18px;font-size:15px}nav.atas .menu a:nth-child(n+3){display:none}
+  .promo{left:22px;top:76px;font-size:12px}
+  .pil{top:auto;bottom:31vh;padding:12px 12px 12px 22px;gap:14px;font-size:14px}.pil .tanda{width:46px;height:46px}
+  .peranan{right:22px;top:auto;bottom:45vh;font-size:20px;text-align:right}.peranan svg{margin:0 0 10px auto;width:22px}
+  .nama{font-size:30vw;bottom:4vh}
+  .intro{grid-template-columns:1fr;padding-top:100px;padding-bottom:140px;gap:26px}.intro .bulat{right:22px;bottom:-30px;width:140px;height:140px}
+  .angka{grid-template-columns:1fr 1fr}.angka div{padding:26px 10px 26px 0}
+  .senarai{padding-top:80px;padding-bottom:80px}
+  .baris{flex-direction:column;align-items:flex-start;gap:10px;padding:32px 0}
+  .portfolio,.rekod .atas,.dua,.tentang,.soalan,.prog .isi{grid-template-columns:1fr}
+  .portfolio video{max-width:100%}
+  .kos td.r{display:none}.kos td.h{width:auto}
+  .kata .grid{grid-template-columns:1fr;gap:30px}
+  .dua > div{padding:80px 22px!important;border-right:0!important}.dua > div:first-child{border-bottom:1px solid var(--garis)}
+  .prog summary{grid-template-columns:1fr 40px;gap:8px 14px}.prog summary .jenis{grid-row:2;grid-column:1}.prog summary .hg{grid-row:3;grid-column:1;text-align:left}.prog summary .plus{grid-row:1/4;grid-column:2}
+  .tentang{padding-top:90px;padding-bottom:90px}
+  footer .atas{flex-direction:column;align-items:flex-start}footer .atas .bulat{right:22px;width:140px;height:140px;bottom:-70px}
+  footer .bawah{flex-direction:column}
+  .intai{display:none}
+}
+@media(prefers-reduced-motion:reduce){.industri div,.pil .tanda i{animation:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="foto" role="img" aria-label="Adiel Zainal di pantai"></div>
+  <nav class="atas"><a href="#" class="tt" style="font-size:19px">Adiel Zainal</a>
+    <div class="menu"><a href="#bidang">Automasi</a><a href="#program">Program</a><a href="#portfolio">Portfolio</a><a href="#hubungi">Hubungi</a></div></nav>
+  <a class="promo" href="#program">Promosi hujung tahun, tamat dalam <b id="promoHari">--</b> hari</a>
+  <div class="pil"><span>Salam Kejayaan 😊<br>Pekerja AI sedang bertugas</span><span class="tanda"><i></i></span></div>
+  <div class="peranan"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M6 6l12 12M18 8v10H8"/></svg>Coaching &amp; ebook<br>Automasi AI</div>
+  <div class="nama" id="nama"><span>Adiel Zainal —</span><span>Adiel Zainal —</span><span>Adiel Zainal —</span><span>Adiel Zainal —</span></div>
+</header>
+
+<main>
+<section class="intro pad">
+  <h1>Kerja harian diurus AI, supaya anda fokus membina perniagaan. Saya pasang pekerja AI untuk iklan Meta, laporan, CRM dan khidmat pelanggan, dan anda hanya meluluskan.</h1>
+  <p>Tanpa latar belakang IT. Setiap sistem yang saya kongsikan telah saya gunakan sendiri dalam agensi iklan saya, SASS ONE, bersama 171 pelanggan.</p>
+  <a class="bulat" href="#program">Lihat program</a>
+</section>
+
+<div class="pad">
+  <div class="angka">
+    <div><b>171</b><span>pelanggan agensi iklan SASS ONE</span></div>
+    <div><b>17</b><span>semakan automatik sebelum setiap laporan dihantar</span></div>
+    <div><b>RM7.60</b><span>purata kos setiap perbualan WhatsApp</span></div>
+    <div><b>24 jam</b><span>AI bekerja, anda membuat keputusan akhir</span></div>
+  </div>
+  <div class="industri" aria-hidden="true"><div id="industri"></div></div>
+</div>
+
+<section class="portfolio pad" id="portfolio">
+  <video controls playsinline preload="none" poster="aset/portfolio-poster.webp?v=draf5" width="720" height="1280"><source src="aset/portfolio.mp4?v=draf5" type="video/mp4"></video>
+  <div>
+    <small class="tag">Portfolio</small>
+    <h2>Kerja saya, dalam 80 saat.</h2>
+    <p>Rekod prestasi agensi saya, sistem automasi yang saya bina dan maklum balas pelanggan. Video ini turut saya sunting sendiri menggunakan AI.</p>
+    <ol>
+      <li><b>01</b>Laporan iklan automatik ke WhatsApp</li>
+      <li><b>02</b>Lead WhatsApp terus ke Google Sheet</li>
+      <li><b>03</b>Hermes: pekerja AI 24 jam</li>
+      <li><b>04</b>Kandungan dan video dengan AI</li>
+      <li><b>05</b>Rekod prestasi: iklan Meta untuk 171 pelanggan</li>
+    </ol>
+    <div class="suara"><button id="mainSuara" aria-label="Main nota suara pelanggan"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M6 4l14 8-14 8z"/></svg></button><span>Nota suara pelanggan kereta sewa: “Hari ni semua kereta sold out dah.”</span><audio id="audio" src="aset/suara-kereta-sewa.mp3" preload="none"></audio></div>
+  </div>
+</section>
+
+<section class="rekod gelap pad" id="rekod">
+  <div class="atas">
+    <h2 class="tajuk2">Sebelum automasi, 171 pelanggan.</h2>
+    <p>Asas kepada semua yang saya kongsikan: akaun iklan pelanggan agensi saya bagi tempoh 90 hari terakhir. 708 perbualan WhatsApp daripada 10 akaun iklan dalam 9 industri. Nama pelanggan tidak didedahkan.</p>
+  </div>
+  <table class="kos" aria-label="Kos setiap perbualan WhatsApp ikut industri">
+    <tbody id="kos"></tbody>
+  </table>
+  <p class="nota">Kempen mesej WhatsApp dengan tawaran yang jelas 6 hingga 12 kali lebih murah berbanding boost post teks dalam industri yang sama. Ini contoh sebenar, bukan jaminan hasil.</p>
+</section>
+
+<section class="kata pad" id="kata">
+  <small class="tag">Kata pelanggan</small>
+  <h2 class="tajuk2">Petikan WhatsApp sebenar.</h2>
+  <div class="grid" id="kataGrid"></div>
+</section>
+
+<section class="senarai pad" id="bidang" style="padding-top:20px">
+  <small class="tag">Empat bidang, satu pekerja AI. Semua sedang berjalan dalam perniagaan saya sendiri, bukan demo.</small>
+  <a class="baris" href="#program" data-warna="#CFE3E5" data-teks="Makanan sejuk beku, 90 hari" data-kecil="17/17 lulus · RM440.66 · 150 perbualan · RM2.94"><h3>Automasi laporan</h3><span>Data ditarik daripada Meta dan melalui 17 semakan sebelum dihantar ke WhatsApp. Jika satu gagal, laporan ditahan dan anda dimaklumkan.</span></a>
+  <a class="baris" href="#program" data-warna="#E7DCD2" data-teks="Cadangan: naikkan bajet 20%" data-kecil="Menunggu kelulusan anda"><h3>Automasi Meta Ads</h3><span>Claude membaca prestasi kempen, mencadangkan bajet dan menyediakan draf iklan. Tiada perubahan dibuat tanpa kelulusan anda.</span></a>
+  <a class="baris" href="#program" data-warna="#DCE5D6" data-teks="3 lead baru: ingin membeli" data-kecil="Direkod dalam Google Sheet, draf susulan sedia"><h3>Automasi CRM</h3><span>Mesej WhatsApp dilabel (ingin membeli, bertanya harga, aduan) dan dimasukkan ke Google Sheet. Senarai susulan disediakan setiap hari.</span></a>
+  <a class="baris" href="#program" data-warna="#E2DDEC" data-teks="4 pertanyaan dijawab malam tadi" data-kecil="1 diserahkan kepada anda"><h3>AI Customer Service</h3><span>Pekerja AI menjawab pertanyaan melalui WhatsApp rasmi, dan menyerahkan perbualan kepada anda apabila perlu.</span></a>
+  <a class="baris" href="#program" data-warna="#F1D9D4" data-teks="Satu arahan, AI berhenti" data-kecil="Anda ambil alih dari telefon"><h3>Butang henti</h3><span>Pada bila-bila masa, anda boleh menghentikan AI dari telefon dan mengambil alih sendiri.</span></a>
+</section>
+
+<section class="dua">
+  <div id="kuiz">
+    <small class="tag">Mula sini</small>
+    <h2>Dari mana anda patut bermula?</h2>
+    <p class="s">Pilih kerja yang paling banyak mengambil masa anda sekarang. Saya cadangkan satu langkah yang paling sesuai.</p>
+    <div id="kuizKotak"></div>
+  </div>
+  <div id="kira">
+    <small class="tag">Kira sendiri</small>
+    <h2>Berapa jam seminggu untuk kerja berulang?</h2>
+    <p class="s">Laraskan ikut minggu biasa anda. Ini anggaran anda sendiri, bukan janji saya.</p>
+    <div class="slider">
+      <label for="iLead">Membalas lead dan susulan WhatsApp <output id="oLead">6 jam</output></label><input type="range" id="iLead" min="0" max="30" value="6">
+      <label for="iAdmin">Laporan, rekod resit dan pentadbiran <output id="oAdmin">4 jam</output></label><input type="range" id="iAdmin" min="0" max="25" value="4">
+      <label for="iKadar">Nilai masa anda sejam <output id="oKadar">RM50</output></label><input type="range" id="iKadar" min="10" max="300" step="10" value="50">
+    </div>
+    <div class="jumlah"><b>RM<span id="hRm">2,167</span></b><p><span id="hJam">43</span> jam sebulan untuk kerja berulang. Jika AI ambil alih separuh sahaja, anda dapat semula <span id="hSeparuh">22</span> jam setiap bulan.</p></div>
+  </div>
+</section>
+
+<section class="program gelap pad" id="program">
+  <div class="atas">
+    <div><small class="tag" style="color:#77787c">Program</small><h2 class="tajuk2">Pilih cara anda bermula.</h2></div>
+    <div><p>Harga promosi sehingga 31 Disember 2026, 11:59 malam. Selepas itu, harga biasa dikenakan.</p>
+      <div class="kira-masa" style="margin-top:18px"><div><b id="kH">--</b><span>hari</span></div><div><b id="kJ">--</b><span>jam</span></div><div><b id="kM">--</b><span>minit</span></div><div><b id="kS">--</b><span>saat</span></div></div></div>
+  </div>
+  <div class="prog">
+    <details open><summary><h3>Coaching Automasi 1-to-1</h3><span class="jenis">Fokus utama</span><span class="hg">RM977<s>RM1,499</s></span><span class="plus">+</span></summary>
+      <div class="isi"><p>Kita pasang pekerja AI dalam perniagaan anda, bersama-sama. Anda belajar Hermes, Meta Ads dan Claude sepanjang proses, dan pulang dengan pekerja AI yang sudah berjalan. Harga sama untuk Google Meet atau bersemuka.</p>
+        <div><ul><li>30 minit audit: pilih kerja pertama untuk pekerja AI anda</li><li>Sehingga 2 jam 30 minit memasang bersama, sehingga ia berjalan</li><li>Belajar asas Hermes, Meta Ads dan Claude semasa membina</li><li>Pintu kelulusan dan butang henti dipasang sejak awal</li><li>Ringkasan dan tugasan susulan dalam masa 24 jam</li></ul>
+        <a href="#" data-wa="Hi Adiel, saya nak tempah Coaching Automasi 1-to-1.">Tempah melalui WhatsApp</a></div></div></details>
+    <details><summary><h3>Hermes: Pekerja AI 24 Jam</h3><span class="jenis">Ebook</span><span class="hg">RM97<s>RM169</s></span><span class="plus">+</span></summary>
+      <div class="isi"><p>Pasang Hermes dengan Claude sebagai otaknya: kerja berjadual, laporan ke Telegram dan AI yang membalas WhatsApp 24 jam. Anda bina sendiri, langkah demi langkah.</p>
+        <div><ul><li>Pasang Hermes di VPS, Claude sebagai otak</li><li>Beri arahan dan terima laporan melalui Telegram</li><li>Peta kerja dan otak syarikat: 5 fail memori supaya AI tak meneka</li><li>AI balas WhatsApp 24 jam cara rasmi, dengan serahan kepada anda</li><li>Pelan 30 hari dan 10 silap yang saya dah buat</li></ul>
+        <a class="garis" href="/#produk">Beli di laman utama</a></div></div></details>
+    <details><summary><h3>Meta Ads Automation</h3><span class="jenis">Ebook dan kit</span><span class="hg">RM97<s>RM169</s></span><span class="plus">+</span></summary>
+      <div class="isi"><p>Sambungkan Meta Ads kepada Claude, terima laporan iklan mingguan secara automatik, dan masukkan lead WhatsApp terus ke Google Sheet. Anda bina sendiri, langkah demi langkah.</p>
+        <div><ul><li>Sambung Meta Ads ke Claude melalui MCP rasmi Meta</li><li>10 aliran kerja siap guna dengan prompt</li><li>Laporan iklan mingguan, 17 semakan sebelum dihantar</li><li>Mesej WhatsApp jadi CRM dalam Google Sheet</li><li>Kit siap pasang, dengan amaran polisi WhatsApp</li></ul>
+        <a class="garis" href="/#produk">Beli di laman utama</a></div></div></details>
+  </div>
+</section>
+
+<section class="tentang pad" id="tentang">
+  <div class="gambar" role="img" aria-label="Adiel Zainal"></div>
+  <div>
+    <small class="tag">Tentang</small>
+    <h2 class="tajuk2">Dari agensi iklan ke automasi.</h2>
+    <p>Saya membina SASS ONE, agensi iklan Meta yang pernah menguruskan 171 pelanggan. Pada awalnya, semua kerja dilakukan secara manual: iklan, laporan dan WhatsApp. Sedikit demi sedikit, saya serahkan kerja berulang itu kepada AI, dengan pintu kelulusan di setiap langkah, dan belajar daripada setiap kesilapan. Hari ini, tumpuan saya satu: membantu pemilik perniagaan membina automasi yang sama.</p>
+    <div class="garis-masa">
+      <div><b>SASS ONE</b><span>Iklan Meta ke WhatsApp untuk 171 pelanggan</span></div>
+      <div><b>Nov 2026</b><span>Operasi agensi beralih daripada manual kepada automasi AI</span></div>
+      <div><b>Sekarang</b><span>Coaching dan ebook automasi AI untuk pemilik perniagaan</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="soalan pad" id="soalan">
+  <h2 class="tajuk2">Soalan yang kerap ditanya</h2>
+  <div id="faq"></div>
+</section>
+</main>
+
+<footer class="pad" id="hubungi">
+  <div class="atas"><span class="av"></span><h2>Jom automasikan<br>perniagaan anda</h2><a class="bulat" href="#" data-wa="Hi Adiel, saya nak tanya pasal automasi AI untuk bisnes saya.">WhatsApp saya</a></div>
+  <p class="ajak">Kongsikan jenis perniagaan anda dan kerja yang paling banyak mengambil masa. Saya akan membalas sendiri.</p>
+  <div class="pils"><a class="pil-btn" href="#" data-wa="Hi Adiel, saya nak tanya pasal automasi AI untuk bisnes saya.">WhatsApp saya</a><a class="pil-btn" href="https://www.threads.net/@adielzainal">Threads</a><a class="pil-btn" href="/links">Semua pautan</a></div>
+  <div class="bawah"><span>Versi<b>Edisi 2026</b></span><span>Waktu tempatan<b id="jam">--:--</b></span><span>Pautan<b><a href="/privasi">Privasi</a> &nbsp; <a href="/terma">Terma</a></b></span><span>© 2026<b>Adiel Zainal, SASS ONE</b></span></div>
+</footer>
+
+<div class="intai" id="intai"><span id="intaiTeks"></span><small id="intaiKecil"></small></div>
+<div class="draf">Draf A, belum live</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const WA='601127560377';
+document.querySelectorAll('[data-wa]').forEach(a=>{a.href='https://wa.me/'+WA+'?text='+encodeURIComponent(a.dataset.wa);a.target='_blank';a.rel='noopener'});
+
+// nama bergerak, arah ikut skrol
+let x=0,arah=-1,akhir=scrollY;const n=$('nama');
+addEventListener('scroll',()=>{arah=scrollY>akhir?-1:1;akhir=scrollY},{passive:true});
+const kurang=matchMedia('(prefers-reduced-motion:reduce)').matches;
+(function g(){if(!kurang){x+=arah*.055;if(x<-100)x+=100;if(x>0)x-=100;n.style.transform=`translateX(${x*n.firstElementChild.offsetWidth/100}px)`}requestAnimationFrame(g)})();
+
+// industri
+const IND=['Makanan sejuk beku','Klinik gigi','Emas','Kontraktor','Ejen kereta','Hartanah','Kecantikan','Takaful','Kereta sewa'];
+$('industri').innerHTML=[...IND,...IND].map(s=>`<span>${s}</span>`).join('');
+
+// kos ikut industri (data sebenar laman)
+const KOS=[['Makanan sejuk beku',150,'RM2.94'],['Klinik gigi',136,'RM2.71'],['Emas',157,'RM8.34'],['Kontraktor',89,'RM9.53'],['Ejen kereta, kempen mesej',110,'RM6.93–12.66'],['Hartanah',46,'RM17.51'],['Ejen kereta, boost post teks',3,'RM80.83']];
+$('kos').innerHTML=KOS.map(([a,b,c],i)=>`<tr class="${i===6?'beza':''}"><td class="n">${a}</td><td class="r">${b} perbualan, 90 hari</td><td class="h">${c}</td></tr>`).join('');
+
+// kata pelanggan
+const KATA=[['TERBAIK TUAN! Alhamdulillah sudah 4 orang berminat tanah 26 juta ni.','Hartanah'],['Alhamdulillah, sampai sy overload tak cukup nak cover order. Hampir 80% dtg dri iklan pihak tuan.','Kontraktor'],['Thank you sbb jd kan sales kami hit target.','Kontraktor'],['GOOD NEWS: SOLD TODAY. Alhamdulillah, kondo Selayang dah pun ada pembeli hari ini.','Hartanah'],['Service sgt terbaik. Bnyk dpt cust yg kualiti, x terkejar nak melayan.','Kewangan'],['So far service you good. Staff you pun good response fast. Lucky dapat jumpa you service yg ikhlas.','Kecantikan'],['Bulan lepas kami dapat close deal RM10K.','Emas'],['Ok, alhamdulillah. Dapat byk quality leads dari sini.','Takaful'],['Dh dapat close 2. Alhamdulillah.','Ejen kereta']];
+$('kataGrid').innerHTML=KATA.map(([q,c])=>`<blockquote>“${q}”<cite>Pelanggan, ${c.toLowerCase()}</cite></blockquote>`).join('');
+
+// intai pada baris
+const it=$('intai');
+addEventListener('mousemove',e=>{it.style.left=e.clientX+'px';it.style.top=e.clientY+'px'});
+document.querySelectorAll('.baris').forEach(b=>{b.onmouseenter=()=>{it.style.background=b.dataset.warna;$('intaiTeks').textContent=b.dataset.teks;$('intaiKecil').textContent=b.dataset.kecil;it.classList.add('on')};b.onmouseleave=()=>it.classList.remove('on')});
+
+// nota suara
+$('mainSuara').onclick=()=>{const a=$('audio');a.paused?a.play():a.pause()};
+
+// kuiz
+const PIL=[['iklan','Iklan Meta dan laporan','Menarik data, menyediakan laporan dan menghantarnya'],['lead','Lead dan susulan WhatsApp','Lead masuk, tetapi lambat dibalas atau terlepas susulan'],['staf','Kerja bergantung pada seorang staf','Jika staf bercuti atau berhenti, semua kerja tergendala'],['baru','Belum pasti, ingin mula guna AI','Pernah dengar tentang AI agent, tapi tak pasti mula di mana']];
+const CAD={iklan:['Ebook Meta Ads Automation','Sambung Meta Ads ke Claude dan terima laporan mingguan automatik. Jika mahu dipasang bersama, pilih coaching.','/#produk','Lihat ebook'],
+ lead:['Coaching Automasi 1-to-1','Kita pasang pekerja AI yang merekod dan menyusuli setiap lead WhatsApp dalam perniagaan anda, dalam satu sesi.','wa','Tempah melalui WhatsApp'],
+ staf:['Coaching Automasi 1-to-1','Pekerja AI yang tidak bercuti. Kita pasang kerja pertama bersama, dengan pintu kelulusan dan butang henti.','wa','Tempah melalui WhatsApp'],
+ baru:['Ebook Hermes: Pekerja AI 24 Jam','Mula dari kosong, langkah demi langkah, dengan pelan 30 hari.','/#produk','Lihat ebook']};
+function kuiz(){ $('kuizKotak').innerHTML='<div class="pilihan">'+PIL.map(([k,a,b])=>`<button data-k="${k}"><span>${a}<small>${b}</small></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>`).join('')+'</div>';
+ document.querySelectorAll('.pilihan button').forEach(b=>b.onclick=()=>{const [h,p,u,t]=CAD[b.dataset.k];const href=u==='wa'?'https://wa.me/'+WA+'?text='+encodeURIComponent('Hi Adiel, saya nak tempah Coaching Automasi 1-to-1.'):u;
+  $('kuizKotak').innerHTML=`<div class="hasil"><h3>${h}</h3><p>${p}</p><div class="aksi"><a href="${href}">${t}</a><button id="ulang">Pilih semula</button></div></div>`;$('ulang').onclick=kuiz})}
+kuiz();
+
+// kalkulator
+function kira(){const l=+$('iLead').value,a=+$('iAdmin').value,r=+$('iKadar').value;$('oLead').textContent=l+' jam';$('oAdmin').textContent=a+' jam';$('oKadar').textContent='RM'+r;
+ const jam=(l+a)*52/12;$('hJam').textContent=Math.round(jam);$('hRm').textContent=Math.round(jam*r).toLocaleString('en-MY');$('hSeparuh').textContent=Math.round(jam/2)}
+['iLead','iAdmin','iKadar'].forEach(i=>$(i).oninput=kira);kira();
+
+// FAQ (teks laman sekarang)
+const FAQ=[['Bilakah promosi berakhir?','Pada 31 Disember 2026, 11:59 malam. Selepas itu, harga biasa dikenakan: ebook RM169 setiap satu dan coaching 1-to-1 RM1,499 (dalam talian atau bersemuka).'],
+['Apakah yang ditawarkan sekarang?','Tiga program. Coaching Automasi 1-to-1: kita pasang pekerja AI dalam perniagaan anda bersama-sama, sambil anda belajar Hermes, Meta Ads dan Claude. Ebook Meta Ads Automation dan ebook Hermes: Pekerja AI 24 Jam: panduan lengkap untuk anda bina sendiri.'],
+['Adakah anda masih menguruskan iklan untuk pelanggan?','Tumpuan saya kini ialah automasi, melalui coaching dan ebook. Rekod prestasi iklan di laman ini ialah pengalaman agensi saya, SASS ONE, dan menjadi asas kepada sistem yang saya kongsikan.'],
+['Bagaimana cara membeli?','Ebook hanya boleh dibeli di laman ini (pembayaran selamat melalui BCL.my) dan dihantar ke e-mel anda; ebook tidak dijual melalui WhatsApp. Coaching boleh ditempah melalui WhatsApp atau di halaman coaching.'],
+['Adakah saya perlu tahu coding?','Tidak. Saya sendiri bukan developer. Semua yang saya ajar direka untuk pemilik perniagaan tanpa latar belakang IT.'],
+['Selamatkah membiarkan AI berbual dengan pelanggan?','Itulah sebabnya setiap sistem saya mempunyai pintu kelulusan dan butang henti. AI bermula dengan draf yang anda luluskan, dan hanya menjawab sendiri untuk soalan yang selamat, selepas diuji.'],
+['Adakah maklum balas di laman ini benar-benar daripada pelanggan?','Ya. Semuanya petikan mesej WhatsApp sebenar daripada pelanggan agensi saya. Nama dirahsiakan untuk menjaga privasi mereka.'],
+['Bagaimana untuk bermula?','Hubungi saya di WhatsApp dan kongsikan jenis perniagaan anda serta cabaran terbesar anda sekarang.']];
+$('faq').innerHTML=FAQ.map(([q,a])=>`<details><summary>${q}</summary><p>${a}</p></details>`).join('');
+
+// masa: kiraan promosi + jam MYT
+const TAMAT=new Date('2026-12-31T23:59:59+08:00');
+function masa(){const d=Math.max(0,TAMAT-new Date());const h=Math.floor(d/864e5),j=Math.floor(d/36e5)%24,m=Math.floor(d/6e4)%60,s=Math.floor(d/1e3)%60;
+ $('kH').textContent=h;$('kJ').textContent=String(j).padStart(2,'0');$('kM').textContent=String(m).padStart(2,'0');$('kS').textContent=String(s).padStart(2,'0');$('promoHari').textContent=h;
+ $('jam').textContent=new Date().toLocaleTimeString('en-GB',{timeZone:'Asia/Kuala_Lumpur',hour:'2-digit',minute:'2-digit'})+' MYT'}
+masa();setInterval(masa,1000);
+</script>
+</body>
+</html>

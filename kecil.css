@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@8..144,400;8..144,500;8..144,600&display=swap");
 /* Gaya halaman kecil: halaman akses pembeli dan terima kasih. Token sama dengan Tema C · Majalah. */
 :root{--bg:#F6F1E8;--kad:#FBF8F2;--garis:#DDD3C2;--teks:#1B1A17;--teks2:#45423B;--pudar:#7A7466;--tanah:#A0522D;--gelap:#1B1A17;--terang:#F6F1E8;
   --f-serif:"Instrument Serif",ui-serif,Georgia,serif;--f-teks:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
@@ -63,3 +63,8 @@ h1 em,em{font-style:normal}
 .borang label{text-transform:none;letter-spacing:0;font-size:.9rem}
 ol.langkah li::before{font-style:normal}
 code{background:#EEEEEC;border-radius:6px}
+
+/* ===== Gaya Cahaya ===== */
+:root{--bg:#FFFFFF;--kad:#F0F4F9;--garis:#E3E3E3;--teks:#1F1F1F;--teks2:#444746;--pudar:#747775;--tanah:#0B57D0;--gelap:#0B57D0;--terang:#FFFFFF;
+  --f-serif:'Google Sans Flex',system-ui,sans-serif;--f-teks:'Google Sans Flex',system-ui,sans-serif}
+.fail.kedua{background:#fff}

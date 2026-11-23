@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@8..144,400;8..144,500;8..144,600&display=swap");
 /* Laman Adiel v4: terang & profesional (rujukan: justinwelsh.me, aliabdaal.com, sahilbloom.com).
    Putih hangat + dakwat hitam; kuning #FFD60A hanya sebagai penanda (highlighter). Bahagian data guna jalur gelap. */
 :root{
@@ -409,3 +409,14 @@ em,em.serif,.serif,h1 em,h2 em{font-style:normal}
 .kad,.kad-kit,.seterusnya{border-radius:22px}
 .kad-kit pre.kod{border-radius:12px;background:#1C1D20}
 .item{border-radius:18px!important}.item.utama small{color:#F6CDBF!important}.tag,.dari{border-radius:99px;text-transform:none;letter-spacing:0}
+
+/* ===== Gaya Cahaya (selaras dengan laman utama, Google/Gemini) ===== */
+:root{
+  --bg:#FFFFFF; --bg2:#F0F4F9; --kad:#FFFFFF; --kad2:#F0F4F9; --garis:#E3E3E3; --garis-kuat:#C4C7C5;
+  --teks:#1F1F1F; --teks2:#444746; --pudar:#747775; --aksen:#0B57D0; --aksen-ink:#FFFFFF; --aksen-lembut:#D3E3FD;
+  --f-tajuk:'Google Sans Flex','Google Sans',system-ui,sans-serif; --f-serif:'Google Sans Flex','Google Sans',system-ui,sans-serif; --f-teks:'Google Sans Flex','Google Sans',system-ui,sans-serif;
+}
+.band-gelap,.produk.utama{--bg:#F0F4F9;--bg2:#F0F4F9;--kad:#FFFFFF;--kad2:#FFFFFF;--garis:#E3E3E3;--garis-kuat:#C4C7C5;--teks:#1F1F1F;--teks2:#444746;--pudar:#747775}
+.kad,.kad-kit,.seterusnya{border-radius:28px}
+.item.utama small{color:#D3E3FD!important}
+.kicker{color:#0B57D0!important;letter-spacing:.04em}

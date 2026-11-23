@@ -70,3 +70,6 @@ code{background:#EEEEEC;border-radius:6px}
 .fail.kedua{background:#fff}
 
 .btn,.fail{background:linear-gradient(135deg,#38BDF8,#6366F1);border-color:transparent}
+
+/* Seragam semua kotak (draf-seragam-semua) */
+.kotak,.borang{background:linear-gradient(135deg,#D3E3FD,#E9DDFF 55%,#FFDAD6);border:0}

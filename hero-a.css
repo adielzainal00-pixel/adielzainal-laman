@@ -59,3 +59,6 @@
 .isi-a .kad-kit .salin,.isi-a .kad-kit .butang-kit.kedua{background:transparent}
 .isi-a .senarai,.isi-a .senarai>*{min-width:0;max-width:100%}
 .isi-a .kad-kit pre.kod{max-width:100%;box-sizing:border-box}
+/* Seragam semua halaman kecil (links, coaching) */
+.isi-a .item:not(.utama){background:linear-gradient(135deg,#D3E3FD,#E9DDFF 55%,#FFDAD6)!important}
+.isi-a .item:not(.utama) .ikon{background:transparent;border:1px solid rgba(79,70,229,.25)}

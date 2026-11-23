@@ -422,3 +422,11 @@ em,em.serif,.serif,h1 em,h2 em{font-style:normal}
 .kicker{color:#4F46E5!important;letter-spacing:.04em}
 
 .btn:not(.btn-garis),.butang-kit:not(.kedua){background:linear-gradient(135deg,#38BDF8,#6366F1);border-color:transparent;color:#fff}
+
+/* Seragam semua kotak (draf-seragam-semua): satu gradien biru-ungu-pic, tiada jalur kelabu/coklat */
+.seksyen-gelap,.band-gelap{background:#fff}
+.produk,.produk.utama{background:linear-gradient(135deg,#D3E3FD,#E9DDFF 55%,#FFDAD6);border:0;box-shadow:0 0 0 2px #6366F1;--kad:transparent;--kad2:transparent}
+.produk .label,.produk:not(.utama) .label{background:linear-gradient(135deg,#38BDF8,#6366F1);color:#fff;border:0;border-radius:99px}
+.jimat{background:#D93025;color:#fff;border-radius:99px}
+.produk .btn{background:linear-gradient(135deg,#38BDF8,#6366F1)!important;color:#fff!important;border-color:transparent!important}
+.garis-masa li::before{background:#6366F1;border-color:#fff}

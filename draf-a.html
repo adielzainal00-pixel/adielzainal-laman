@@ -36,8 +36,7 @@ nav.atas .menu a:hover:after{transform:translateX(-50%) scale(1)}
 @keyframes denyut{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.55)}60%{box-shadow:0 0 0 14px rgba(255,255,255,0)}}
 .peranan{position:absolute;right:9%;top:36%;z-index:5;font-size:clamp(22px,2.2vw,32px);line-height:1.3}
 .peranan svg{display:block;margin-bottom:30px}
-.nama{position:absolute;bottom:3vh;left:0;white-space:nowrap;font-family:'Inter Tight';font-weight:400;font-size:clamp(110px,15vw,230px);letter-spacing:-.045em;line-height:1;z-index:4;will-change:transform}
-.nama span{padding-right:.35em}
+.nama{position:absolute;bottom:2.5vh;left:0;right:0;text-align:center;white-space:nowrap;font-family:'Inter Tight';font-weight:400;font-size:16vw;letter-spacing:-.045em;line-height:.9;z-index:4;text-shadow:0 2px 30px rgba(0,0,0,.18)}
 
 /* ---------- butang bulat ---------- */
 .bulat{width:190px;height:190px;border-radius:50%;background:var(--hitam);color:#fff;display:grid;place-items:center;text-align:center;font-size:17px;transition:background .3s,transform .3s;flex-shrink:0}
@@ -47,7 +46,7 @@ nav.atas .menu a:hover:after{transform:translateX(-50%) scale(1)}
 
 /* ---------- pengenalan ---------- */
 .intro{padding-top:170px;padding-bottom:120px;display:grid;grid-template-columns:1.6fr 1fr;gap:6vw;position:relative}
-.intro h1{font-weight:400;font-size:clamp(28px,2.7vw,40px);line-height:1.32;letter-spacing:-.02em}
+.intro .intro-h{font-weight:400;font-size:clamp(28px,2.7vw,40px);line-height:1.32;letter-spacing:-.02em}
 .intro p{color:var(--kelabu);font-size:18px}
 .intro .bulat{position:absolute;right:30vw;bottom:-60px;z-index:2}
 .angka{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--garis);border-bottom:1px solid var(--garis)}
@@ -185,7 +184,7 @@ footer .pils a:hover{background:var(--laut);border-color:var(--laut)}
 footer .bawah{display:flex;justify-content:space-between;gap:30px;margin-top:110px;font-size:14px;color:#9a9b9f;flex-wrap:wrap}
 footer .bawah b{display:block;font-weight:400;color:#fff;margin-top:8px}
 
-.draf{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:60;background:#fff;color:var(--hitam);border-radius:99px;padding:8px 16px;font-size:13px;box-shadow:0 8px 24px -8px rgba(0,0,0,.35)}
+.draf{opacity:0;transition:opacity .3s;pointer-events:none}.draf.on{opacity:1}.draf{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:60;background:#fff;color:var(--hitam);border-radius:99px;padding:8px 16px;font-size:13px;box-shadow:0 8px 24px -8px rgba(0,0,0,.35)}
 
 @media(max-width:860px){
   .pad{padding-left:22px;padding-right:22px}
@@ -193,7 +192,7 @@ footer .bawah b{display:block;font-weight:400;color:#fff;margin-top:8px}
   .promo{left:22px;top:76px;font-size:12px}
   .pil{top:auto;bottom:31vh;padding:12px 12px 12px 22px;gap:14px;font-size:14px}.pil .tanda{width:46px;height:46px}
   .peranan{right:22px;top:auto;bottom:45vh;font-size:20px;text-align:right}.peranan svg{margin:0 0 10px auto;width:22px}
-  .nama{font-size:30vw;bottom:4vh}
+  .nama{bottom:3vh}
   .intro{grid-template-columns:1fr;padding-top:100px;padding-bottom:140px;gap:26px}.intro .bulat{right:22px;bottom:-30px;width:140px;height:140px}
   .angka{grid-template-columns:1fr 1fr}.angka div{padding:26px 10px 26px 0}
   .senarai{padding-top:80px;padding-bottom:80px}
@@ -221,12 +220,12 @@ footer .bawah b{display:block;font-weight:400;color:#fff;margin-top:8px}
   <a class="promo" href="#program">Promosi hujung tahun, tamat dalam <b id="promoHari">--</b> hari</a>
   <div class="pil"><span>Salam Kejayaan 😊<br>Pekerja AI sedang bertugas</span><span class="tanda"><i></i></span></div>
   <div class="peranan"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M6 6l12 12M18 8v10H8"/></svg>Coaching &amp; ebook<br>Automasi AI</div>
-  <div class="nama" id="nama"><span>Adiel Zainal —</span><span>Adiel Zainal —</span><span>Adiel Zainal —</span><span>Adiel Zainal —</span></div>
+  <h1 class="nama" id="nama">Adiel Zainal</h1>
 </header>
 
 <main>
 <section class="intro pad">
-  <h1>Kerja harian diurus AI, supaya anda fokus membina perniagaan. Saya pasang pekerja AI untuk iklan Meta, laporan, CRM dan khidmat pelanggan, dan anda hanya meluluskan.</h1>
+  <h2 class="intro-h">Kerja harian diurus AI, supaya anda fokus membina perniagaan. Saya pasang pekerja AI untuk iklan Meta, laporan, CRM dan khidmat pelanggan, dan anda hanya meluluskan.</h2>
   <p>Tanpa latar belakang IT. Setiap sistem yang saya kongsikan telah saya gunakan sendiri dalam agensi iklan saya, SASS ONE, bersama 171 pelanggan.</p>
   <a class="bulat" href="#program">Lihat program</a>
 </section>
@@ -361,11 +360,11 @@ const $=id=>document.getElementById(id);
 const WA='601127560377';
 document.querySelectorAll('[data-wa]').forEach(a=>{a.href='https://wa.me/'+WA+'?text='+encodeURIComponent(a.dataset.wa);a.target='_blank';a.rel='noopener'});
 
-// nama bergerak, arah ikut skrol
-let x=0,arah=-1,akhir=scrollY;const n=$('nama');
-addEventListener('scroll',()=>{arah=scrollY>akhir?-1:1;akhir=scrollY},{passive:true});
-const kurang=matchMedia('(prefers-reduced-motion:reduce)').matches;
-(function g(){if(!kurang){x+=arah*.055;if(x<-100)x+=100;if(x>0)x-=100;n.style.transform=`translateX(${x*n.firstElementChild.offsetWidth/100}px)`}requestAnimationFrame(g)})();
+// nama penuh, dimuatkan tepat pada lebar skrin (tiada huruf terpotong)
+const n=$('nama');
+function muat(){const ruang=innerWidth*(innerWidth<860?.92:.9);n.style.fontSize='100px';const w=n.scrollWidth||n.getBoundingClientRect().width;
+ const r=document.createRange();r.selectNodeContents(n);const lebar=r.getBoundingClientRect().width;n.style.fontSize=(100*ruang/lebar)+'px'}
+muat();addEventListener('resize',muat);document.fonts&&document.fonts.ready.then(muat);
 
 // industri
 const IND=['Makanan sejuk beku','Klinik gigi','Emas','Kontraktor','Ejen kereta','Hartanah','Kecantikan','Takaful','Kereta sewa'];
@@ -420,6 +419,7 @@ function masa(){const d=Math.max(0,TAMAT-new Date());const h=Math.floor(d/864e5)
  $('kH').textContent=h;$('kJ').textContent=String(j).padStart(2,'0');$('kM').textContent=String(m).padStart(2,'0');$('kS').textContent=String(s).padStart(2,'0');$('promoHari').textContent=h;
  $('jam').textContent=new Date().toLocaleTimeString('en-GB',{timeZone:'Asia/Kuala_Lumpur',hour:'2-digit',minute:'2-digit'})+' MYT'}
 masa();setInterval(masa,1000);
+const db=document.querySelector('.draf');addEventListener('scroll',()=>db.classList.toggle('on',scrollY>innerHeight*.8),{passive:true});
 </script>
 </body>
 </html>

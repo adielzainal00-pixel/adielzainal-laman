@@ -413,10 +413,12 @@ em,em.serif,.serif,h1 em,h2 em{font-style:normal}
 /* ===== Gaya Cahaya (selaras dengan laman utama, Google/Gemini) ===== */
 :root{
   --bg:#FFFFFF; --bg2:#F0F4F9; --kad:#FFFFFF; --kad2:#F0F4F9; --garis:#E3E3E3; --garis-kuat:#C4C7C5;
-  --teks:#1F1F1F; --teks2:#444746; --pudar:#747775; --aksen:#0B57D0; --aksen-ink:#FFFFFF; --aksen-lembut:#D3E3FD;
+  --teks:#1F1F1F; --teks2:#444746; --pudar:#747775; --aksen:#4F46E5; --aksen-ink:#FFFFFF; --aksen-lembut:#D3E3FD;
   --f-tajuk:'Google Sans Flex','Google Sans',system-ui,sans-serif; --f-serif:'Google Sans Flex','Google Sans',system-ui,sans-serif; --f-teks:'Google Sans Flex','Google Sans',system-ui,sans-serif;
 }
 .band-gelap,.produk.utama{--bg:#F0F4F9;--bg2:#F0F4F9;--kad:#FFFFFF;--kad2:#FFFFFF;--garis:#E3E3E3;--garis-kuat:#C4C7C5;--teks:#1F1F1F;--teks2:#444746;--pudar:#747775}
 .kad,.kad-kit,.seterusnya{border-radius:28px}
 .item.utama small{color:#D3E3FD!important}
-.kicker{color:#0B57D0!important;letter-spacing:.04em}
+.kicker{color:#4F46E5!important;letter-spacing:.04em}
+
+.btn:not(.btn-garis),.butang-kit:not(.kedua){background:linear-gradient(135deg,#38BDF8,#6366F1);border-color:transparent;color:#fff}

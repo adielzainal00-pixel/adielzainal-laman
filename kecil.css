@@ -65,6 +65,8 @@ ol.langkah li::before{font-style:normal}
 code{background:#EEEEEC;border-radius:6px}
 
 /* ===== Gaya Cahaya ===== */
-:root{--bg:#FFFFFF;--kad:#F0F4F9;--garis:#E3E3E3;--teks:#1F1F1F;--teks2:#444746;--pudar:#747775;--tanah:#0B57D0;--gelap:#0B57D0;--terang:#FFFFFF;
+:root{--bg:#FFFFFF;--kad:#F0F4F9;--garis:#E3E3E3;--teks:#1F1F1F;--teks2:#444746;--pudar:#747775;--tanah:#4F46E5;--gelap:#4F46E5;--terang:#FFFFFF;
   --f-serif:'Google Sans Flex',system-ui,sans-serif;--f-teks:'Google Sans Flex',system-ui,sans-serif}
 .fail.kedua{background:#fff}
+
+.btn,.fail{background:linear-gradient(135deg,#38BDF8,#6366F1);border-color:transparent}

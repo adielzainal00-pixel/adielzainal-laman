@@ -1,7 +1,7 @@
 /* adielzainal.com — gaya Cahaya (rujukan Google/Gemini): putih bersih, cahaya lembut biru-ungu-merah jambu, kad pastel. */
 :root{
   --teks:#1F1F1F;--teks2:#444746;--pudar:#747775;--garis:#E3E3E3;--lembut:#F0F4F9;--lembut2:#F8FAFD;
-  --biru:#0B57D0;--biru-muda:#D3E3FD;--merah:#D93025;
+  --biru:#4F46E5;--butang:linear-gradient(135deg,#38BDF8,#6366F1);--biru-muda:#D3E3FD;--merah:#D93025;
   --gem:linear-gradient(90deg,#4285F4 0%,#9B72CB 45%,#D96570 100%);
   --f:'Google Sans Flex','Google Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
 }
@@ -15,7 +15,7 @@ img,video{max-width:100%;display:block}
 .langkau{position:absolute;left:-9999px;top:8px;z-index:100;background:#fff;padding:10px 16px;border-radius:99px}.langkau:focus{left:12px}
 
 /* butang (app.js juga jana .btn / .btn-garis / .btn-penuh) */
-.pb,.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--biru);color:#fff;border:0;border-radius:99px;padding:13px 26px;font:500 15px var(--f);cursor:pointer;transition:box-shadow .2s,background .2s}
+.pb,.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--butang);color:#fff;border:0;border-radius:99px;padding:13px 26px;font:500 15px var(--f);cursor:pointer;transition:box-shadow .2s,background .2s}
 .pb:hover,.btn:hover{box-shadow:0 1px 3px rgba(0,0,0,.3),0 4px 8px 3px rgba(0,0,0,.15)}
 .sb,.btn-garis{display:inline-flex;align-items:center;justify-content:center;background:#fff;color:var(--biru);border:1px solid #C4C7C5;border-radius:99px;padding:12px 25px;font:500 15px var(--f);cursor:pointer}
 .sb:hover,.btn-garis:hover{background:var(--lembut);box-shadow:none}
@@ -47,7 +47,7 @@ img,video{max-width:100%;display:block}
 .msg{background:#fff;border-radius:20px;padding:16px 18px;font-size:16px;box-shadow:0 1px 2px rgba(0,0,0,.06)}
 .msg small{display:block;color:var(--pudar);font-size:13px;margin-bottom:4px}
 .msg .ok{display:flex;gap:8px;margin-top:12px}
-.msg .ok button{border-radius:99px;padding:7px 16px;font:500 14px var(--f);cursor:pointer;background:var(--biru-muda);color:#041E49;border:0}
+.msg .ok button{border-radius:99px;padding:7px 16px;font:500 14px var(--f);cursor:pointer;background:var(--butang);color:#fff;border:0}
 .msg .ok button+button{background:#fff;border:1px solid #C4C7C5;color:var(--teks)}
 .msg .ok button:disabled{opacity:.5;cursor:default}
 .msg .balas{color:var(--biru);font-size:15px;margin-top:8px}.msg .balas:empty{display:none}
@@ -144,7 +144,7 @@ img,video{max-width:100%;display:block}
 .grid-produk{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;align-items:stretch}
 .produk{position:relative;border-radius:28px;border:1px solid var(--garis);padding:32px;display:flex;flex-direction:column;background:#fff}
 .produk.utama{border:2px solid transparent;background:linear-gradient(#fff,#fff) padding-box,var(--gem) border-box}
-.produk .label{position:absolute;top:-13px;left:28px;background:var(--biru);color:#fff;border-radius:99px;padding:4px 12px;font-size:13px;font-weight:500}
+.produk .label{position:absolute;top:-13px;left:28px;background:var(--butang);color:#fff;border-radius:99px;padding:4px 12px;font-size:13px;font-weight:500}
 .produk .jenis{color:var(--biru);font-weight:500;font-size:14px}
 .produk h3{font-size:24px;font-weight:500;letter-spacing:-.02em;margin:6px 0 10px;line-height:1.2}
 .produk .harga{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
@@ -207,3 +207,6 @@ img,video{max-width:100%;display:block}
 }
 @media(max-width:480px){.bid{grid-template-columns:1fr}.angka b{font-size:38px}.angka div{padding:22px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .muncul{opacity:1;transform:none}}
+
+.pb:hover,.btn:hover{box-shadow:0 8px 22px -8px rgba(99,102,241,.6)}
+.kira input{accent-color:#6366F1}

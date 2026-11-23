@@ -16,24 +16,26 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="aset/pantai-penuh.webp">
-<link rel="stylesheet" href="gaya-a.css?v=2">
+<link rel="preload" as="image" href="aset/pantai-penuh-1600.webp" imagesrcset="aset/pantai-penuh-1600.webp 1600w, aset/pantai-penuh-hd.webp 2360w" imagesizes="(min-aspect-ratio: 1/1) 100vw, 190vh">
+<link rel="stylesheet" href="gaya-a.css?v=4">
 <script src="config.js?v=19"></script>
 </head>
 <body>
 <a class="langkau" href="#utama">Langkau ke kandungan</a>
 
 <header class="hero">
-  <img class="foto" src="aset/pantai-penuh.webp" alt="Adiel Zainal di pantai" width="1180" height="1405" fetchpriority="high">
+  <img class="foto" src="aset/pantai-penuh-1600.webp" srcset="aset/pantai-penuh-1600.webp 1600w, aset/pantai-penuh-hd.webp 2360w" sizes="(min-aspect-ratio: 1/1) 100vw, 190vh" alt="Adiel Zainal di pantai" width="1180" height="1405" fetchpriority="high">
   <div class="kabus" aria-hidden="true"></div>
   <nav class="atas" aria-label="Utama">
-    <a class="jenama" href="#" aria-label="Laman utama"><span data-isi="nama">Adiel Zainal</span></a>
+    <div class="kiri">
+      <a class="jenama" href="#" aria-label="Laman utama"><span data-isi="nama">Adiel Zainal</span></a>
+    <a class="promo-bar" id="promo-bar" href="#produk" hidden>
+      <span class="promo-bar-teks"><b data-promo-tajuk>Promosi hujung tahun</b>, ebook RM97, coaching RM977.</span>
+      <span class="promo-bar-masa">Tamat dalam <b data-kira="h">0</b> hari <b data-kira="j">00</b>:<b data-kira="m">00</b>:<b data-kira="d">00</b></span>
+    </a>
+    </div>
     <div class="menu"><a href="#sistem">Automasi</a><a href="#produk">Program</a><a href="#portfolio">Portfolio</a><a href="#bukti">Rekod prestasi</a><a href="#hubungi">Hubungi</a></div>
   </nav>
-  <a class="promo-bar" id="promo-bar" href="#produk" hidden>
-    <span class="promo-bar-teks"><b data-promo-tajuk>Promosi hujung tahun</b>, ebook RM97, coaching RM977.</span>
-    <span class="promo-bar-masa">Tamat dalam <b data-kira="h">0</b> hari <b data-kira="j">00</b>:<b data-kira="m">00</b>:<b data-kira="d">00</b></span>
-  </a>
   <div class="pil"><p><span id="dari">Salam Kejayaan 😊</span><br>Pekerja AI sedang bertugas</p><span class="tanda" aria-hidden="true"><i></i></span></div>
   <div class="peranan"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" aria-hidden="true"><path d="M6 6l12 12M18 8v10H8"/></svg>Coaching &amp; ebook<br>Automasi AI</div>
   <h1 class="nama" id="nama">Adiel Zainal</h1>

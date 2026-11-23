@@ -1,0 +1,7 @@
+# Halaman akses pembeli: jangan diindeks, jangan bocor pautan melalui Referer, sentiasa ambil versi terbaru fail.
+/akses/*
+  X-Robots-Tag: noindex, nofollow
+  Referrer-Policy: no-referrer
+  Cache-Control: no-cache
+/terima-kasih*
+  X-Robots-Tag: noindex

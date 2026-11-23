@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Terima kasih | Adiel Zainal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/kecil.css?v=2">
+</head>
+<body>
+<!-- Halaman selepas bayar di BCL. ?p=coaching untuk tempahan coaching; tanpa ?p = ebook. -->
+<main class="bingkai">
+  <div class="kepala"><a href="/">Adiel Zainal</a><span>Pembayaran berjaya</span></div>
+
+  <section data-untuk="ebook">
+    <p class="kicker">Ebook</p>
+    <h1>Terima kasih. <em>Semak e-mel anda.</em></h1>
+    <p class="lead">BCL hantar dua e-mel: resit, dan satu lagi dengan butang <b>Access</b>. Tekan butang itu untuk ke halaman muat turun anda.</p>
+    <ol class="langkah">
+      <li><span><b>Tak nampak e-mel dalam 10 minit?</b> Semak folder Spam / Junk / Promotions, dan cari "BCL".</span></li>
+      <li><span><b>Simpan halaman muat turun</b> (bookmark). Versi baru ebook diletak di pautan yang sama.</span></li>
+      <li><span><b>Masih tiada?</b> Mesej saya dengan nombor resit BCL, saya hantar pautan secara manual.</span></li>
+    </ol>
+  </section>
+
+  <section data-untuk="coaching" hidden>
+    <p class="kicker">Coaching Automasi 1-to-1</p>
+    <h1>Slot anda <em>sudah ditempah.</em></h1>
+    <p class="lead">Terima kasih. Tarikh, masa dan cara sesi (Google Meet atau bersemuka) ada dalam e-mel pengesahan daripada BCL.</p>
+    <ol class="langkah">
+      <li><span><b>Dalam 24 jam</b> saya sahkan sesi anda melalui e-mel. <b>Google Meet:</b> pautan mesyuarat. <b>Bersemuka:</b> alamat lokasi (ruang kerja bersama atau kafe yang tenang) dan masa bertemu.</span></li>
+      <li><span><b>Sebelum sesi:</b> senaraikan 3 kerja yang paling banyak makan masa anda setiap minggu. Kita pilih satu untuk diserah kepada AI.</span></li>
+      <li><span><b>Sediakan akses:</b> bawa atau guna laptop anda sendiri (bukan telefon), langganan Claude Pro (atau saya bantu daftar dalam sesi), dan log masuk ke akaun yang terlibat (contoh Meta Business, Google Sheet, Notion). Kita bina dalam akaun anda, jadi semuanya kekal milik anda.</span></li>
+      <li><span><b>Nak tukar tarikh?</b> Sekali, sekurang-kurangnya 48 jam sebelum sesi. Tidak hadir atau lewat lebih 15 minit tanpa makluman, sesi dikira selesai. Lihat <a href="/terma">terma</a>.</span></li>
+    </ol>
+  </section>
+
+  <div class="kotak">
+    <p>Ada soalan? Mesej saya terus. Sertakan nombor resit BCL supaya saya cepat jumpa tempahan anda.</p>
+    <a class="btn" data-hubungi href="https://ig.me/m/adielzainal._" target="_blank" rel="noopener noreferrer">Mesej saya →</a>
+  </div>
+
+  <div class="kaki"><span>© Adiel Zainal · SASS ONE</span><a href="/">Kembali ke laman utama</a></div>
+</main>
+<script src="/config.js?v=19"></script>
+<script>
+  (function () {
+    var p = new URLSearchParams(location.search).get("p") === "coaching" ? "coaching" : "ebook";
+    document.querySelectorAll("[data-untuk]").forEach(function (s) { s.hidden = s.getAttribute("data-untuk") !== p; });
+    var C = window.LAMAN || {}, H = C.hubungi || {};
+    var url = H.jenis === "instagram" && H.pautan ? H.pautan : (C.whatsapp ? "https://wa.me/" + C.whatsapp : "");
+    if (url) document.querySelectorAll("[data-hubungi]").forEach(function (a) { a.href = url; });
+  })();
+</script>
+</body>
+</html>

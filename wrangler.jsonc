@@ -1,0 +1,40 @@
+{
+  // Laman Adiel di Cloudflare Workers: aset statik + pintu muat turun ebook (worker/index.js).
+  // Terbit: push ke main melalui PR. Cloudflare Workers Builds jalankan "bash alat/bina.sh" kemudian "npx wrangler deploy".
+  //         Branch lain: "npx wrangler versions upload" (pautan preview, tidak sentuh produksi).
+  // Fail produk (berbayar): dalam KV PRODUK, bukan dalam repo. Kemas kini: bash alat/terbit_produk.sh (di laptop).
+  // Rahsia (sekali sahaja, tak masuk git): npx.cmd wrangler secret put BCL_TOKEN   (token API BCL, API Read sahaja)
+  //                                         KUNCI (tandatangan pautan muat turun) sudah dipasang 21 Nov 2026.
+  "$schema": "https://unpkg.com/wrangler@4.166.0/config-schema.json",
+  "name": "adielzainal",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "none",
+    // Worker dulu untuk API dan fail produk (fail templat tak boleh dibuka terus)
+    "run_worker_first": ["/api/*", "/fail/*"]
+  },
+  "kv_namespaces": [
+    // kiraan muat turun, rekod pesanan (6 jam), log IP, senarai sekat (sekat:<no. pesanan>)
+    { "binding": "MUAT_TURUN", "id": "250d45cd30c84ac98e0cd7917013ce60" },
+    // templat PDF/ZIP produk (kunci fail/<produk>-<hash>-<nama>), dimuat naik oleh alat/terbit_produk.sh
+    { "binding": "PRODUK", "id": "eb1468891df244848c62ed3dc99f1426" }
+  ],
+  "vars": {
+    // ID borang BCL (dipisah koma). Kosong = kenal produk ikut tajuk borang ("meta ads" / "hermes").
+    "BORANG_META": "",
+    "BORANG_HERMES": "",
+    // "1" = terima bayaran Test Mode BCL (semasa uji). alat/buka_jualan.py tukar ke "0" bila jualan dibuka.
+    "BENARKAN_UJIAN": "1"
+  },
+  "workers_dev": false,
+  // pautan preview untuk branch selain main (Workers Builds). Preview guna KV dan rahsia yang sama dengan produksi.
+  "preview_urls": true,
+  "routes": [
+    { "pattern": "adielzainal.com", "custom_domain": true },
+    { "pattern": "www.adielzainal.com", "custom_domain": true }
+  ]
+}

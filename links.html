@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Adiel Zainal | Pautan</title>
+<meta name="description" content="Semua pautan Adiel Zainal: ebook, coaching, kuiz dan WhatsApp.">
+<meta name="theme-color" content="#F6F1E8">
+<meta property="og:title" content="Adiel Zainal · AI untuk owner bisnes">
+<meta property="og:image" content="https://adielzainal.com/aset/og.png">
+<meta property="og:url" content="https://adielzainal.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23FFD60A'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='900' font-size='34' text-anchor='middle' fill='%23111'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=19">
+<style>
+  body{min-height:100vh;background:var(--bg)}
+  .pautan{width:min(460px,100% - 32px);margin:0 auto;padding:48px 0 40px;text-align:center}
+  .avatar{width:112px;height:112px;margin:0 auto 16px;border-radius:50%;overflow:hidden;position:relative;
+    background:#16181d;box-shadow:0 0 0 4px var(--bg),0 0 0 5px var(--garis-kuat)}
+  .avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 12%}
+  .pautan h1{font-size:1.7rem;margin-bottom:4px}
+  .pautan .tag{display:inline-block;margin:0 0 10px!important;align-self:auto}
+  .pautan .ringkas{color:var(--pudar);font-size:.95rem;margin:0 auto 22px;max-width:30em}
+  .senarai{display:grid;gap:12px;text-align:left}
+  .item{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:0;background:var(--kad);border:1px solid var(--garis);
+    text-decoration:none;transition:transform .15s,border-color .15s}
+  .item:hover{transform:translateY(-1px);border-color:var(--aksen)}
+  .item .ikon{width:40px;height:40px;flex:0 0 40px;border-radius:12px;display:grid;place-items:center;background:var(--kad2);font-size:1.2rem}
+  .item b{display:block;font-weight:600}
+  .item small{color:var(--pudar);font-size:.84rem}
+  .item .harga-kecil{margin-left:auto;font:800 1rem var(--f-tajuk);color:var(--aksen);white-space:nowrap}
+  .item.utama{background:var(--aksen);border-color:var(--aksen);color:var(--aksen-ink)}
+  .item.utama small{color:#cfc8b8}
+  .item.utama .ikon{background:#0000001a}
+  .sosial-ikon{display:flex;justify-content:center;gap:12px;margin:26px 0 10px}
+  .sosial-ikon a{padding:8px 14px;border:1px solid var(--garis);border-radius:999px;text-decoration:none;font-size:.88rem}
+  .sosial-ikon a:hover{border-color:var(--aksen)}
+  .dari[hidden]{display:none}
+  .harga-kecil s{font-weight:400;opacity:.55;font-size:.8em;margin-right:2px}
+</style>
+<script src="config.js?v=19"></script>
+</head>
+<body>
+<main class="pautan">
+  <div class="avatar"><img id="foto" src="aset/pantai-muka.webp" alt="Adiel Zainal" width="400" height="400"></div>
+  <p class="dari" id="dari">Salam Kejayaan 😊</p>
+  <h1 id="nama">Adiel Zainal</h1>
+  <span class="tag">Automasi AI · Coaching · Ebook</span>
+  <p class="ringkas">Saya ajar owner bisnes automasikan laporan iklan, lead WhatsApp dan kerja harian dengan AI. Track record: 171 client agensi iklan.</p>
+  <nav class="senarai" id="senarai" aria-label="Pautan"></nav>
+  <div class="sosial-ikon" id="sosial"></div>
+  <p class="kecil"><a href="index.html" id="ke-utama" style="color:var(--pudar)">Laman penuh</a> · <a href="privasi.html" style="color:var(--pudar)">Privasi</a> · <a href="terma" style="color:var(--pudar)">Terma</a></p>
+</main>
+<script>
+(function () {
+  var C = window.LAMAN || {}, S = C.sosial || {};
+  var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
+  var NAMA = { t: "Threads", threads: "Threads", ig: "Instagram", instagram: "Instagram", tt: "TikTok", tiktok: "TikTok" };
+  var dari = "", qs = "";
+  try {
+    var q = new URLSearchParams(location.search), m = (q.get("dari") || q.get("utm_source") || "").toLowerCase();
+    if (m) { dari = NAMA[m] || m.charAt(0).toUpperCase() + m.slice(1, 20); try { sessionStorage.setItem("dari", dari); } catch (e) {} }
+    else { try { dari = sessionStorage.getItem("dari") || ""; } catch (e) {} }
+  } catch (e) {}
+  if (dari) { qs = "?dari=" + encodeURIComponent(dari.toLowerCase()); var d = document.getElementById("dari"); }
+  var H = C.hubungi || {}, viaIG = H.jenis === "instagram" && H.pautan;
+  var wa = function (t) { if (viaIG) return H.pautan; return "https://wa.me/" + String(C.whatsapp || "").replace(/\D/g, "") + "?text=" + encodeURIComponent(t + (dari ? "\n\n(dari " + dari + ")" : "")); };
+  if (C.foto_bio) document.getElementById("foto").src = C.foto_bio;
+  if (C.nama) document.getElementById("nama").textContent = C.nama;
+  document.getElementById("ke-utama").href = "index.html" + qs;
+
+  var promoAktif = (function () { var x = Date.parse((C.promo || {}).tamat || ""); return !isNaN(x) && Date.now() < x; })();
+  var IKON = { hermes: "🤖", meta: "📊", coaching: "🤝", laju: "⚡" };
+  var item = [{ href: "index.html" + qs + "#kuiz", ikon: "🧭", t: "Tak pasti mula mana? Kuiz 30 saat", s: "3 soalan, saya cadangkan satu jalan", utama: true }];
+  item.push({ href: "index.html" + qs + "#portfolio", ikon: "🎬", t: "Tonton portfolio, 80 saat", s: "Kerja saya, hasil dan feedback client" });
+  (C.produk || []).filter(function (p) { return p.aktif !== false; }).forEach(function (p) {
+    item.push({ href: p.id === "coaching" ? "coaching" + qs : "index.html" + qs + "#p-" + p.id, ikon: IKON[p.id] || "•", t: p.nama, s: p.jenis + " · " + p.nota, harga: p.status === "akan_datang" ? "Akan datang" : "RM" + (promoAktif && p.harga_biasa ? p.harga : (p.harga_biasa || p.harga)), asal: promoAktif && p.harga_biasa ? "RM" + p.harga_biasa : "" });
+  });
+  if ((C.bukti || {}).angka && C.bukti.angka.length) item.push({ href: "index.html" + qs + "#bukti", ikon: "📈", t: "Data sebenar: 708 perbualan iklan", s: "Kos setiap perbualan ikut industri" });
+  item.push({ href: wa("Hi Adiel, saya nak tanya pasal automasi AI untuk bisnes saya."), ikon: "💬", t: viaIG ? (H.label || "DM Instagram") : "WhatsApp saya", s: "Tanya dulu, saya cadangkan satu", luar: true });
+
+  document.getElementById("senarai").innerHTML = item.map(function (i) {
+    return '<a class="item' + (i.utama ? " utama" : "") + '" href="' + esc(i.href) + '"' + (i.luar ? ' target="_blank" rel="noopener"' : "") + ">" +
+      '<span class="ikon" aria-hidden="true">' + i.ikon + "</span><span><b>" + esc(i.t) + "</b><small>" + esc(i.s) + "</small></span>" +
+      (i.harga ? '<span class="harga-kecil">' + (i.asal ? '<s>' + esc(i.asal) + "</s> " : "") + esc(i.harga) + "</span>" : "") + "</a>";
+  }).join("");
+  document.getElementById("sosial").innerHTML = [["Threads", S.threads], ["Instagram", S.instagram], ["TikTok", S.tiktok]]
+    .filter(function (x) { return x[1]; })
+    .map(function (x) { return '<a href="' + esc(x[1]) + '" target="_blank" rel="noopener">' + x[0] + "</a>"; }).join("");
+  if (C.analitik_cloudflare) { var sc = document.createElement("script"); sc.defer = true; sc.src = "https://static.cloudflareinsights.com/beacon.min.js"; sc.setAttribute("data-cf-beacon", JSON.stringify({ token: C.analitik_cloudflare })); document.body.appendChild(sc); }
+})();
+</script>
+</body>
+</html>

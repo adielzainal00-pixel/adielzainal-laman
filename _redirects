@@ -1,0 +1,8 @@
+# Pautan bio ikut platform. Letak ni dalam bio supaya jualan WhatsApp tunjuk asal pelawat.
+/t        /?dari=threads    302
+/ig       /?dari=instagram  302
+/tt       /?dari=tiktok     302
+# Versi senarai pautan (gaya Linktree)
+/l/t      /links?dari=threads    302
+/l/ig     /links?dari=instagram  302
+/l/tt     /links?dari=tiktok     302

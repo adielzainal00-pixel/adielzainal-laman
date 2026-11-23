@@ -36,6 +36,8 @@
   .butang-kit.kedua{background:transparent;color:inherit;border:1px solid var(--garis-kuat)}
   .kad-kit pre.kod{margin:0 0 8px;padding:10px 12px;background:#16181d;color:#F6F1E8;font-size:.8rem;overflow-x:auto;white-space:pre}
   .kad-kit pre.kod.balut{white-space:pre-wrap;font-size:.9rem}
+  .penuh-kit{margin:14px 0;padding:14px;border-radius:14px;background:linear-gradient(135deg,rgba(56,189,248,.12),rgba(99,102,241,.14));border:1px solid rgba(99,102,241,.35)}
+  .penuh-kit p{margin:0 0 10px}
   .salin{margin:0 0 12px;padding:6px 12px;font-size:.82rem;border:1px solid var(--garis);background:var(--kad2);cursor:pointer}
   .seterusnya{margin-top:30px;padding:20px;border:1px solid var(--garis-kuat);text-align:left}
   .seterusnya h2{font-size:1.2rem;margin:0 0 6px}
@@ -94,7 +96,9 @@ var KIT = [
     kodTajuk: "Cara install, taip dalam Terminal:",
     tip: "Kemudian dalam Claude Code, tetapkan /effort high dan minta saiz 1080x1920 kalau nak untuk Reels.",
     pautan: "https://github.com/lemomo-ai/lemo-opuscar", label: "Buka di GitHub",
-    pautan2: "https://lemomo-ai.github.io/lemo-opuscar/", label2: "Galeri 99 gaya (tengok filem contoh)" },
+    pautan2: "https://lemomo-ai.github.io/lemo-opuscar/", label2: "Galeri 99 gaya (tengok filem contoh)",
+    /* Kit penuh berbayar: isi pautan borang BCL bila borang dibuka. Kosong = butang tak dipapar. */
+    penuh: { bcl: "", harga: "RM1", label: "Kit MOTION Penuh", terang: "Prompt penuh Claude Code + SOP 4 langkah yang saya guna untuk video animasi TikTok." } },
   { id: "loop", kunci: "LOOP", tajuk: "Kit /goal: 5 syarat siap untuk Claude Code",
     terang: "Suruh Claude semak kerja sendiri guna /plan, /goal dan /review. Siap dengan 5 syarat /goal yang boleh terus copy.",
     tip: "Mula dengan syarat /goal nombor 2 (baiki semua test). Yang tu paling mudah untuk nampak hasilnya.",
@@ -116,6 +120,7 @@ var KIT = [
       (x.senarai ? '<ol class="repo">' + x.senarai.map(function (r) { return '<li><a href="' + esc(r[2]) + '" target="_blank" rel="noopener">' + esc(r[0]) + ' →</a><span>' + esc(r[1]) + '</span></li>'; }).join("") + '</ol>' : '') +
       (x.kod ? '<p style="margin:0 0 6px">' + esc(x.kodTajuk || "") + '</p><pre class="kod' + (x.balut ? ' balut' : '') + '"><code>' + esc(x.kod) + '</code></pre><button type="button" class="salin" data-kod="' + esc(x.kod) + '">' + esc(x.salinLabel || "Salin command") + '</button>' : '') +
       (x.tip ? '<p class="tip">💡 ' + esc(x.tip) + '</p>' : '') +
+      (x.penuh && x.penuh.bcl ? '<div class="penuh-kit"><p><b>' + esc(x.penuh.label) + ' · ' + esc(x.penuh.harga) + '</b><br>' + esc(x.penuh.terang) + '</p><a class="butang-kit" href="' + esc(x.penuh.bcl) + '" rel="noopener">Dapatkan · ' + esc(x.penuh.harga) + ' →</a></div>' : '') +
       '<div class="butang-baris"><a class="butang-kit" href="' + esc(x.pautan) + '" target="_blank" rel="noopener">' + esc(x.label) + ' →</a>' +
       (x.pautan2 ? '<a class="butang-kit kedua" href="' + esc(x.pautan2) + '" target="_blank" rel="noopener">' + esc(x.label2) + ' →</a>' : '') + '</div></article>';
   }).join("");

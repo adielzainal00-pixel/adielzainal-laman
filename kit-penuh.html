@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Kit penuh anda | Adiel Zainal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/kecil.css?v=7">
+<style>
+  .kit-isi h2{margin-top:28px}
+  .kit-isi pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#0f172a;color:#e2e8f0;border-radius:12px;padding:14px;font-size:.86rem;line-height:1.5;max-height:420px;overflow:auto}
+  .kit-isi .salin{margin:6px 0 14px;padding:8px 14px;border-radius:10px;border:1px solid #cbd5e1;background:#fff;cursor:pointer;font-weight:600}
+  .kit-isi ol{padding-left:20px}.kit-isi li{margin:6px 0}
+  .tunggu{padding:16px 0;color:#475569}
+</style>
+</head>
+<body>
+<!-- Halaman pembeli kit berbayar (RM1). Dibuka dari Success URL borang BCL dan e-mel selepas bayar. -->
+<main class="bingkai">
+  <div class="kepala"><a href="/">Adiel Zainal</a><span>Kit penuh</span></div>
+
+  <p class="kicker" id="kit-kicker">Kit penuh</p>
+  <h1>Terima kasih. <em>Ini kit anda.</em></h1>
+  <p class="tunggu" id="kit-tunggu" hidden>Menyemak bayaran anda…</p>
+
+  <form class="borang" id="borang-kit" novalidate>
+    <p class="lead">Masukkan no. pesanan (dalam resit atau e-mel BCL) dan e-mel yang anda guna semasa bayar.</p>
+    <label for="pesanan">No. pesanan</label>
+    <input id="pesanan" name="pesanan" autocomplete="off" autocapitalize="characters" spellcheck="false" required placeholder="Contoh: BCL-01234">
+    <label for="emel">E-mel semasa bayar</label>
+    <input id="emel" name="emel" type="email" autocomplete="email" required placeholder="nama@contoh.com">
+    <button class="btn" type="submit">Buka kit saya →</button>
+    <p class="ralat" id="mesej-kit" role="alert"></p>
+  </form>
+
+  <div class="kit-isi" id="kit-isi" hidden></div>
+
+  <p class="nota"><b>Lesen satu pembeli.</b> Simpan halaman ini (bookmark) atau buka semula dari e-mel. Mohon jangan kongsi pautan ini. Masalah? Mesej saya dengan nombor resit.</p>
+  <div class="kaki"><span>© Adiel Zainal · SASS ONE</span><a href="/privasi">Privasi</a></div>
+</main>
+<script src="/kit-penuh.js?v=1"></script>
+</body>
+</html>

@@ -3,6 +3,7 @@
 // 2. Worker semak pesanan itu dengan API BCL (webhook BCL tak ditandatangani, jadi API ialah sumber benar)
 // 3. Pautan muat turun bertandatangan (sah 30 minit) -> GET /api/fail
 // 4. PDF dicap nama, e-mel dan no. pesanan pembeli di setiap halaman; had HAD muat turun setiap fail; log IP
+// Kit berbayar RM1: POST /api/kit (halaman kit-penuh.html), isi kit dari KV PRODUK kit/<id>.json
 // Fail templat disimpan dalam KV PRODUK (bukan dalam repo atau aset awam); kunci dalam produk.json. Muat naik: alat/terbit_produk.sh
 // Rahsia (wrangler secret): BCL_TOKEN (token API BCL, kebenaran API Read sahaja), KUNCI (tandatangan pautan).
 // Pemboleh ubah (wrangler.jsonc vars): BORANG_META, BORANG_HERMES (ID borang BCL, dipisah koma), BENARKAN_UJIAN ("1" semasa Test Mode).
@@ -21,6 +22,7 @@ export default {
     try {
       if (url.pathname === "/api/akses" && req.method === "POST") return await akses(req, env);
       if (url.pathname === "/api/fail" && req.method === "GET") return await muatTurun(url, req, env);
+      if (url.pathname === "/api/kit" && req.method === "POST") return await kitBerbayar(req, env);
     } catch (e) {
       console.log("ralat", e && e.stack || e);
       return json({ ok: false, ralat: "sistem" }, 502);
@@ -44,23 +46,9 @@ async function akses(req, env) {
   if (!produk || !/^[A-Z0-9][A-Z0-9_-]{2,40}$/.test(pesanan) || !/^[^@\s]{1,64}@[^@\s]{1,190}\.[^@\s]{2,}$/.test(emel)) {
     return json({ ok: false, ralat: "format" }, 400);
   }
-  if (!env.BCL_TOKEN || !env.KUNCI || !env.MUAT_TURUN) return json({ ok: false, ralat: "belum_aktif" }, 503);
-  if (await env.MUAT_TURUN.get("sekat:" + pesanan)) return json({ ok: false, ralat: "disekat" }, 403);
-
-  let rek = await env.MUAT_TURUN.get("p:" + pesanan, "json");
-  if (!rek) {
-    const cache = caches.default, kunciCache = new Request("https://cache.adielzainal.invalid/takjumpa/" + pesanan);
-    if (await cache.match(kunciCache)) return json({ ok: false, ralat: "tak_jumpa" }, 404);
-    rek = await cariPesanan(pesanan, pid, env);
-    if (!rek) {
-      await cache.put(kunciCache, new Response("1", { headers: { "Cache-Control": "max-age=" + TAKJUMPA_SAAT } }));
-      return json({ ok: false, ralat: "tak_jumpa" }, 404);
-    }
-    await env.MUAT_TURUN.put("p:" + pesanan, JSON.stringify(rek), { expirationTtl: SIMPAN_SAAT });
-  }
-  // e-mel salah dan pesanan tiada beri jawapan yang sama (orang tak boleh teka pesanan siapa wujud)
-  if (rek.emel !== emel) return json({ ok: false, ralat: "tak_jumpa" }, 404);
-  if (!rek.produk.includes(pid)) return json({ ok: false, ralat: "produk_lain" }, 403);
+  const semak = await semakPesanan(pesanan, emel, pid, env);
+  if (semak.ralat) return semak.ralat;
+  const rek = semak.rek;
 
   const exp = Math.floor(Date.now() / 1000) + SAH_SAAT;
   const fail = [];
@@ -73,6 +61,52 @@ async function akses(req, env) {
     });
   }
   return json({ ok: true, nama: rek.nama, produk: produk.nama, fail });
+}
+
+// Semak pesanan dengan BCL (rekod disimpan 6 jam dalam KV). Pulang { rek } atau { ralat: Response }.
+async function semakPesanan(pesanan, emel, pid, env) {
+  if (!env.BCL_TOKEN || !env.KUNCI || !env.MUAT_TURUN) return { ralat: json({ ok: false, ralat: "belum_aktif" }, 503) };
+  if (await env.MUAT_TURUN.get("sekat:" + pesanan)) return { ralat: json({ ok: false, ralat: "disekat" }, 403) };
+
+  let rek = await env.MUAT_TURUN.get("p:" + pesanan, "json");
+  if (!rek) {
+    const cache = caches.default, kunciCache = new Request("https://cache.adielzainal.invalid/takjumpa/" + pesanan);
+    if (await cache.match(kunciCache)) return { ralat: json({ ok: false, ralat: "tak_jumpa" }, 404) };
+    rek = await cariPesanan(pesanan, pid, env);
+    if (!rek) {
+      await cache.put(kunciCache, new Response("1", { headers: { "Cache-Control": "max-age=" + TAKJUMPA_SAAT } }));
+      return { ralat: json({ ok: false, ralat: "tak_jumpa" }, 404) };
+    }
+    await env.MUAT_TURUN.put("p:" + pesanan, JSON.stringify(rek), { expirationTtl: SIMPAN_SAAT });
+  }
+  // e-mel salah dan pesanan tiada beri jawapan yang sama (orang tak boleh teka pesanan siapa wujud)
+  if (rek.emel !== emel) return { ralat: json({ ok: false, ralat: "tak_jumpa" }, 404) };
+  if (!rek.produk.includes(pid)) return { ralat: json({ ok: false, ralat: "produk_lain" }, 403) };
+  return { rek };
+}
+
+// ---------- POST /api/kit ----------
+// Kit berbayar (RM1 sekit). Borang BCL: item bernama "Kit <KATA KUNCI>" (cth. "Kit MOTION Penuh").
+// Success URL borang: https://adielzainal.com/kit-penuh?k=<id>&pesanan={order_number}&e={email}
+// Isi kit dalam KV PRODUK, kunci kit/<id>.json (alat/terbit_kit.sh), bukan dalam repo awam.
+async function kitBerbayar(req, env) {
+  if (Number(req.headers.get("content-length") || 0) > 2000) return json({ ok: false, ralat: "format" }, 400);
+  let b;
+  try { b = await req.json(); } catch { return json({ ok: false, ralat: "format" }, 400); }
+  const id = String(b.kit || "").toLowerCase();
+  const pesanan = String(b.pesanan || "").toUpperCase().replace(/\s+/g, "");
+  const emel = String(b.emel || "").trim().toLowerCase();
+  if (!/^[a-z0-9-]{2,30}$/.test(id) || !/^[A-Z0-9][A-Z0-9_-]{2,40}$/.test(pesanan) || !/^[^@\s]{1,64}@[^@\s]{1,190}\.[^@\s]{2,}$/.test(emel)) {
+    return json({ ok: false, ralat: "format" }, 400);
+  }
+  const isi = env.PRODUK && (await env.PRODUK.get("kit/" + id + ".json", "json"));
+  if (!isi) return json({ ok: false, ralat: "belum_aktif" }, 503);
+  const semak = await semakPesanan(pesanan, emel, "kit-" + id, env);
+  if (semak.ralat) return semak.ralat;
+  const log = (await env.MUAT_TURUN.get("logkit:" + pesanan, "json")) || [];
+  log.push({ t: new Date().toISOString(), k: id, ip: req.headers.get("CF-Connecting-IP") || "" });
+  await env.MUAT_TURUN.put("logkit:" + pesanan, JSON.stringify(log.slice(-30)));
+  return json({ ok: true, nama: semak.rek.nama, kit: isi });
 }
 
 async function cariPesanan(no, pid, env) {
@@ -114,6 +148,8 @@ function kenalProduk(d, m, env) {
   const meta = senarai(env.BORANG_META), hermes = senarai(env.BORANG_HERMES);
   if (meta.length ? meta.includes(fid) : teks.includes("meta ads")) out.push("meta");
   if (hermes.length ? hermes.includes(fid) : teks.includes("hermes")) out.push("hermes");
+  // kit berbayar: item atau tajuk borang "Kit <KATA KUNCI>" -> "kit-<kata kunci>"
+  for (const m of teks.matchAll(/\bkit\s+([a-z0-9-]{2,30})\b/g)) if (!out.includes("kit-" + m[1])) out.push("kit-" + m[1]);
   return out;
 }
 

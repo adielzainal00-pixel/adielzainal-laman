@@ -40,12 +40,21 @@
   .seterusnya a{padding:10px 14px;border:1px solid var(--garis);text-decoration:none;font-size:.9rem}
   .seterusnya a.utama{background:var(--aksen);color:var(--aksen-ink);border-color:var(--aksen)}
 </style>
+<link rel="stylesheet" href="hero-a.css?v=1">
 <script src="config.js?v=19"></script>
 </head>
 <body>
-<main class="kit">
-  <div class="avatar"><img id="foto" src="aset/pantai-muka.webp" alt="Adiel Zainal" width="400" height="400"></div>
-  <h1>Kit percuma dari Threads</h1>
+<header class="hero-a">
+  <img class="foto" src="aset/pantai-penuh.webp" alt="Adiel Zainal di pantai" width="1180" height="1405" fetchpriority="high">
+  <div class="kabus" aria-hidden="true"></div>
+  <nav aria-label="Utama"><a class="jenama" href="index.html">Adiel Zainal</a><div class="menu"><a href="index.html#sistem">Automasi</a><a href="index.html#produk">Program</a></div></nav>
+  <a class="lencana" href="#senarai">Kit anda ada di bawah, skrol ↓</a>
+  <div class="pil"><p><span>Salam Kejayaan 😊</span><br>Kit percuma untuk anda</p><span class="tanda" aria-hidden="true"><i></i></span></div>
+  <div class="peranan"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" aria-hidden="true"><path d="M6 6l12 12M18 8v10H8"/></svg>Kit percuma<br>dari Threads</div>
+  <h1 class="nama" id="nama">Adiel Zainal</h1>
+</header>
+<main class="kit isi-a">
+  <h2 class="tajuk-a">Kit percuma dari Threads</h2>
   <p class="ringkas">Semua pautan yang saya janjikan di Threads, dikumpulkan di satu tempat. Pilih yang anda perlukan.</p>
   <div class="senarai" id="senarai"></div>
 
@@ -102,9 +111,9 @@ var KIT = [
   document.getElementById("ke-produk").href = "index.html?dari=threads#produk";
   var wa = String(C.whatsapp || "").replace(/\D/g, "");
   document.getElementById("ke-wa").href = "https://wa.me/" + wa + "?text=" + encodeURIComponent("Hi Adiel, saya datang dari kit Threads" + (k ? " (" + k.toUpperCase() + ")" : "") + ". Nak tanya pasal automasi AI.");
-  if (C.foto_bio) document.getElementById("foto").src = C.foto_bio;
   if (C.analitik_cloudflare) { var sc = document.createElement("script"); sc.defer = true; sc.src = "https://static.cloudflareinsights.com/beacon.min.js"; sc.setAttribute("data-cf-beacon", JSON.stringify({ token: C.analitik_cloudflare })); document.body.appendChild(sc); }
 })();
 </script>
+<script src="gaya-a.js?v=1"></script>
 </body>
 </html>

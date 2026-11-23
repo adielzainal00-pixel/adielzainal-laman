@@ -17,6 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,500..800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=20">
+<link rel="stylesheet" href="hero-a.css?v=1">
 <script src="config.js?v=19"></script>
 <!-- Halaman ini dipautkan dari WhatsApp 0377. Polisi WhatsApp melarang pautan ke jualan produk digital,
      jadi halaman ini HANYA tentang coaching (servis): jangan tambah produk digital, pautan ke laman utama atau senarai produk. -->
@@ -24,23 +25,22 @@
 <body>
 <a class="langkau" href="#utama">Langkau ke kandungan</a>
 
-<header class="atas">
-  <div class="bekas atas-dalam">
-    <a class="jenama" href="coaching" aria-label="Coaching Automasi 1-to-1"><b data-isi="nama">Adiel Zainal</b></a>
-    <nav class="nav" aria-label="Utama">
-      <a href="#sesi">Sesi</a>
-      <a href="#harga">Harga</a>
-      <a href="#soalan">Soalan</a>
-    </nav>
-    <a class="btn btn-kecil" href="#" data-wa="Hi Adiel, saya nak tanya pasal Coaching Automasi 1-to-1.">WhatsApp saya</a>
-  </div>
+<header class="hero-a">
+  <img class="foto" src="aset/pantai-penuh.webp" alt="Adiel Zainal di pantai" width="1180" height="1405" fetchpriority="high">
+  <div class="kabus" aria-hidden="true"></div>
+  <nav aria-label="Utama"><a class="jenama" href="index.html">Adiel Zainal</a><div class="menu"><a href="#sesi">Sesi</a><a href="#harga">Harga</a><a href="#soalan">Soalan</a></div></nav>
+  <a class="lencana" href="#harga">Promosi RM977, harga biasa RM1,499</a>
+  <div class="pil"><p><span>Salam Kejayaan 😊</span><br>Coaching 1-to-1, sesi sehingga 3 jam</p><span class="tanda" aria-hidden="true"><i></i></span></div>
+  <div class="peranan"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" aria-hidden="true"><path d="M6 6l12 12M18 8v10H8"/></svg>Coaching<br>Automasi 1-to-1</div>
+  <h1 class="nama" id="nama">Adiel Zainal</h1>
 </header>
+
 
 <main id="utama">
   <section class="seksyen">
     <div class="bekas bekas-sempit">
       <p class="kicker">Coaching Automasi 1-to-1</p>
-      <h1>Kita pasang <em>pekerja AI</em> dalam perniagaan anda, bersama-sama.</h1>
+      <h2>Kita pasang <em>pekerja AI</em> dalam perniagaan anda, bersama-sama.</h2>
       <p class="sub">Bukan kelas teori. Dalam satu sesi sehingga 3 jam (Google Meet atau bersemuka), kita pilih kerja yang paling banyak mengambil masa anda dan pasang pekerja AI untuk mengendalikannya, lengkap dengan pintu kelulusan dan butang henti. Sepanjang proses, anda belajar asas Hermes, Meta Ads dan Claude.</p>
       <p><a class="btn" href="#harga">Lihat harga dan buat tempahan →</a></p>
     </div>
@@ -142,5 +142,6 @@
     '<div class="bawah"><a class="btn btn-penuh" href="' + esc(pautan) + '" target="_blank" rel="noopener">' + label + "</a></div></article>";
 })();
 </script>
+<script src="gaya-a.js?v=1"></script>
 </body>
 </html>

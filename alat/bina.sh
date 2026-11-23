@@ -7,4 +7,6 @@ cd "$(dirname "$0")/.."
 rm -rf dist && mkdir -p dist
 cp index.html coaching.html links.html kit.html privasi.html terima-kasih.html terma.html config.js app.js akses.js style.css kecil.css _redirects _headers robots.txt dist/
 cp -r aset akses dist/
+# Draf reka bentuk untuk semakan (cawangan draf sahaja)
+[ -f draf-a.html ] && cp draf-a.html dist/
 echo "dist/ siap: $(find dist -type f | wc -l) fail"

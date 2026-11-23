@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Adiel Zainal | Kit percuma dari Threads</title>
+<meta name="description" content="Semua kit dan pautan yang Adiel janjikan di Threads: LOOP, MOTION, CHEAT dan lain-lain.">
+<meta name="theme-color" content="#F6F1E8">
+<meta property="og:title" content="Kit percuma Adiel Zainal · AI untuk owner bisnes">
+<meta property="og:image" content="https://adielzainal.com/aset/og.png">
+<meta property="og:url" content="https://adielzainal.com/kit">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23FFD60A'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='900' font-size='34' text-anchor='middle' fill='%23111'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=19">
+<style>
+  body{min-height:100vh;background:var(--bg)}
+  .kit{width:min(560px,100% - 32px);margin:0 auto;padding:40px 0;text-align:center}
+  .avatar{width:88px;height:88px;margin:0 auto 14px;border-radius:50%;overflow:hidden;position:relative;background:#16181d;box-shadow:0 0 0 4px var(--bg),0 0 0 5px var(--garis-kuat)}
+  .avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 12%}
+  .kit h1{font-size:1.6rem;margin-bottom:6px}
+  .kit .ringkas{color:var(--pudar);font-size:.95rem;margin:0 auto 24px;max-width:32em}
+  .senarai{display:grid;gap:14px;text-align:left}
+  .kad-kit{padding:18px;background:var(--kad);border:1px solid var(--garis);scroll-margin-top:24px;transition:border-color .2s,box-shadow .2s}
+  .kad-kit.sasar{border-color:var(--aksen);box-shadow:0 0 0 3px var(--aksen)}
+  .kad-kit .kunci{display:inline-block;font:800 .78rem var(--f-tajuk);letter-spacing:.06em;padding:3px 10px;border-radius:999px;background:var(--kad2);margin-bottom:8px}
+  .kad-kit h2{font-size:1.15rem;margin:0 0 6px}
+  .kad-kit p{color:var(--pudar);font-size:.92rem;margin:0 0 10px}
+  .kad-kit .tip{font-size:.88rem;padding:10px 12px;background:var(--kad2);margin:0 0 12px;color:inherit}
+  .butang-kit{display:inline-block;padding:11px 18px;background:var(--aksen);color:var(--aksen-ink);text-decoration:none;font-weight:600}
+  .butang-baris{display:flex;flex-wrap:wrap;gap:10px}
+  .butang-kit.kedua{background:transparent;color:inherit;border:1px solid var(--garis-kuat)}
+  .kad-kit pre.kod{margin:0 0 8px;padding:10px 12px;background:#16181d;color:#F6F1E8;font-size:.8rem;overflow-x:auto;white-space:pre}
+  .salin{margin:0 0 12px;padding:6px 12px;font-size:.82rem;border:1px solid var(--garis);background:var(--kad2);cursor:pointer}
+  .seterusnya{margin-top:30px;padding:20px;border:1px solid var(--garis-kuat);text-align:left}
+  .seterusnya h2{font-size:1.2rem;margin:0 0 6px}
+  .seterusnya p{color:var(--pudar);font-size:.92rem;margin:0 0 14px}
+  .seterusnya .baris{display:flex;flex-wrap:wrap;gap:10px}
+  .seterusnya a{padding:10px 14px;border:1px solid var(--garis);text-decoration:none;font-size:.9rem}
+  .seterusnya a.utama{background:var(--aksen);color:var(--aksen-ink);border-color:var(--aksen)}
+</style>
+<script src="config.js?v=19"></script>
+</head>
+<body>
+<main class="kit">
+  <div class="avatar"><img id="foto" src="aset/pantai-muka.webp" alt="Adiel Zainal" width="400" height="400"></div>
+  <h1>Kit percuma dari Threads</h1>
+  <p class="ringkas">Semua pautan yang aku janjikan bila kau komen di Threads, dikumpul di satu tempat. Ambil yang kau perlu.</p>
+  <div class="senarai" id="senarai"></div>
+
+  <section class="seterusnya" aria-label="Langkah seterusnya">
+    <h2>Nak pasang automasi AI untuk bisnes sendiri?</h2>
+    <p>Kit ni permulaan. Kalau kau nak sistem lengkap dalam BM (laporan iklan, lead WhatsApp, kerja harian), mula di sini.</p>
+    <div class="baris">
+      <a class="utama" id="ke-produk" href="index.html#produk">Lihat ebook &amp; coaching</a>
+      <a id="ke-wa" href="#" target="_blank" rel="noopener">WhatsApp saya</a>
+    </div>
+  </section>
+  <p class="kecil" style="margin-top:22px"><a href="index.html" style="color:var(--pudar)">Laman penuh</a> · <a href="privasi.html" style="color:var(--pudar)">Privasi</a> · <a href="terma" style="color:var(--pudar)">Terma</a></p>
+</main>
+<script>
+/* SENARAI KIT: tambah kit baru di sini sahaja. id = kata kunci huruf kecil (jadi pautan adielzainal.com/kit?k=id). Yang terbaru di atas. */
+var KIT = [
+  { id: "motion", kunci: "MOTION", tajuk: "Lemo-Opuscar: 99 gaya filem untuk Claude Code",
+    terang: "Projek open source untuk buat motion graphics guna kod, tanpa AI video. Watercolor, kartun lama, LEGO, pulau 3D.",
+    kod: "claude plugin marketplace add lemomo-ai/lemo-opuscar\nclaude plugin install lemo-opuscar@lemolab",
+    kodTajuk: "Cara install, taip dalam Terminal:",
+    tip: "Lepas tu dalam Claude Code, set /effort high dan minta saiz 1080x1920 kalau nak untuk Reels.",
+    pautan: "https://github.com/lemomo-ai/lemo-opuscar", label: "Buka di GitHub",
+    pautan2: "https://lemomo-ai.github.io/lemo-opuscar/", label2: "Galeri 99 gaya (tengok filem contoh)" },
+  { id: "loop", kunci: "LOOP", tajuk: "Kit /goal: 5 syarat siap untuk Claude Code",
+    terang: "Suruh Claude semak kerja sendiri guna /plan, /goal dan /review. Siap dengan 5 syarat /goal yang boleh terus copy.",
+    tip: "Mula dengan syarat /goal nombor 2 (baiki semua test). Yang tu paling mudah untuk nampak hasilnya.",
+    pautan: "https://claude.ai/artifact/QF2L9Yj2V8scGj7UdcqoHY", label: "Buka kit" },
+  { id: "cheat", kunci: "CHEAT", tajuk: "Cheat sheet: 7 command Claude Code untuk beginner",
+    terang: "Plan Mode, undo, sambung sesi lama dan cara bagi Claude faham struktur projek kau, dalam Bahasa Melayu.",
+    tip: "", pautan: "", label: "Buka cheat sheet" }
+];
+(function () {
+  var C = window.LAMAN || {};
+  var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
+  var k = "";
+  try { k = (new URLSearchParams(location.search).get("k") || location.hash.slice(1) || "").toLowerCase(); } catch (e) {}
+  try { sessionStorage.setItem("dari", "Threads"); } catch (e) {}
+  var senarai = KIT.filter(function (x) { return x.pautan; });
+  document.getElementById("senarai").innerHTML = senarai.map(function (x) {
+    return '<article class="kad-kit' + (x.id === k ? " sasar" : "") + '" id="' + esc(x.id) + '">' +
+      '<span class="kunci">' + esc(x.kunci) + '</span><h2>' + esc(x.tajuk) + '</h2><p>' + esc(x.terang) + '</p>' +
+      (x.kod ? '<p style="margin:0 0 6px">' + esc(x.kodTajuk || "") + '</p><pre class="kod"><code>' + esc(x.kod) + '</code></pre><button type="button" class="salin" data-kod="' + esc(x.kod) + '">Salin command</button>' : '') +
+      (x.tip ? '<p class="tip">💡 ' + esc(x.tip) + '</p>' : '') +
+      '<div class="butang-baris"><a class="butang-kit" href="' + esc(x.pautan) + '" target="_blank" rel="noopener">' + esc(x.label) + ' →</a>' +
+      (x.pautan2 ? '<a class="butang-kit kedua" href="' + esc(x.pautan2) + '" target="_blank" rel="noopener">' + esc(x.label2) + ' →</a>' : '') + '</div></article>';
+  }).join("");
+  Array.prototype.forEach.call(document.querySelectorAll(".salin"), function (b) {
+    b.addEventListener("click", function () {
+      var t = b.getAttribute("data-kod");
+      (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function () { b.textContent = "Disalin ✓"; }, function () { b.textContent = "Salin manual dari kotak atas"; });
+    });
+  });
+  if (k) { var el = document.getElementById(k); if (el) setTimeout(function () { el.scrollIntoView({ behavior: "smooth", block: "start" }); }, 150); }
+  document.getElementById("ke-produk").href = "index.html?dari=threads#produk";
+  var wa = String(C.whatsapp || "").replace(/\D/g, "");
+  document.getElementById("ke-wa").href = "https://wa.me/" + wa + "?text=" + encodeURIComponent("Hi Adiel, saya datang dari kit Threads" + (k ? " (" + k.toUpperCase() + ")" : "") + ". Nak tanya pasal automasi AI.");
+  if (C.foto_bio) document.getElementById("foto").src = C.foto_bio;
+  if (C.analitik_cloudflare) { var sc = document.createElement("script"); sc.defer = true; sc.src = "https://static.cloudflareinsights.com/beacon.min.js"; sc.setAttribute("data-cf-beacon", JSON.stringify({ token: C.analitik_cloudflare })); document.body.appendChild(sc); }
+})();
+</script>
+</body>
+</html>

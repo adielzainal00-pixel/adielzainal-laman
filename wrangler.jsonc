@@ -27,8 +27,8 @@
     // ID borang BCL (dipisah koma). Kosong = kenal produk ikut tajuk borang ("meta ads" / "hermes").
     "BORANG_META": "",
     "BORANG_HERMES": "",
-    // "1" = terima bayaran Test Mode BCL (semasa uji). alat/buka_jualan.py tukar ke "0" bila jualan dibuka.
-    "BENARKAN_UJIAN": "1"
+    // "1" = terima bayaran Test Mode BCL. KEKAL "0" di produksi (23 Nov 2026): Test Mode + kod public = ebook percuma.
+    "BENARKAN_UJIAN": "0"
   },
   "workers_dev": false,
   // pautan preview untuk branch selain main (Actions). Preview guna KV dan rahsia yang sama dengan produksi.

@@ -66,4 +66,4 @@
 .isi-a pre.kod code{background:none!important;color:#F4F4F2!important;padding:0}
 .isi-a .item .harga-kecil{font-size:17px}
 @media(max-width:860px){.isi-a .item .harga-kecil s{display:none}.isi-a .item .harga-kecil{font-size:14px;color:#6E7076}.isi-a .item b{font-size:21px}}
-.hero-a .lencana.promo-merah{background:linear-gradient(100deg,#E5484D 0%,#F0716B 60%,#F59A8B 100%);backdrop-filter:none;box-shadow:0 10px 30px -10px rgba(217,45,32,.7)}
+.hero-a .lencana.promo-merah{background:#DC2626;backdrop-filter:none;box-shadow:0 10px 30px -10px rgba(217,45,32,.7)}

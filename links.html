@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Adiel Zainal | Pautan</title>
 <meta name="description" content="Semua pautan Adiel Zainal: ebook, coaching, kuiz dan WhatsApp.">
-<meta name="theme-color" content="#F6F1E8">
+<meta name="theme-color" content="#FFFFFF">
 <meta property="og:title" content="Adiel Zainal · AI untuk pemilik perniagaan">
 <meta property="og:image" content="https://adielzainal.com/aset/og.png">
 <meta property="og:url" content="https://adielzainal.com/">
@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=19">
+<link rel="stylesheet" href="style.css?v=21">
 <style>
   body{min-height:100vh;background:var(--bg)}
   .pautan{width:min(460px,100% - 32px);margin:0 auto;padding:48px 0 40px;text-align:center}
@@ -40,14 +40,21 @@
   .dari[hidden]{display:none}
   .harga-kecil s{font-weight:400;opacity:.55;font-size:.8em;margin-right:2px}
 </style>
+<link rel="stylesheet" href="hero-a.css?v=2">
 <script src="config.js?v=19"></script>
 </head>
 <body>
-<main class="pautan">
-  <div class="avatar"><img id="foto" src="aset/pantai-muka.webp" alt="Adiel Zainal" width="400" height="400"></div>
-  <p class="dari" id="dari">Salam Kejayaan 😊</p>
-  <h1 id="nama">Adiel Zainal</h1>
-  <span class="tag">Automasi AI · Coaching · Ebook</span>
+<header class="hero-a">
+  <img class="foto" src="aset/pantai-penuh.webp" alt="Adiel Zainal di pantai" width="1180" height="1405" fetchpriority="high">
+  <div class="kabus" aria-hidden="true"></div>
+  <nav aria-label="Utama"><a class="jenama" href="index.html">Adiel Zainal</a><div class="menu"><a href="index.html#sistem">Automasi</a><a href="index.html#produk">Program</a></div></nav>
+  <a class="lencana" href="#senarai">Semua pautan saya, skrol ↓</a>
+  <div class="pil"><p><span id="dari">Salam Kejayaan 😊</span><br>Pekerja AI sedang bertugas</p><span class="tanda" aria-hidden="true"><i></i></span></div>
+  <div class="peranan"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" aria-hidden="true"><path d="M6 6l12 12M18 8v10H8"/></svg>Coaching &amp; ebook<br>Automasi AI</div>
+  <h1 class="nama" id="nama">Adiel Zainal</h1>
+</header>
+<main class="pautan isi-a">
+  <h2 class="tajuk-a">Semua pautan</h2>
   <p class="ringkas">Saya membantu pemilik perniagaan automasikan Meta Ads, laporan, CRM dan khidmat pelanggan dengan AI. Rekod prestasi: 171 pelanggan agensi iklan.</p>
   <nav class="senarai" id="senarai" aria-label="Pautan"></nav>
   <div class="sosial-ikon" id="sosial"></div>
@@ -67,8 +74,7 @@
   if (dari) { qs = "?dari=" + encodeURIComponent(dari.toLowerCase()); var d = document.getElementById("dari"); }
   var H = C.hubungi || {}, viaIG = H.jenis === "instagram" && H.pautan;
   var wa = function (t) { if (viaIG) return H.pautan; return "https://wa.me/" + String(C.whatsapp || "").replace(/\D/g, "") + "?text=" + encodeURIComponent(t + (dari ? "\n\n(dari " + dari + ")" : "")); };
-  if (C.foto_bio) document.getElementById("foto").src = C.foto_bio;
-  if (C.nama) document.getElementById("nama").textContent = C.nama;
+    if (C.nama) document.getElementById("nama").textContent = C.nama;
   document.getElementById("ke-utama").href = "index.html" + qs;
 
   var promoAktif = (function () { var x = Date.parse((C.promo || {}).tamat || ""); return !isNaN(x) && Date.now() < x; })();
@@ -92,5 +98,6 @@
   if (C.analitik_cloudflare) { var sc = document.createElement("script"); sc.defer = true; sc.src = "https://static.cloudflareinsights.com/beacon.min.js"; sc.setAttribute("data-cf-beacon", JSON.stringify({ token: C.analitik_cloudflare })); document.body.appendChild(sc); }
 })();
 </script>
+<script src="gaya-a.js?v=1"></script>
 </body>
 </html>

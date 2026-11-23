@@ -19,7 +19,7 @@
   background:var(--bg); color:var(--teks);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:76px;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;scroll-padding-top:76px;-webkit-text-size-adjust:100%;overflow-x:hidden;overflow-x:clip}
 body{margin:0;background:var(--bg);color:var(--teks);font:16px/1.65 var(--f-teks);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit}
@@ -31,7 +31,7 @@ p{margin:0 0 1em}
 em.serif,.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;letter-spacing:-.01em}
 .tanda{background:linear-gradient(transparent 58%,var(--aksen) 58%,var(--aksen) 92%,transparent 92%);padding:0 .08em}
 .band-gelap .tanda{background:none;color:var(--aksen)}
-code{font:.85em var(--f-mono);background:var(--kad2);padding:.1em .35em;border-radius:6px}
+code{overflow-wrap:anywhere;font:.85em var(--f-mono);background:var(--kad2);padding:.1em .35em;border-radius:6px}
 .sorot{color:inherit}
 .bekas{width:min(1160px,100% - 32px);margin-inline:auto}
 .bekas-sempit{width:min(760px,100% - 32px)}

@@ -1,0 +1,67 @@
+# Terbit adielzainal.com melalui GitHub Actions (ganti Workers Builds).
+#   push ke main (selepas PR digabung) -> wrangler deploy (produksi)
+#   PR dari repo ini                    -> wrangler versions upload (preview, produksi tak tersentuh) + komen pautan
+# PR dari fork tidak dijalankan (tiada akses rahsia). Token: secrets.CLOUDFLARE_API_TOKEN, hanya untuk Worker "adielzainal".
+name: Terbit
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: terbit-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  terbit:
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      CLOUDFLARE_ACCOUNT_ID: 95a1157ea699cd0a88cf17a2d98c1cb8
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      WRANGLER: wrangler@4.166.0
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Bina dist/
+        run: bash alat/bina.sh
+
+      - name: Deploy produksi
+        if: github.event_name == 'push'
+        run: npx --yes "$WRANGLER" deploy --message "main ${GITHUB_SHA::7}"
+
+      - name: Upload preview
+        id: preview
+        if: github.event_name == 'pull_request'
+        env:
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          set -o pipefail
+          npx --yes "$WRANGLER" versions upload --preview-alias "pr-$PR" --message "PR #$PR ${GITHUB_SHA::7}" 2>&1 | tee upload.log
+          url=$(grep -oE 'https://pr-[^ ]+\.workers\.dev' upload.log | tail -1 || true)
+          [ -n "$url" ] || url=$(grep -oE 'https://[^ ]+\.workers\.dev' upload.log | tail -1 || true)
+          # Pautan preview hanya wujud selepas deploy produksi pertama hidupkan preview_urls.
+          [ -n "$url" ] || echo "::warning::Versi dimuat naik tetapi tiada pautan preview (preview_urls belum aktif di produksi)."
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+
+      - name: Komen pautan preview
+        if: github.event_name == 'pull_request' && steps.preview.outputs.url != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+          URL: ${{ steps.preview.outputs.url }}
+        run: |
+          gh pr comment "$PR" --repo "$GITHUB_REPOSITORY" --edit-last 2>/dev/null \
+            --body "Preview: $URL (commit ${GITHUB_SHA::7}). Guna KV dan rahsia produksi; jangan uji muat turun sebenar." \
+          || gh pr comment "$PR" --repo "$GITHUB_REPOSITORY" \
+            --body "Preview: $URL (commit ${GITHUB_SHA::7}). Guna KV dan rahsia produksi; jangan uji muat turun sebenar."

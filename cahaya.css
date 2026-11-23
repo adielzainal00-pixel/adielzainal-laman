@@ -162,6 +162,7 @@ img,video{max-width:100%;display:block}
 
 /* tentang */
 .tentang{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center}
+.tentang.tanpa-foto{grid-template-columns:1fr;max-width:780px;margin:0 auto}
 .foto-kecil{border-radius:32px;overflow:hidden}.foto-kecil img{width:100%;aspect-ratio:4/5;object-fit:cover}
 .prinsip{list-style:none;margin-top:26px;display:grid;gap:10px}
 .prinsip li{border-radius:18px;background:var(--lembut);padding:14px 18px;font-size:15px;color:var(--teks2)}.prinsip b{color:var(--teks);font-weight:500}

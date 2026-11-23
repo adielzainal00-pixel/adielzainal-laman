@@ -1,5 +1,5 @@
 /* Hero gaya Cahaya untuk halaman kit, links dan coaching (sama dengan laman utama). Markup .hero-a kekal. */
-.hero-a{position:relative;isolation:isolate;text-align:center;padding:0 20px 10px;font-family:'Google Sans Flex','Google Sans',system-ui,sans-serif;color:#1F1F1F;background:#fff}
+.hero-a{position:relative;isolation:isolate;overflow-x:clip;text-align:center;padding:0 20px 10px;font-family:'Google Sans Flex','Google Sans',system-ui,sans-serif;color:#1F1F1F;background:#fff}
 .hero-a:before{content:'';position:absolute;left:50%;top:-160px;width:min(1200px,150vw);height:640px;transform:translateX(-50%);z-index:-1;background:radial-gradient(40% 45% at 28% 50%,rgba(66,133,244,.2),transparent 70%),radial-gradient(40% 45% at 52% 38%,rgba(155,114,203,.2),transparent 70%),radial-gradient(36% 40% at 76% 55%,rgba(217,101,112,.15),transparent 70%);filter:blur(24px)}
 .hero-a nav{display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto;height:68px}
 .hero-a nav a{color:#1F1F1F;text-decoration:none}

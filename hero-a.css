@@ -10,7 +10,7 @@
 .hero-a .pil{position:absolute;left:0;top:44%;z-index:5;display:flex;align-items:center;gap:26px;background:#1C1D20;border-radius:0 99px 99px 0;padding:20px 18px 20px 44px;font-size:16px;line-height:1.3}
 .hero-a .pil p{margin:0;color:#fff}
 .hero-a .pil [hidden]{display:inline!important}
-.hero-a .tanda{width:64px;height:64px;border-radius:50%;background:#0E7C86;display:grid;place-items:center;flex-shrink:0}
+.hero-a .tanda{width:64px;height:64px;border-radius:50%;background:#D9775A;display:grid;place-items:center;flex-shrink:0}
 .hero-a .tanda i{width:12px;height:12px;border-radius:50%;background:#fff;animation:denyutA 2s ease-in-out infinite}
 @keyframes denyutA{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.55)}60%{box-shadow:0 0 0 14px rgba(255,255,255,0)}}
 .hero-a .peranan{position:absolute;right:9%;top:36%;z-index:5;font-size:clamp(22px,2.2vw,32px);line-height:1.3;text-align:right}
@@ -26,19 +26,19 @@
 /* kit */
 .isi-a .senarai{display:block;border-top:1px solid #E3E3E3}
 .isi-a .kad-kit{padding:34px 0;background:none;border:0;border-bottom:1px solid #E3E3E3;border-radius:0}
-.isi-a .kad-kit.sasar{box-shadow:none;border-color:#E3E3E3;background:linear-gradient(90deg,#DDEFF0,#fff 70%);padding-left:18px;margin-left:-18px;border-radius:18px}
+.isi-a .kad-kit.sasar{box-shadow:none;border-color:#E3E3E3;background:linear-gradient(90deg,#FBE9E2,#fff 70%);padding-left:18px;margin-left:-18px;border-radius:18px}
 .isi-a .kad-kit .kunci{background:#1C1D20;color:#fff;font:500 .78rem Inter,sans-serif;letter-spacing:.04em}
 .isi-a .kad-kit h2{font-family:'Inter Tight',Inter,sans-serif;font-weight:400;font-size:clamp(26px,3.4vw,38px);letter-spacing:-.035em;line-height:1.1;margin:6px 0 10px}
 .isi-a .kad-kit p{font-size:16px;color:#5B5D63}
 .isi-a .kad-kit .tip{border-radius:14px;background:#F4F4F2}
 .isi-a .butang-kit{background:#1C1D20;color:#fff;border-radius:99px;padding:14px 24px;font-weight:500}
-.isi-a .butang-kit:hover{background:#0E7C86}
+.isi-a .butang-kit:hover{background:#D9775A}
 .isi-a .butang-kit.kedua{background:transparent;color:#1C1D20;border:1px solid #E3E3E3}
 .isi-a .seterusnya{margin-top:60px;padding:40px;border:0;border-radius:28px;background:#1C1D20;color:#fff}
 .isi-a .seterusnya h2{font-family:'Inter Tight',Inter,sans-serif;font-weight:400;font-size:clamp(28px,3.4vw,40px);letter-spacing:-.035em;line-height:1.1;color:#fff}
 .isi-a .seterusnya p{color:#9A9B9F;font-size:16px}
 .isi-a .seterusnya a{border-radius:99px;padding:15px 24px;border:1px solid #3A3B3F;color:#fff;font-size:16px}
-.isi-a .seterusnya a.utama{background:#0E7C86;border-color:#0E7C86;color:#fff}
+.isi-a .seterusnya a.utama{background:#D9775A;border-color:#D9775A;color:#fff}
 
 /* links */
 .isi-a nav.senarai{display:block;border-top:1px solid #E3E3E3}
@@ -47,7 +47,7 @@
 .isi-a .item b{font-family:'Inter Tight',Inter,sans-serif;font-weight:400;font-size:clamp(22px,3vw,30px);letter-spacing:-.03em;line-height:1.15}
 .isi-a .item small{color:#6E7076!important;font-size:14px}
 .isi-a .item .ikon{width:48px;height:48px;flex:0 0 48px;border-radius:50%;background:#F4F4F2}
-.isi-a .item.utama .ikon{background:#0E7C86}
+.isi-a .item.utama .ikon{background:#D9775A}
 .isi-a .item .harga-kecil{font:400 20px 'Inter Tight',Inter,sans-serif;color:#1C1D20}
 .isi-a .sosial-ikon{justify-content:flex-start;margin:34px 0 16px}
 .isi-a .sosial-ikon a{border:1px solid #E3E3E3;padding:14px 24px;font-size:15px}

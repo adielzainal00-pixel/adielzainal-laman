@@ -4,7 +4,7 @@
 
 window.LAMAN = {
   nama: "Adiel Zainal",
-  peranan: "Automasi AI untuk bisnes · Pengasas SASS ONE",
+  peranan: "Automasi AI untuk perniagaan · Pengasas SASS ONE",
   domain: "https://adielzainal.com", // dibeli 21 Nov 2026, DNS di Cloudflare
   emel: "",                         // isi "hello@adielzainal.com" SELEPAS Email Routing dipasang (Cloudflare Email Routing, percuma). Kosong = tak dipapar
   syarikat: "SASS ONE WORLDWIDE",     // nama berdaftar (Akta Pendaftaran Perniagaan 1956), ikut company profile v3
@@ -44,7 +44,7 @@ window.LAMAN = {
       harga: 97,
       harga_biasa: 169,
       nota: "sekali bayar",
-      ringkas: "Sambung Meta Ads ke Claude, laporan iklan mingguan automatik, dan lead WhatsApp terus ke Google Sheet.",
+      ringkas: "Sambungkan Meta Ads kepada Claude, terima laporan iklan mingguan secara automatik, dan masukkan lead WhatsApp terus ke Google Sheet. Anda bina sendiri, langkah demi langkah.",
       isi: [
         "Sambung Meta Ads ke Claude melalui MCP rasmi Meta, langkah demi langkah",
         "10 aliran kerja siap guna dengan prompt, dan kunci keselamatan di sisi Meta",
@@ -66,7 +66,7 @@ window.LAMAN = {
       harga: 97,
       harga_biasa: 169,
       nota: "sekali bayar",
-      ringkas: "Pasang Hermes dengan Claude sebagai otak: kerja berjadual, laporan ke Telegram, dan AI balas WhatsApp 24 jam.",
+      ringkas: "Pasang Hermes dengan Claude sebagai otaknya: kerja berjadual, laporan ke Telegram dan AI yang membalas WhatsApp 24 jam. Anda bina sendiri, langkah demi langkah.",
       isi: [
         "Pasang Hermes di VPS, Claude sebagai otak",
         "Beri arahan dan terima laporan melalui Telegram",
@@ -87,16 +87,17 @@ window.LAMAN = {
       nama: "Coaching Automasi 1-to-1",
       harga: 977,                     // satu harga: Google Meet atau bersemuka
       harga_biasa: 1499,
-      nota: "sesi 2 jam · Google Meet atau bersemuka",
+      nota: "sesi sehingga 3 jam · Google Meet atau bersemuka",
       // Dua cara (Google Meet / bersemuka), dua servis dalam borang tempahan BCL, harga sama.
-      ringkas: "Kita bina bersama dalam bisnes anda sendiri. Anda keluar dengan satu automasi AI yang dah jalan.",
+      ringkas: "Kita pasang pekerja AI dalam perniagaan anda, bersama-sama. Anda belajar Hermes, Meta Ads dan Claude sepanjang proses, dan pulang dengan pekerja AI yang sudah berjalan.",
       isi: [
-        "30 minit audit kerja: pilih satu kerja untuk diserah",
-        "90 minit bina bersama sampai jalan",
-        "Pintu kelulusan + butang henti dipasang",
-        "Ringkasan dan tugasan dalam 24 jam",
-        "Isi borang pra-sesi semasa tempah",
-        "Harga sama untuk Google Meet atau bersemuka (lokasi disahkan selepas tempah)"
+        "30 minit audit: pilih kerja pertama untuk pekerja AI anda",
+        "Sehingga 2 jam 30 minit memasang pekerja AI bersama dalam perniagaan anda, sehingga ia berjalan",
+        "Belajar asas Hermes, Meta Ads dan Claude semasa membina",
+        "Pintu kelulusan dan butang henti dipasang sejak awal",
+        "Ringkasan dan tugasan susulan dalam masa 24 jam",
+        "Isi borang pra-sesi semasa membuat tempahan",
+        "Harga yang sama untuk Google Meet atau bersemuka (lokasi disahkan selepas tempahan)"
       ],
       bcl: "",
       label: "Fokus utama",
@@ -126,9 +127,9 @@ window.LAMAN = {
   bukti: {
     tajuk: "",   // kosong = guna tajuk dalam index.html (ada gaya serif)
     angka: [
-      { nilai: "708", label: "perbualan WhatsApp dari iklan client (90 hari)" },
+      { nilai: "708", label: "perbualan WhatsApp daripada iklan pelanggan (90 hari)" },
       { nilai: "RM7.60", label: "purata kos setiap perbualan" },
-      { nilai: "10", label: "akaun iklan client, 9 industri" },
+      { nilai: "10", label: "akaun iklan pelanggan, 9 industri" },
       { nilai: "6–12×", label: "lebih murah: kempen mesej WhatsApp berbanding boost post" }
     ],
     // Portfolio: kos setiap perbualan ikut industri (nama client tak didedahkan)
@@ -143,15 +144,15 @@ window.LAMAN = {
     ],
     // Petikan mesej WhatsApp client (dengan izin). Nama dan nombor tidak dipaparkan. "nama" = industri sahaja.
     testimoni: [
-      { teks: "TERBAIK TUAN! Alhamdulillah sudah 4 orang berminat tanah 26 juta ni.", nama: "Client · Hartanah" },
-      { teks: "Alhamdulillah, sampai sy overload tak cukup nak cover order. Hampir 80% dtg dri iklan pihak tuan.", nama: "Client · Kontraktor" },
-      { teks: "Thank you sbb jd kan sales kami hit target.", nama: "Client · Kontraktor" },
-      { teks: "GOOD NEWS: SOLD TODAY. Alhamdulillah, kondo Selayang dah pun ada pembeli hari ini.", nama: "Client · Hartanah" },
-      { teks: "Service sgt terbaik. Bnyk dpt cust yg kualiti, x terkejar nak melayan.", nama: "Client · Kewangan" },
-      { teks: "So far service you good. Staff you pun good response fast. Lucky dapat jumpa you service yg ikhlas.", nama: "Client · Kecantikan" },
-      { teks: "Bulan lepas kami dapat close deal RM10K.", nama: "Client · Emas" },
-      { teks: "Ok, alhamdulillah. Dapat byk quality leads dari sini.", nama: "Client · Takaful" },
-      { teks: "Dh dapat close 2. Alhamdulillah.", nama: "Client · Ejen kereta" }
+      { teks: "TERBAIK TUAN! Alhamdulillah sudah 4 orang berminat tanah 26 juta ni.", nama: "Pelanggan · Hartanah" },
+      { teks: "Alhamdulillah, sampai sy overload tak cukup nak cover order. Hampir 80% dtg dri iklan pihak tuan.", nama: "Pelanggan · Kontraktor" },
+      { teks: "Thank you sbb jd kan sales kami hit target.", nama: "Pelanggan · Kontraktor" },
+      { teks: "GOOD NEWS: SOLD TODAY. Alhamdulillah, kondo Selayang dah pun ada pembeli hari ini.", nama: "Pelanggan · Hartanah" },
+      { teks: "Service sgt terbaik. Bnyk dpt cust yg kualiti, x terkejar nak melayan.", nama: "Pelanggan · Kewangan" },
+      { teks: "So far service you good. Staff you pun good response fast. Lucky dapat jumpa you service yg ikhlas.", nama: "Pelanggan · Kecantikan" },
+      { teks: "Bulan lepas kami dapat close deal RM10K.", nama: "Pelanggan · Emas" },
+      { teks: "Ok, alhamdulillah. Dapat byk quality leads dari sini.", nama: "Pelanggan · Takaful" },
+      { teks: "Dh dapat close 2. Alhamdulillah.", nama: "Pelanggan · Ejen kereta" }
     ]
   },
 

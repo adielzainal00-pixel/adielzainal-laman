@@ -228,18 +228,18 @@
 
   // ---------- 6. Kuiz ----------
   var SOALAN = [
-    { id: "masalah", tanya: "Apa yang paling makan masa anda sekarang?", pilihan: [
-      { v: "iklan", ikon: "📊", t: "Iklan Meta & laporan", s: "Tarik data, buat report, hantar kat client atau boss" },
-      { v: "lead", ikon: "💬", t: "Lead & follow-up WhatsApp", s: "Lead masuk, tapi lambat reply atau lupa follow-up" },
-      { v: "staf", ikon: "🧑‍💼", t: "Kerja bergantung pada seorang staf", s: "Kalau dia cuti atau berhenti, semua tersangkut" },
-      { v: "mula", ikon: "🌱", t: "Belum tahu, nak mula guna AI", s: "Dengar orang cakap AI agent, tak tahu mula mana" } ] },
-    { id: "cara", tanya: "Anda nak buat macam mana?", pilihan: [
-      { v: "sendiri", ikon: "📘", t: "Ikut panduan sendiri", s: "Saya ok baca dan ikut step, ikut masa saya" },
-      { v: "pimpin", ikon: "🤝", t: "Nak orang duduk sebelah", s: "Dah cuba dan tersangkut, atau nak siap cepat" } ] },
-    { id: "iklan", tanya: "Bisnes anda ada iklan Meta (FB/IG) berjalan?", pilihan: [
+    { id: "masalah", tanya: "Apakah kerja yang paling banyak mengambil masa anda sekarang?", pilihan: [
+      { v: "iklan", ikon: "📊", t: "Iklan Meta & laporan", s: "Menarik data, menyediakan laporan dan menghantarnya kepada pelanggan atau pengurusan" },
+      { v: "lead", ikon: "💬", t: "Lead & follow-up WhatsApp", s: "Lead masuk, tetapi lambat dibalas atau terlepas susulan" },
+      { v: "staf", ikon: "🧑‍💼", t: "Kerja bergantung pada seorang staf", s: "Jika staf bercuti atau berhenti, semua kerja tergendala" },
+      { v: "mula", ikon: "🌱", t: "Belum pasti, ingin mula menggunakan AI", s: "Pernah mendengar tentang AI agent, tetapi tidak pasti dari mana bermula" } ] },
+    { id: "cara", tanya: "Bagaimana anda ingin melaksanakannya?", pilihan: [
+      { v: "sendiri", ikon: "📘", t: "Bina sendiri dengan panduan", s: "Saya selesa membaca dan mengikut langkah, mengikut masa saya sendiri" },
+      { v: "pimpin", ikon: "🤝", t: "Dipasang bersama pakar", s: "Sudah mencuba tetapi tersangkut, atau ingin siap dengan cepat" } ] },
+    { id: "iklan", tanya: "Adakah perniagaan anda menjalankan iklan Meta (FB/IG)?", pilihan: [
       { v: "ya", ikon: "✅", t: "Ya, setiap bulan", s: "" },
       { v: "kadang", ikon: "〰️", t: "Kadang-kadang", s: "" },
-      { v: "tidak", ikon: "➖", t: "Belum, organik je", s: "" } ] }
+      { v: "tidak", ikon: "➖", t: "Belum, organik sahaja", s: "" } ] }
   ];
   var jawapan = {}, langkah = 0;
   var kotak = $("#kuiz-kotak");
@@ -252,14 +252,14 @@
 
   function cadangan(j) {
     if (j.cara === "pimpin") return { id: "coaching",
-      kenapa: "Anda nak siap cepat dengan orang tengok setup anda. Dalam 2 jam kita pilih satu kerja dalam bisnes anda dan bina sampai jalan, dengan pintu kelulusan dan butang henti." };
+      kenapa: "Anda mahu sistem siap dengan cepat, dipasang bersama saya. Dalam satu sesi sehingga 3 jam, kita pilih satu kerja dalam perniagaan anda dan pasang pekerja AI sehingga berjalan, lengkap dengan pintu kelulusan dan butang henti. Anda juga belajar Hermes, Meta Ads dan Claude sepanjang proses." };
     if (j.masalah === "iklan") return { id: "meta",
-      kenapa: "Masa anda habis pada iklan dan laporan. Guide ni sambung Meta Ads ke Claude, hantar laporan ke WhatsApp selepas 17 semakan, dan bawa lead WhatsApp ke Google Sheet." };
+      kenapa: "Banyak masa anda digunakan untuk iklan dan laporan. Panduan ini menyambungkan Meta Ads kepada Claude, menghantar laporan ke WhatsApp selepas 17 semakan, dan membawa lead WhatsApp ke Google Sheet." };
     if (j.iklan === "ya" && j.masalah !== "staf") return { id: "meta",
-      kenapa: "Iklan anda jalan setiap bulan, jadi kebanyakan lead datang dari iklan. Guide ni sambung iklan, laporan dan lead dalam satu aliran." };
-    var k = { lead: "Lead dan follow-up ialah kerja pertama yang saya cadangkan untuk hampir semua bisnes. Ebook ni tunjuk cara Hermes balas WhatsApp, catat lead dan buat follow-up 24 jam.",
-      staf: "Bila kerja bergantung pada seorang, bisnes anda rapuh. Ebook ni tunjuk cara serah kerja berulang kepada Hermes, pekerja AI yang jalan 24 jam dengan Claude sebagai otak.",
-      mula: "Ini titik mula untuk pekerja AI: pasang Hermes, beri arahan melalui Telegram, dan mula dengan satu kerja berjadual yang berisiko rendah.",
+      kenapa: "Iklan anda berjalan setiap bulan, jadi kebanyakan lead datang daripada iklan. Panduan ini menyatukan iklan, laporan dan lead dalam satu aliran." };
+    var k = { lead: "Lead dan susulan ialah kerja pertama yang saya cadangkan untuk hampir semua perniagaan. Ebook ini menunjukkan cara Hermes membalas WhatsApp, merekod lead dan membuat susulan 24 jam.",
+      staf: "Apabila kerja bergantung pada seorang staf, perniagaan anda mudah terjejas. Ebook ini menunjukkan cara menyerahkan kerja berulang kepada Hermes, pekerja AI yang bekerja 24 jam dengan Claude sebagai otaknya.",
+      mula: "Inilah titik permulaan untuk pekerja AI: pasang Hermes, beri arahan melalui Telegram, dan mulakan dengan satu kerja berjadual yang berisiko rendah.",
       iklan: "" };
     return { id: "hermes", kenapa: k[j.masalah] || k.mula };
   }

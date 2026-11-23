@@ -50,7 +50,8 @@ jobs:
           npx --yes "$WRANGLER" versions upload --preview-alias "pr-$PR" --message "PR #$PR ${GITHUB_SHA::7}" 2>&1 | tee upload.log
           url=$(grep -oE 'https://pr-[^ ]+\.workers\.dev' upload.log | tail -1)
           [ -n "$url" ] || url=$(grep -oE 'https://[^ ]+\.workers\.dev' upload.log | tail -1)
-          [ -n "$url" ] || { echo "::error::Tiada pautan preview dalam output wrangler"; exit 1; }
+          # Pautan preview hanya wujud selepas deploy produksi pertama hidupkan preview_urls.
+          [ -n "$url" ] || echo "::warning::Versi dimuat naik tetapi tiada pautan preview (preview_urls belum aktif di produksi)."
           echo "url=$url" >> "$GITHUB_OUTPUT"
 
       - name: Komen pautan preview

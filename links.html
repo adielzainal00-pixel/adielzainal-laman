@@ -6,7 +6,7 @@
 <title>Adiel Zainal | Pautan</title>
 <meta name="description" content="Semua pautan Adiel Zainal: ebook, coaching, kuiz dan WhatsApp.">
 <meta name="theme-color" content="#F6F1E8">
-<meta property="og:title" content="Adiel Zainal · AI untuk owner bisnes">
+<meta property="og:title" content="Adiel Zainal · AI untuk pemilik perniagaan">
 <meta property="og:image" content="https://adielzainal.com/aset/og.png">
 <meta property="og:url" content="https://adielzainal.com/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23FFD60A'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='900' font-size='34' text-anchor='middle' fill='%23111'%3EA%3C/text%3E%3C/svg%3E">
@@ -48,7 +48,7 @@
   <p class="dari" id="dari">Salam Kejayaan 😊</p>
   <h1 id="nama">Adiel Zainal</h1>
   <span class="tag">Automasi AI · Coaching · Ebook</span>
-  <p class="ringkas">Saya ajar owner bisnes automasikan laporan iklan, lead WhatsApp dan kerja harian dengan AI. Track record: 171 client agensi iklan.</p>
+  <p class="ringkas">Saya membantu pemilik perniagaan mengautomasikan Meta Ads, laporan, CRM dan khidmat pelanggan dengan AI. Rekod prestasi: 171 pelanggan agensi iklan.</p>
   <nav class="senarai" id="senarai" aria-label="Pautan"></nav>
   <div class="sosial-ikon" id="sosial"></div>
   <p class="kecil"><a href="index.html" id="ke-utama" style="color:var(--pudar)">Laman penuh</a> · <a href="privasi.html" style="color:var(--pudar)">Privasi</a> · <a href="terma" style="color:var(--pudar)">Terma</a></p>
@@ -74,7 +74,7 @@
   var promoAktif = (function () { var x = Date.parse((C.promo || {}).tamat || ""); return !isNaN(x) && Date.now() < x; })();
   var IKON = { hermes: "🤖", meta: "📊", coaching: "🤝", laju: "⚡" };
   var item = [{ href: "index.html" + qs + "#kuiz", ikon: "🧭", t: "Tak pasti mula mana? Kuiz 30 saat", s: "3 soalan, saya cadangkan satu jalan", utama: true }];
-  item.push({ href: "index.html" + qs + "#portfolio", ikon: "🎬", t: "Tonton portfolio, 80 saat", s: "Kerja saya, hasil dan feedback client" });
+  item.push({ href: "index.html" + qs + "#portfolio", ikon: "🎬", t: "Tonton portfolio, 80 saat", s: "Kerja saya, hasil dan maklum balas pelanggan" });
   (C.produk || []).filter(function (p) { return p.aktif !== false; }).forEach(function (p) {
     item.push({ href: p.id === "coaching" ? "coaching" + qs : "index.html" + qs + "#p-" + p.id, ikon: IKON[p.id] || "•", t: p.nama, s: p.jenis + " · " + p.nota, harga: p.status === "akan_datang" ? "Akan datang" : "RM" + (promoAktif && p.harga_biasa ? p.harga : (p.harga_biasa || p.harga)), asal: promoAktif && p.harga_biasa ? "RM" + p.harga_biasa : "" });
   });

@@ -11,9 +11,9 @@ Laman peribadi Adiel Zainal: coaching dan ebook automasi AI untuk owner bisnes, 
 - `alat/bina.sh`: salin fail awam ke `dist/`.
 
 ## Terbit
-Cloudflare Workers Builds, disambung ke repo ini.
-- `main` = produksi. Masuk `main` melalui PR sahaja; selepas digabung, Builds jalankan `bash alat/bina.sh` dan `npx wrangler deploy`.
-- Branch lain = preview (`npx wrangler versions upload`). Preview guna KV dan rahsia produksi, jadi jangan uji muat turun sebenar di situ.
+GitHub Actions (`.github/workflows/terbit.yml`) dengan token Cloudflare yang hanya boleh deploy Worker `adielzainal` (secret `CLOUDFLARE_API_TOKEN`).
+- `main` = produksi. Masuk `main` melalui PR sahaja (ruleset, tiada bypass); selepas digabung, Actions jalankan `bash alat/bina.sh` dan `wrangler deploy`.
+- PR = preview (`wrangler versions upload --preview-alias pr-N`); pautan dikomen dalam PR. Preview guna KV dan rahsia produksi, jadi jangan uji muat turun sebenar di situ.
 
 ## Pintu muat turun
 Fail produk berbayar tidak ada dalam repo ini. Templat PDF/ZIP disimpan dalam Workers KV `PRODUK`; `worker/produk.json` hanya simpan kunci KV dan offset cap.

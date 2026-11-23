@@ -1,7 +1,7 @@
 {
   // Laman Adiel di Cloudflare Workers: aset statik + pintu muat turun ebook (worker/index.js).
-  // Terbit: push ke main melalui PR. Cloudflare Workers Builds jalankan "bash alat/bina.sh" kemudian "npx wrangler deploy".
-  //         Branch lain: "npx wrangler versions upload" (pautan preview, tidak sentuh produksi).
+  // Terbit: push ke main melalui PR. GitHub Actions (.github/workflows/terbit.yml) jalankan "bash alat/bina.sh" kemudian "wrangler deploy".
+  //         Branch lain: "wrangler versions upload --preview-alias pr-N" (pautan preview, tidak sentuh produksi).
   // Fail produk (berbayar): dalam KV PRODUK, bukan dalam repo. Kemas kini: bash alat/terbit_produk.sh (di laptop).
   // Rahsia (sekali sahaja, tak masuk git): npx.cmd wrangler secret put BCL_TOKEN   (token API BCL, API Read sahaja)
   //                                         KUNCI (tandatangan pautan muat turun) sudah dipasang 21 Nov 2026.
@@ -27,11 +27,11 @@
     // ID borang BCL (dipisah koma). Kosong = kenal produk ikut tajuk borang ("meta ads" / "hermes").
     "BORANG_META": "",
     "BORANG_HERMES": "",
-    // "1" = terima bayaran Test Mode BCL (semasa uji). alat/buka_jualan.py tukar ke "0" bila jualan dibuka.
-    "BENARKAN_UJIAN": "1"
+    // "1" = terima bayaran Test Mode BCL. KEKAL "0" di produksi (23 Nov 2026): Test Mode + kod public = ebook percuma.
+    "BENARKAN_UJIAN": "0"
   },
   "workers_dev": false,
-  // pautan preview untuk branch selain main (Workers Builds). Preview guna KV dan rahsia yang sama dengan produksi.
+  // pautan preview untuk branch selain main (Actions). Preview guna KV dan rahsia yang sama dengan produksi.
   "preview_urls": true,
   "routes": [
     { "pattern": "adielzainal.com", "custom_domain": true },

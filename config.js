@@ -1,5 +1,5 @@
 // SATU-SATUNYA fail yang perlu diubah untuk tukar harga, pautan, bukti atau nombor WhatsApp.
-// Ubah melalui PR ke main; Cloudflare Workers Builds terbit semula sendiri.
+// Ubah melalui PR ke main; GitHub Actions terbit semula sendiri.
 // Peraturan: jangan reka angka. Kalau bukti belum ada, biar senarai kosong; bahagian tu tersorok sendiri.
 
 window.LAMAN = {

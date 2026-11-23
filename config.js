@@ -87,12 +87,12 @@ window.LAMAN = {
       nama: "Coaching Automasi 1-to-1",
       harga: 977,                     // satu harga: Google Meet atau bersemuka
       harga_biasa: 1499,
-      nota: "sesi 2 jam · Google Meet atau bersemuka",
+      nota: "sesi sehingga 3 jam · Google Meet atau bersemuka",
       // Dua cara (Google Meet / bersemuka), dua servis dalam borang tempahan BCL, harga sama.
       ringkas: "Kita pasang pekerja AI dalam perniagaan anda, bersama-sama. Anda belajar Hermes, Meta Ads dan Claude sepanjang proses, dan pulang dengan pekerja AI yang sudah berjalan.",
       isi: [
         "30 minit audit: pilih kerja pertama untuk pekerja AI anda",
-        "90 minit pasang pekerja AI bersama dalam perniagaan anda",
+        "Sehingga 2 jam 30 minit memasang pekerja AI bersama dalam perniagaan anda, sehingga ia berjalan",
         "Belajar asas Hermes, Meta Ads dan Claude semasa membina",
         "Pintu kelulusan dan butang henti dipasang sejak awal",
         "Ringkasan dan tugasan susulan dalam masa 24 jam",

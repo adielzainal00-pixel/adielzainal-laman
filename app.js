@@ -252,7 +252,7 @@
 
   function cadangan(j) {
     if (j.cara === "pimpin") return { id: "coaching",
-      kenapa: "Anda mahu sistem siap dengan cepat, dipasang bersama saya. Dalam 2 jam, kita pilih satu kerja dalam perniagaan anda dan pasang pekerja AI sehingga berjalan, lengkap dengan pintu kelulusan dan butang henti. Anda juga belajar Hermes, Meta Ads dan Claude sepanjang proses." };
+      kenapa: "Anda mahu sistem siap dengan cepat, dipasang bersama saya. Dalam satu sesi sehingga 3 jam, kita pilih satu kerja dalam perniagaan anda dan pasang pekerja AI sehingga berjalan, lengkap dengan pintu kelulusan dan butang henti. Anda juga belajar Hermes, Meta Ads dan Claude sepanjang proses." };
     if (j.masalah === "iklan") return { id: "meta",
       kenapa: "Banyak masa anda digunakan untuk iklan dan laporan. Panduan ini menyambungkan Meta Ads kepada Claude, menghantar laporan ke WhatsApp selepas 17 semakan, dan membawa lead WhatsApp ke Google Sheet." };
     if (j.iklan === "ya" && j.masalah !== "staf") return { id: "meta",

@@ -1,5 +1,5 @@
 /* adielzainal.com — gaya A (studio). Laman utama sahaja; halaman lain masih guna style.css. */
-:root{--hitam:#1C1D20;--kelabu:#5B5D63;--garis:#E3E3E3;--laut:#D9775A;--lembut:#F4F4F2;--gelap-garis:#3A3B3F;--gelap-kabur:#9A9B9F}
+:root{--hitam:#1C1D20;--kelabu:#5B5D63;--garis:#E3E3E3;--laut:#6E59E6;--lembut:#F4F4F2;--gelap-garis:#3A3B3F;--gelap-kabur:#9A9B9F}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:Inter,system-ui,sans-serif;color:var(--hitam);background:#fff;-webkit-font-smoothing:antialiased;font-size:17px;line-height:1.6}
@@ -232,7 +232,7 @@ nav.atas .kiri{display:flex;align-items:center;gap:16px;flex-wrap:wrap;min-width
 .bar-bawah{position:fixed;left:12px;right:12px;bottom:12px;z-index:40;display:none;gap:8px;transform:translateY(140%);transition:transform .35s}
 .bar-bawah.nampak{transform:none}
 .bar-bawah .btn{flex:1;padding:14px}
-.bar-bawah .btn{background:#D9775A;border-color:#D9775A;color:#fff;box-shadow:0 8px 24px -8px rgba(0,0,0,.45)}
+.bar-bawah .btn{background:linear-gradient(120deg,#E687D8 0%,#A88BDF 45%,#6890E2 100%);border:0;color:#fff;box-shadow:0 8px 24px -8px rgba(0,0,0,.45)}
 .bar-bawah .btn-garis{background:#fff;color:#1C1D20;border-color:#fff}
 
 @media(max-width:860px){
@@ -262,3 +262,32 @@ nav.atas .kiri{display:flex;align-items:center;gap:16px;flex-wrap:wrap;min-width
   .intai{display:none}
 }
 @media(prefers-reduced-motion:reduce){.jalur-dalam,.pil .tanda i{animation:none}*{transition:none!important}}
+
+/* ===== Mesh gradien pastel + bijian (rujukan: ingradients.net, photogradient.com) ===== */
+:root{--mesh-terang:radial-gradient(60% 55% at 6% 8%,#FFE3BC 0,rgba(255,227,188,0) 70%),radial-gradient(55% 60% at 48% 38%,#DCC7F9 0,rgba(220,199,249,0) 70%),radial-gradient(50% 55% at 96% 6%,#C9F1E6 0,rgba(201,241,230,0) 70%),radial-gradient(60% 60% at 88% 92%,#D3DBF9 0,rgba(211,219,249,0) 70%),#FBF9FF;--mesh-gelap:radial-gradient(45% 55% at 12% 14%,#E687D8 0,rgba(230,135,216,0) 70%),radial-gradient(55% 60% at 90% 10%,#347BD1 0,rgba(52,123,209,0) 70%),radial-gradient(60% 60% at 78% 88%,#A88BDF 0,rgba(168,139,223,0) 70%),radial-gradient(50% 55% at 18% 92%,#6890E2 0,rgba(104,144,226,0) 70%),#0F2F65;--grad-butang:linear-gradient(120deg,#E687D8 0%,#A88BDF 45%,#6890E2 100%);--gelap-garis:rgba(255,255,255,.18);--gelap-kabur:rgba(255,255,255,.72)}
+body{background:#FBF9FF}
+body:after{content:'';position:fixed;inset:0;pointer-events:none;z-index:90;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");opacity:.07;mix-blend-mode:multiply}
+.intro,.portfolio,.senarai,.dua,.tentang,.soalan,.bekas-angka{background:var(--mesh-terang)}
+.portfolio{background:radial-gradient(55% 60% at 90% 20%,#DCC7F9 0,rgba(220,199,249,0) 70%),radial-gradient(50% 60% at 5% 90%,#C9F1E6 0,rgba(201,241,230,0) 70%),#FBF9FF}
+.senarai{background:radial-gradient(55% 55% at 95% 10%,#FFE3BC 0,rgba(255,227,188,0) 70%),radial-gradient(60% 60% at 10% 70%,#D3DBF9 0,rgba(211,219,249,0) 70%),#FBF9FF}
+.tentang{background:radial-gradient(55% 60% at 8% 30%,#C9F1E6 0,rgba(201,241,230,0) 70%),radial-gradient(55% 60% at 92% 80%,#F6D3EE 0,rgba(246,211,238,0) 70%),#FBF9FF}
+.gelap,.kaki{background:var(--mesh-gelap);color:#fff}
+#produk{background:radial-gradient(50% 55% at 88% 10%,#E687D8 0,rgba(230,135,216,0) 70%),radial-gradient(55% 60% at 8% 30%,#347BD1 0,rgba(52,123,209,0) 70%),radial-gradient(60% 60% at 70% 95%,#A88BDF 0,rgba(168,139,223,0) 70%),#0F2F65}
+.kaki{background:radial-gradient(55% 60% at 85% 15%,#A88BDF 0,rgba(168,139,223,0) 70%),radial-gradient(50% 60% at 10% 85%,#E687D8 0,rgba(230,135,216,0) 70%),#0F2F65}
+.gelap .btn,.kaki .atas .bulat,.bulat{background:var(--grad-butang);border:0;color:#fff;box-shadow:0 18px 40px -18px rgba(104,144,226,.8)}
+.bulat:hover,.kaki .atas .bulat:hover{background:var(--grad-butang);filter:brightness(1.06);color:#fff}
+.btn:hover,.pils a:hover{background:var(--grad-butang);border-color:transparent;color:#fff}
+.gelap .btn-garis{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25)}
+.produk li,.produk .mod-harga li{border-color:rgba(255,255,255,.14);color:rgba(255,255,255,.85)}
+.produk .ringkas{color:rgba(255,255,255,.9)}
+.produk .label{background:var(--grad-butang)}
+.kes-no,.kes-kad.amaran .kes-industri,.kes-kad.amaran .kes-no,.gelap .tag-kecil{color:rgba(255,255,255,.55)}
+.testimoni figure{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:22px;backdrop-filter:blur(6px)}
+.pilihan button,.hasil{background:rgba(255,255,255,.7);backdrop-filter:blur(8px)}
+.suara{background:rgba(255,255,255,.65)}
+.kuiz-bar span{background:var(--grad-butang)}
+/* hero: jangan zum muka pada skrin lebar; foto penuh di tengah, tepi diisi versi kabur */
+@media (min-aspect-ratio:1/1){
+  .hero:before{content:'';position:absolute;inset:-60px;background:url(aset/pantai-penuh-1600.webp) center 40%/cover;filter:blur(38px) saturate(1.1) brightness(.95)}
+  .hero .foto{left:50%;right:auto;width:auto;max-width:none;height:100%;aspect-ratio:1180/1405;transform:translateX(-50%);object-fit:cover;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 18%,#000 82%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 18%,#000 82%,transparent 100%)}
+}

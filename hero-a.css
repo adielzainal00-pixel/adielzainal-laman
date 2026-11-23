@@ -32,13 +32,13 @@
 .isi-a .kad-kit p{font-size:16px;color:#5B5D63}
 .isi-a .kad-kit .tip{border-radius:14px;background:#F4F4F2}
 .isi-a .butang-kit{background:#1C1D20;color:#fff;border-radius:99px;padding:14px 24px;font-weight:500}
-.isi-a .butang-kit:hover{background:#D9775A}
+.isi-a .butang-kit:hover{background:#6E59E6}
 .isi-a .butang-kit.kedua{background:transparent;color:#1C1D20;border:1px solid #E3E3E3}
 .isi-a .seterusnya{margin-top:60px;padding:40px;border:0;border-radius:28px;background:#1C1D20;color:#fff}
 .isi-a .seterusnya h2{font-family:'Inter Tight',Inter,sans-serif;font-weight:400;font-size:clamp(28px,3.4vw,40px);letter-spacing:-.035em;line-height:1.1;color:#fff}
 .isi-a .seterusnya p{color:#9A9B9F;font-size:16px}
 .isi-a .seterusnya a{border-radius:99px;padding:15px 24px;border:1px solid #3A3B3F;color:#fff;font-size:16px}
-.isi-a .seterusnya a.utama{background:#D9775A;border-color:#D9775A;color:#fff}
+.isi-a .seterusnya a.utama{background:#6E59E6;border-color:#6E59E6;color:#fff}
 
 /* links */
 .isi-a nav.senarai{display:block;border-top:1px solid #E3E3E3}
@@ -47,7 +47,7 @@
 .isi-a .item b{font-family:'Inter Tight',Inter,sans-serif;font-weight:400;font-size:clamp(22px,3vw,30px);letter-spacing:-.03em;line-height:1.15}
 .isi-a .item small{color:#6E7076!important;font-size:14px}
 .isi-a .item .ikon{width:48px;height:48px;flex:0 0 48px;border-radius:50%;background:#F4F4F2}
-.isi-a .item.utama .ikon{background:#D9775A}
+.isi-a .item.utama .ikon{background:#6E59E6}
 .isi-a .item .harga-kecil{font:400 20px 'Inter Tight',Inter,sans-serif;color:#1C1D20}
 .isi-a .sosial-ikon{justify-content:flex-start;margin:34px 0 16px}
 .isi-a .sosial-ikon a{border:1px solid #E3E3E3;padding:14px 24px;font-size:15px}
@@ -67,3 +67,11 @@
 .isi-a .item .harga-kecil{font-size:17px}
 @media(max-width:860px){.isi-a .item .harga-kecil s{display:none}.isi-a .item .harga-kecil{font-size:14px;color:#6E7076}.isi-a .item b{font-size:21px}}
 .hero-a .lencana.promo-merah{background:#DC2626;backdrop-filter:none;box-shadow:0 10px 30px -10px rgba(217,45,32,.7)}
+
+@media (min-aspect-ratio:1/1){
+  .hero-a:before{content:'';position:absolute;inset:-60px;background:url(aset/pantai-penuh-1600.webp) center 40%/cover;filter:blur(38px) saturate(1.1) brightness(.95)}
+  .hero-a .foto{left:50%;right:auto;width:auto;max-width:none;height:100%;aspect-ratio:1180/1405;transform:translateX(-50%);object-fit:cover;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 18%,#000 82%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 18%,#000 82%,transparent 100%)}
+}
+.isi-a .butang-kit,.isi-a .seterusnya a.utama{background:linear-gradient(120deg,#E687D8 0%,#A88BDF 45%,#6890E2 100%);border:0}
+.isi-a .seterusnya{background:radial-gradient(45% 55% at 12% 14%,#E687D8 0,rgba(230,135,216,0) 70%),radial-gradient(55% 60% at 90% 10%,#347BD1 0,rgba(52,123,209,0) 70%),radial-gradient(60% 60% at 78% 88%,#A88BDF 0,rgba(168,139,223,0) 70%),radial-gradient(50% 55% at 18% 92%,#6890E2 0,rgba(104,144,226,0) 70%),#0F2F65}
+.isi-a .kad-kit.sasar{background:linear-gradient(90deg,#ECE3FB,rgba(255,255,255,0) 75%)}

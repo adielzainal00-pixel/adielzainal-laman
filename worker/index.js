@@ -3,7 +3,7 @@
 // 2. Worker semak pesanan itu dengan API BCL (webhook BCL tak ditandatangani, jadi API ialah sumber benar)
 // 3. Pautan muat turun bertandatangan (sah 30 minit) -> GET /api/fail
 // 4. PDF dicap nama, e-mel dan no. pesanan pembeli di setiap halaman; had HAD muat turun setiap fail; log IP
-// Kit berbayar RM1: POST /api/kit (halaman kit-penuh.html), isi kit dari KV PRODUK kit/<id>.json
+// Kit berbayar RM3: POST /api/kit (halaman kit-penuh.html), isi kit dari KV PRODUK kit/<id>.json
 // Fail templat disimpan dalam KV PRODUK (bukan dalam repo atau aset awam); kunci dalam produk.json. Muat naik: alat/terbit_produk.sh
 // Rahsia (wrangler secret): BCL_TOKEN (token API BCL, kebenaran API Read sahaja), KUNCI (tandatangan pautan).
 // Pemboleh ubah (wrangler.jsonc vars): BORANG_META, BORANG_HERMES (ID borang BCL, dipisah koma), BENARKAN_UJIAN ("1" semasa Test Mode).

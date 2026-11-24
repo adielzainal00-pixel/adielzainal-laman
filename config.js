@@ -8,7 +8,7 @@ window.LAMAN = {
   domain: "https://adielzainal.com", // dibeli 21 Nov 2026, DNS di Cloudflare
   emel: "",                         // isi "hello@adielzainal.com" SELEPAS Email Routing dipasang (Cloudflare Email Routing, percuma). Kosong = tak dipapar
   syarikat: "SASS ONE WORLDWIDE",     // nama berdaftar (Akta Pendaftaran Perniagaan 1956), ikut company profile v3
-  ssm: "",                          // nombor pendaftaran SSM (Adiel isi sendiri, salin dari company profile hlm 2). Kosong = tak dipapar. Isi = nampak sah macam laman Zakwan
+  ssm: "202603017072 (JR0186691-K)",                          // nombor pendaftaran SSM (Adiel isi sendiri, salin dari company profile hlm 2). Kosong = tak dipapar. Isi = nampak sah macam laman Zakwan
   foto_bio: "aset/pantai-muka.webp",   // avatar (potret profesional dari rakaman ep007)
 
   // Nombor WhatsApp jualan, format 60xxxxxxxxx tanpa + atau sengkang.

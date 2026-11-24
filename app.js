@@ -77,7 +77,7 @@
     .map(function (x) { return '<a href="' + esc(x[1]) + '" target="_blank" rel="noopener">' + x[0] + "</a>"; })
     .join("");
   $("#tahun").textContent = new Date().getFullYear();
-  var sah = [C.syarikat && C.ssm ? esc(C.syarikat) + " (SSM " + esc(C.ssm) + ")" : "",
+  var sah = [C.syarikat && C.ssm ? esc(C.syarikat) + " · No. Pendaftaran SSM: " + esc(C.ssm) : "",
     C.emel ? '<a href="mailto:' + esc(C.emel) + '">' + esc(C.emel) + "</a>" : ""].filter(Boolean).join(" · ");
   if (sah) $("#sah").innerHTML = sah; else $("#sah").remove();
 

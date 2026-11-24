@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Muat naik isi kit berbayar (RM1) ke KV PRODUK. Jalankan di laptop (wrangler log masuk).
+# Muat naik isi kit berbayar (RM3) ke KV PRODUK. Jalankan di laptop (wrangler log masuk).
 # Isi kit TIDAK dalam repo awam: simpan di luar repo, cth. ../kit-berbayar/motion.json
 #   bash alat/terbit_kit.sh motion ../kit-berbayar/motion.json
 # Kunci KV: kit/<id>.json. Halaman: /kit-penuh?k=<id>. Borang BCL: item bernama "Kit <ID> ..." dan

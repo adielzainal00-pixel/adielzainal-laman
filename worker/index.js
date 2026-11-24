@@ -86,7 +86,7 @@ async function semakPesanan(pesanan, emel, pid, env) {
 }
 
 // ---------- POST /api/kit ----------
-// Kit berbayar (RM1 sekit). Borang BCL: item bernama "Kit <KATA KUNCI>" (cth. "Kit MOTION Penuh").
+// Kit berbayar (RM3 sekit). Borang BCL: item bernama "Kit <KATA KUNCI>" (cth. "Kit MOTION Penuh").
 // Success URL borang: https://adielzainal.com/kit-penuh?k=<id>&pesanan={order_number}&e={email}
 // Isi kit dalam KV PRODUK, kunci kit/<id>.json (alat/terbit_kit.sh), bukan dalam repo awam.
 async function kitBerbayar(req, env) {

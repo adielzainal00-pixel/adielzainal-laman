@@ -41,7 +41,7 @@
   .harga-kecil s{font-weight:400;opacity:.55;font-size:.8em;margin-right:2px}
 </style>
 <link rel="stylesheet" href="hero-a.css?v=11">
-<script src="config.js?v=20"></script>
+<script src="config.js?v=21"></script>
 </head>
 <body>
 <header class="hero-a">
@@ -79,7 +79,7 @@
   document.getElementById("ke-utama").href = "index.html" + qs;
 
   var promoAktif = (function () { var x = Date.parse((C.promo || {}).tamat || ""); return !isNaN(x) && Date.now() < x; })();
-  var IKON = { hermes: "🤖", meta: "📊", coaching: "🤝", laju: "⚡" };
+  var IKON = { claude: "🧠", autopilot: "🚀", hermes: "🤖", meta: "📊", coaching: "🤝", laju: "⚡" };
   var item = [{ href: "index.html" + qs + "#kuiz", ikon: "🧭", t: "Tak pasti mula mana? Kuiz 30 saat", s: "3 soalan, saya cadangkan satu jalan", utama: true }];
   item.push({ href: "index.html" + qs + "#portfolio", ikon: "🎬", t: "Tonton portfolio, 80 saat", s: "Kerja saya, hasil dan maklum balas pelanggan" });
   (C.produk || []).filter(function (p) { return p.aktif !== false; }).forEach(function (p) {

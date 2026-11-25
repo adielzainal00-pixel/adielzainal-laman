@@ -37,7 +37,52 @@ window.LAMAN = {
 
   produk: [
     {
+      id: "claude",
+      status: "akan_datang",          // buang baris ini bila borang BCL dibuka
+      jenis: "Ebook + video",
+      nama: "Claude Untuk Pemula",
+      harga: 97,
+      harga_biasa: 169,
+      nota: "sekali bayar",
+      ringkas: "Mula guna Claude dari kosong untuk kerja perniagaan: tulis iklan, balas pelanggan, sunting video dan urus Meta Ads. Langkah demi langkah, dengan video pendek untuk setiap bab.",
+      isi: [
+        "Asas Claude dari kosong: Projects, memori dan cara memberi arahan yang tepat",
+        "Prompt siap guna untuk iklan, jualan, khidmat pelanggan dan SOP",
+        "Sunting video TikTok dan Reels dengan Claude, tanpa kemahiran menyunting",
+        "Claude urus Meta Ads: laporan mingguan dan draf iklan, anda yang meluluskan",
+        "Pelan 7 hari: satu tugasan kecil setiap hari",
+        "Video pendek setiap bab, kemas kini percuma dan kumpulan sokongan Telegram"
+      ],
+      tambahan: { nama: "Sesi Pasang Bersama 1 jam", harga: 150 },
+      bcl: "",
+      bcl_tambahan: "",
+      label: "Mula di sini"
+    },
+    {
+      id: "autopilot",
+      status: "akan_datang",
+      jenis: "2 ebook + video",
+      nama: "Pakej Bisnes Autopilot",
+      harga: 177,
+      harga_biasa: 338,
+      nota: "sekali bayar · 2 ebook",
+      ringkas: "Claude menjadi otak, Hermes menjadi pekerja 24 jam. Claude menulis dan berfikir untuk perniagaan anda; Hermes menjalankan kerja itu secara automatik, walaupun anda sedang tidur.",
+      isi: [
+        "Ebook Claude Untuk Pemula, lengkap dengan video",
+        "Ebook Hermes: Pekerja AI 24 Jam, edisi baharu yang bersambung terus dengan ebook Claude",
+        "Pelan 7 hari merentas dua ebook, dengan automasi pertama anda sebagai matlamat hari ke-7",
+        "AI membalas WhatsApp 24 jam cara rasmi, serta laporan dan kerja berjadual ke Telegram",
+        "Harga pakej ditolak penuh jika anda naik taraf ke coaching dalam 14 hari",
+        "Kemas kini percuma dan kumpulan sokongan Telegram"
+      ],
+      tambahan: { nama: "Sesi Pasang Bersama 1 jam", harga: 150 },
+      bcl: "",
+      bcl_tambahan: "",
+      label: "Paling berbaloi"
+    },
+    {
       id: "meta",
+      aktif: false,                   // diganti oleh "claude" (Adiel 25 Nov 2026); kekal untuk rujukan pembeli lama
       status: "akan_datang",          // buang baris ini bila borang BCL dibuka (alat/buka_jualan.py)
       jenis: "Ebook + kit",
       nama: "Meta Ads Automation",
@@ -60,6 +105,7 @@ window.LAMAN = {
     },
     {
       id: "hermes",
+      aktif: false,                   // kini dalam Pakej Bisnes Autopilot sahaja (Adiel 25 Nov 2026)
       status: "akan_datang",
       jenis: "Ebook",
       nama: "Hermes: Pekerja AI 24 Jam",

@@ -253,15 +253,15 @@
   function cadangan(j) {
     if (j.cara === "pimpin") return { id: "coaching",
       kenapa: "Anda mahu sistem siap dengan cepat, dipasang bersama saya. Dalam satu sesi sehingga 3 jam, kita pilih satu kerja dalam perniagaan anda dan pasang pekerja AI sehingga berjalan, lengkap dengan pintu kelulusan dan butang henti. Anda juga belajar Hermes, Meta Ads dan Claude sepanjang proses." };
-    if (j.masalah === "iklan") return { id: "meta",
-      kenapa: "Banyak masa anda digunakan untuk iklan dan laporan. Panduan ini menyambungkan Meta Ads kepada Claude, menghantar laporan ke WhatsApp selepas 17 semakan, dan membawa lead WhatsApp ke Google Sheet." };
-    if (j.iklan === "ya" && j.masalah !== "staf") return { id: "meta",
-      kenapa: "Iklan anda berjalan setiap bulan, jadi kebanyakan lead datang daripada iklan. Panduan ini menyatukan iklan, laporan dan lead dalam satu aliran." };
-    var k = { lead: "Lead dan susulan ialah kerja pertama yang saya cadangkan untuk hampir semua perniagaan. Ebook ini menunjukkan cara Hermes membalas WhatsApp, merekod lead dan membuat susulan 24 jam.",
-      staf: "Apabila kerja bergantung pada seorang staf, perniagaan anda mudah terjejas. Ebook ini menunjukkan cara menyerahkan kerja berulang kepada Hermes, pekerja AI yang bekerja 24 jam dengan Claude sebagai otaknya.",
-      mula: "Inilah titik permulaan untuk pekerja AI: pasang Hermes, beri arahan melalui Telegram, dan mulakan dengan satu kerja berjadual yang berisiko rendah.",
+    if (j.masalah === "iklan") return { id: "claude",
+      kenapa: "Banyak masa anda digunakan untuk iklan dan kandungan. Ebook ini bermula dari kosong: Claude menulis iklan, menyunting video dan menyediakan laporan Meta Ads mingguan, dan anda hanya meluluskan." };
+    if (j.iklan === "ya" && j.masalah !== "staf") return { id: "claude",
+      kenapa: "Iklan anda berjalan setiap bulan. Mulakan dengan Claude: draf iklan, laporan Meta Ads mingguan dan kandungan video, semuanya dari kosong dan langkah demi langkah." };
+    var k = { lead: "Lead dan susulan ialah kerja pertama yang saya cadangkan untuk hampir semua perniagaan. Pakej ini mengajar Claude menulis balasan yang tepat, kemudian Hermes membalas WhatsApp, merekod lead dan membuat susulan 24 jam.",
+      staf: "Apabila kerja bergantung pada seorang staf, perniagaan anda mudah terjejas. Pakej ini menunjukkan cara menyerahkan kerja berulang kepada AI: Claude sebagai otak, Hermes sebagai pekerja 24 jam.",
+      mula: "Inilah laluan lengkap dari kosong: belajar Claude dahulu, kemudian pasang Hermes supaya kerja itu berjalan sendiri. Mulakan dengan satu kerja berjadual yang berisiko rendah.",
       iklan: "" };
-    return { id: "hermes", kenapa: k[j.masalah] || k.mula };
+    return { id: "autopilot", kenapa: k[j.masalah] || k.mula };
   }
 
   function lukisSoalan() {

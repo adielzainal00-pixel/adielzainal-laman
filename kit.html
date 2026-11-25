@@ -78,6 +78,14 @@
 <script>
 /* SENARAI KIT: tambah kit baru di sini sahaja. id = kata kunci huruf kecil (jadi pautan adielzainal.com/kit?k=id). Yang terbaru di atas. */
 var KIT = [
+  { id: "agent", kunci: "AGENT", tajuk: "Ultracode: satu arahan, beratus agen dalam Claude Code",
+    terang: "Ciri rasmi Claude Code (dynamic workflows). Claude lancarkan satu pasukan sub-agen, setiap satu ambil satu bahagian kerja, kemudian hasil dikumpul dalam satu jawapan. Berfungsi dalam Claude Code sahaja, pelan berbayar.",
+    kod: "/effort ultracode",
+    kodTajuk: "Hidupkan untuk satu sesi, taip dalam Claude Code:",
+    tip: "Untuk satu tugasan sahaja, taip perkataan ultracode dalam arahan anda, contohnya \"ultracode: lancarkan 50 sub-agen dan bina laman web aku\". Had: 16 agen serentak, 1,000 agen setiap larian. Token digunakan jauh lebih banyak, jadi mula dengan saiz small di /config. Pengguna Pro perlu hidupkan Dynamic workflows di /config dahulu.",
+    pautan: "https://code.claude.com/docs/en/workflows", label: "Baca dokumen rasmi",
+    /* Kit penuh berbayar: isi pautan borang BCL bila borang dibuka. Kosong = butang tak dipapar. */
+    penuh: { bcl: "", harga: "RM3", label: "Kit AGENT Penuh", terang: "5 contoh tugasan ultracode untuk perniagaan kecil, templat arahan saiz pasukan, dan cara jeda serta sambung semula." } },
   { id: "belajar", kunci: "BELAJAR", tajuk: "Watch: Claude tengok video YouTube dan belajar skill",
     terang: "Skill percuma (bradautomates/claude-video, ~21.7K bintang, MIT). Claude ambil frame dan transkrip video, kemudian anda minta dia jadikan skill. Berfungsi dalam Claude Code sahaja, bukan Claude Chat atau Cowork.",
     kod: "/plugin marketplace add bradautomates/claude-video\n/plugin install watch@claude-video",

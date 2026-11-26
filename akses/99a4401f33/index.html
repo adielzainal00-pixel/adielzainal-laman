@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Akses anda: Claude Untuk Pemula</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/kecil.css?v=8">
+</head>
+<body>
+<!-- Halaman akses pembeli. Pautan ini HANYA dalam e-mel BCL selepas bayar. Jangan letak di mana-mana halaman awam. -->
+<main class="bingkai">
+  <div class="kepala"><a href="/">Adiel Zainal</a><span>Akses pembeli</span></div>
+
+  <p class="kicker">Claude Untuk Pemula</p>
+  <h1>Terima kasih. <em>Ambil ebook dan video anda.</em></h1>
+  <p class="lead">Masukkan no. pesanan (dalam resit BCL) dan e-mel yang anda guna semasa bayar. Simpan halaman ini (bookmark): versi baru ebook dan video bab diletak di sini.</p>
+
+  <form class="borang" id="borang-akses" data-produk="claude" novalidate>
+    <label for="pesanan">No. pesanan</label>
+    <input id="pesanan" name="pesanan" autocomplete="off" autocapitalize="characters" spellcheck="false" required placeholder="Contoh: BCL-01234">
+    <label for="emel">E-mel semasa bayar</label>
+    <input id="emel" name="emel" type="email" autocomplete="email" required placeholder="nama@contoh.com">
+    <button class="btn" type="submit">Buka ebook dan video →</button>
+    <p class="ralat" id="mesej-akses" role="alert"></p>
+  </form>
+  <div class="muat" id="hasil-akses" hidden></div>
+  <p class="nota">Ebook PDF Bahasa Melayu + 13 video bab. Untuk pemilik bisnes bukan orang IT.</p>
+
+  <div class="kotak">
+    <p><b>Nak siap lebih cepat?</b> Dalam Coaching 1-to-1, kita bina satu automasi bersama dalam bisnes anda sendiri, 2 jam online.</p>
+    <a class="btn garis" href="/#p-coaching">Lihat coaching →</a>
+  </div>
+
+  <p class="nota"><b>Lesen satu pembeli.</b> Untuk bisnes anda sendiri. Mohon jangan kongsi pautan ini, edar atau jual semula fail. Masalah muat turun? Mesej saya dengan nombor resit.</p>
+
+  <div class="kaki"><span>© Adiel Zainal · SASS ONE</span><a href="/privasi">Privasi</a></div>
+</main>
+<script src="/config.js?v=19"></script>
+<script src="/akses.js?v=3"></script>
+<script>
+  // Butang "Mesej saya" ikut saluran hubungi semasa dalam config.js (DM Instagram atau WhatsApp).
+  (function () {
+    var C = window.LAMAN || {}, H = C.hubungi || {};
+    var url = H.jenis === "instagram" && H.pautan ? H.pautan : (C.whatsapp ? "https://wa.me/" + C.whatsapp : "");
+    if (!url) return;
+    document.querySelectorAll("[data-hubungi]").forEach(function (a) { a.href = url; });
+  })();
+</script>
+</body>
+</html>

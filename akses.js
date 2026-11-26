@@ -33,7 +33,7 @@
     }).then(function (r) { return r.json(); }).then(function (j) {
       if (!j.ok) { mesej.textContent = RALAT[j.ralat] || RALAT.sistem; return; }
       hasil.textContent = "";
-      hasil.appendChild(el("p", "lead", "Terima kasih, " + (j.nama || "pembeli") + ". Fail anda sedia:"));
+      hasil.appendChild(el("p", "lead", "Terima kasih, " + (j.nama || "pembeli") + "." + (j.fail.length ? " Fail anda sedia:" : "")));
       j.fail.forEach(function (x) {
         var a = el("a", x.id === "pdf" ? "fail" : "fail kedua");
         var kiri = el("span");
@@ -44,6 +44,25 @@
         if (x.baki > 0) a.href = x.url; else a.setAttribute("aria-disabled", "true");
         hasil.appendChild(a);
       });
+      if (j.video && j.video.length) {
+        hasil.appendChild(el("h2", "", "Video bab"));
+        hasil.appendChild(el("p", "nota", "Tonton dalam halaman ini sahaja. Video untuk pembeli, jangan kongsi."));
+        var siri = { C: "Claude Untuk Pemula", H: "Hermes: Pekerja AI 24 Jam" }, akhir = "";
+        j.video.forEach(function (v) {
+          if (v.siri !== akhir && Object.keys(siri).length > 1 && j.video.some(function (x) { return x.siri !== v.siri; })) {
+            hasil.appendChild(el("h3", "siri-video", siri[v.siri] || v.siri)); akhir = v.siri;
+          }
+          var k = el("div", "video-bab");
+          k.appendChild(el("p", "video-tajuk", (v.ebook ? v.ebook.split("·").pop().trim() + ": " : "") + v.tajuk));
+          var vid = document.createElement("video");
+          vid.controls = true; vid.preload = "none"; vid.playsInline = true;
+          vid.setAttribute("playsinline", ""); vid.setAttribute("controlsList", "nodownload"); vid.setAttribute("disablePictureInPicture", "");
+          vid.poster = v.poster; vid.src = v.url;
+          vid.addEventListener("contextmenu", function (e) { e.preventDefault(); });
+          k.appendChild(vid);
+          hasil.appendChild(k);
+        });
+      }
       hasil.appendChild(el("p", "nota", "Setiap PDF dicap dengan nama, e-mel dan no. pesanan anda. Pautan di atas sah 30 minit; selepas itu masukkan semula no. pesanan."));
       hasil.hidden = false;
       f.hidden = true;

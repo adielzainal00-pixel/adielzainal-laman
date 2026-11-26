@@ -35,7 +35,7 @@
       hasil.textContent = "";
       hasil.appendChild(el("p", "lead", "Terima kasih, " + (j.nama || "pembeli") + "." + (j.fail.length ? " Fail anda sedia:" : "")));
       j.fail.forEach(function (x) {
-        var a = el("a", x.id === "pdf" ? "fail" : "fail kedua");
+        var a = el("a", /^pdf/.test(x.id) ? "fail" : "fail kedua");
         var kiri = el("span");
         kiri.appendChild(el("b", "", x.label));
         kiri.appendChild(el("small", "", x.baki > 0 ? "Baki " + x.baki + " daripada " + x.had + " kali muat turun" : "Had muat turun dicapai. Mesej saya jika perlu salinan baru."));

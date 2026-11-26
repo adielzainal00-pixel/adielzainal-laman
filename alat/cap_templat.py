@@ -24,6 +24,7 @@ import pymupdf
 L = Path(__file__).resolve().parents[1]
 DP = L.parent / "digital-products"
 DIST = L / ".produk"
+SUMBER = L / ".produk-sumber"   # PDF pakej baru (gitignore)
 PANJANG = 120                     # aksara teks cap; Worker pad / potong ke panjang ini
 PH = "#" * PANJANG
 PH_HEX = PH.encode().hex().encode()
@@ -43,6 +44,23 @@ PRODUK = {
         "fail": [
             {"id": "pdf", "label": "Ebook Hermes: Pekerja AI 24 Jam (PDF)", "src": DP / "ebook" / "hermes.pdf",
              "simpan": "hermes.pdf", "nama_muat": "Hermes-Pekerja-AI-24-Jam-Adiel-Zainal.pdf"},
+        ],
+    },
+    # 3 pakej baru (26 Nov 2026). Sumber PDF dalam .produk-sumber/ (gitignore), salinan dari VPS company/coaching/ebook_update/.
+    "claude": {
+        "nama": "Claude Untuk Pemula",
+        "fail": [
+            {"id": "pdf", "label": "Ebook Claude Untuk Pemula (PDF)", "src": SUMBER / "claude-untuk-pemula.pdf",
+             "simpan": "claude-untuk-pemula.pdf", "nama_muat": "Claude-Untuk-Pemula-Adiel-Zainal.pdf"},
+        ],
+    },
+    "autopilot": {
+        "nama": "Pakej Bisnes Autopilot",
+        "fail": [
+            {"id": "pdf", "label": "Ebook Claude Untuk Pemula (PDF)", "src": SUMBER / "claude-untuk-pemula.pdf",
+             "simpan": "claude-untuk-pemula.pdf", "nama_muat": "Claude-Untuk-Pemula-Adiel-Zainal.pdf"},
+            {"id": "pdf2", "label": "Ebook Hermes: Pekerja AI 24 Jam v2 (PDF)", "src": SUMBER / "hermes-v2.pdf",
+             "simpan": "hermes-v2.pdf", "nama_muat": "Hermes-Pekerja-AI-24-Jam-v2-Adiel-Zainal.pdf"},
         ],
     },
 }

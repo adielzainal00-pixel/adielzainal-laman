@@ -1,0 +1,274 @@
+{
+ "bab": [
+  {
+   "kod": "C00",
+   "siri": "C",
+   "bab": 0,
+   "tajuk": "Kedai kau ada otak dan pekerja",
+   "ebook": "Claude Untuk Pemula · Bab 0",
+   "video": "video/C00-d6902cb77d.mp4",
+   "poster": "video/C00-f8521c86cb.jpg",
+   "saiz": 7313736
+  },
+  {
+   "kod": "C01",
+   "siri": "C",
+   "bab": 1,
+   "tajuk": "Hari 1: Claude dalam 15 minit",
+   "ebook": "Claude Untuk Pemula · Bab 1",
+   "video": "video/C01-93c050fb51.mp4",
+   "poster": "video/C01-d7e50fd0bd.jpg",
+   "saiz": 6909201
+  },
+  {
+   "kod": "C02",
+   "siri": "C",
+   "bab": 2,
+   "tajuk": "Cara bercakap dengan Claude",
+   "ebook": "Claude Untuk Pemula · Bab 2",
+   "video": "video/C02-ee6e5e150b.mp4",
+   "poster": "video/C02-729649758e.jpg",
+   "saiz": 5991372
+  },
+  {
+   "kod": "C03",
+   "siri": "C",
+   "bab": 3,
+   "tajuk": "Hari 2: otak bisnes kau",
+   "ebook": "Claude Untuk Pemula · Bab 3",
+   "video": "video/C03-9030b63f48.mp4",
+   "poster": "video/C03-a1ccf0c220.jpg",
+   "saiz": 5820375
+  },
+  {
+   "kod": "C04",
+   "siri": "C",
+   "bab": 4,
+   "tajuk": "Copy yang menjual, balasan yang tenang",
+   "ebook": "Claude Untuk Pemula · Bab 4",
+   "video": "video/C04-610962f06f.mp4",
+   "poster": "video/C04-b0ba778c70.jpg",
+   "saiz": 6615861
+  },
+  {
+   "kod": "C05",
+   "siri": "C",
+   "bab": 5,
+   "tajuk": "Excel, slaid, poster tanpa kemahiran",
+   "ebook": "Claude Untuk Pemula · Bab 5",
+   "video": "video/C05-4ee93a4bc1.mp4",
+   "poster": "video/C05-641ddd02ef.jpg",
+   "saiz": 6096922
+  },
+  {
+   "kod": "C06",
+   "siri": "C",
+   "bab": 6,
+   "tajuk": "Sunting video dengan Claude Code",
+   "ebook": "Claude Untuk Pemula · Bab 6",
+   "video": "video/C06-5263b8a9a0.mp4",
+   "poster": "video/C06-9f17d09c20.jpg",
+   "saiz": 6329614
+  },
+  {
+   "kod": "C07",
+   "siri": "C",
+   "bab": 7,
+   "tajuk": "Sambung app kau kepada Claude",
+   "ebook": "Claude Untuk Pemula · Bab 7",
+   "video": "video/C07-8e8f071219.mp4",
+   "poster": "video/C07-511a052702.jpg",
+   "saiz": 6257347
+  },
+  {
+   "kod": "C08",
+   "siri": "C",
+   "bab": 8,
+   "tajuk": "Claude jadi pengurus iklan kau",
+   "ebook": "Claude Untuk Pemula · Bab 8",
+   "video": "video/C08-8dd9421f88.mp4",
+   "poster": "video/C08-bf3621461c.jpg",
+   "saiz": 6169733
+  },
+  {
+   "kod": "C09",
+   "siri": "C",
+   "bab": 9,
+   "tajuk": "Setiap lead WhatsApp masuk Google Sheet",
+   "ebook": "Claude Untuk Pemula · Bab 9",
+   "video": "video/C09-1d43c9ef49.mp4",
+   "poster": "video/C09-28cac33296.jpg",
+   "saiz": 6093923
+  },
+  {
+   "kod": "C10",
+   "siri": "C",
+   "bab": 10,
+   "tajuk": "Riset pesaing, serah kerja panjang",
+   "ebook": "Claude Untuk Pemula · Bab 10",
+   "video": "video/C10-87cac27bad.mp4",
+   "poster": "video/C10-17d9324237.jpg",
+   "saiz": 5594446
+  },
+  {
+   "kod": "C11",
+   "siri": "C",
+   "bab": 11,
+   "tajuk": "Otak dah pandai. Tapi siapa jaga malam?",
+   "ebook": "Claude Untuk Pemula · Bab 11",
+   "video": "video/C11-28ddba4566.mp4",
+   "poster": "video/C11-b82f137e11.jpg",
+   "saiz": 5888717
+  },
+  {
+   "kod": "C12",
+   "siri": "C",
+   "bab": 12,
+   "tajuk": "50 prompt BM siap guna",
+   "ebook": "Claude Untuk Pemula · Bab 12",
+   "video": "video/C12-f4d60d7a7c.mp4",
+   "poster": "video/C12-bb93aec480.jpg",
+   "saiz": 6770948
+  },
+  {
+   "kod": "H00",
+   "siri": "H",
+   "bab": 0,
+   "tajuk": "Otak dah ada. Kini, pekerja.",
+   "ebook": "Hermes v2 · Bab 0",
+   "video": "video/H00-01e128357f.mp4",
+   "poster": "video/H00-290a078c28.jpg",
+   "saiz": 6121269
+  },
+  {
+   "kod": "H01",
+   "siri": "H",
+   "bab": 1,
+   "tajuk": "Kenapa otak perlukan pekerja",
+   "ebook": "Hermes v2 · Bab 1",
+   "video": "video/H01-b3a5271bf8.mp4",
+   "poster": "video/H01-f16bdbabcd.jpg",
+   "saiz": 6009202
+  },
+  {
+   "kod": "H02",
+   "siri": "H",
+   "bab": 2,
+   "tajuk": "Hari 5: rumah Hermes",
+   "ebook": "Hermes v2 · Bab 2",
+   "video": "video/H02-a5f013fb05.mp4",
+   "poster": "video/H02-6ce96f28d0.jpg",
+   "saiz": 6883297
+  },
+  {
+   "kod": "H03",
+   "siri": "H",
+   "bab": 3,
+   "tajuk": "Hidupkan Hermes, Claude otaknya",
+   "ebook": "Hermes v2 · Bab 3",
+   "video": "video/H03-0ef56ada6d.mp4",
+   "poster": "video/H03-7b6f1e96be.jpg",
+   "saiz": 6285822
+  },
+  {
+   "kod": "H04",
+   "siri": "H",
+   "bab": 4,
+   "tajuk": "Telegram: suara bos kepada pekerja",
+   "ebook": "Hermes v2 · Bab 4",
+   "video": "video/H04-d97d242180.mp4",
+   "poster": "video/H04-c0b58185c1.jpg",
+   "saiz": 5926552
+  },
+  {
+   "kod": "H05",
+   "siri": "H",
+   "bab": 5,
+   "tajuk": "Hari 6: pasang otak syarikat",
+   "ebook": "Hermes v2 · Bab 5",
+   "video": "video/H05-5896af8e87.mp4",
+   "poster": "video/H05-517d55b62a.jpg",
+   "saiz": 6670156
+  },
+  {
+   "kod": "H06",
+   "siri": "H",
+   "bab": 6,
+   "tajuk": "Kerja #1 berjalan sendiri",
+   "ebook": "Hermes v2 · Bab 6",
+   "video": "video/H06-091b430be2.mp4",
+   "poster": "video/H06-e633297c42.jpg",
+   "saiz": 5992537
+  },
+  {
+   "kod": "H07",
+   "siri": "H",
+   "bab": 7,
+   "tajuk": "Notion: meja kerja Claude dan Hermes",
+   "ebook": "Hermes v2 · Bab 7",
+   "video": "video/H07-ffb8f23a25.mp4",
+   "poster": "video/H07-e98e6a9a25.jpg",
+   "saiz": 6097921
+  },
+  {
+   "kod": "H08",
+   "siri": "H",
+   "bab": 8,
+   "tajuk": "Pindah kerja Claude ke Hermes: 3 resipi",
+   "ebook": "Hermes v2 · Bab 8",
+   "video": "video/H08-158c157317.mp4",
+   "poster": "video/H08-46745b80d3.jpg",
+   "saiz": 5747933
+  },
+  {
+   "kod": "H09",
+   "siri": "H",
+   "bab": 9,
+   "tajuk": "Hermes jaga iklan 24 jam (percubaan)",
+   "ebook": "Hermes v2 · Bab 9",
+   "video": "video/H09-191f92ffbc.mp4",
+   "poster": "video/H09-77f85b23af.jpg",
+   "saiz": 5550690
+  },
+  {
+   "kod": "H10",
+   "siri": "H",
+   "bab": 10,
+   "tajuk": "Pekerja kandungan (pilihan)",
+   "ebook": "Hermes v2 · Bab 10",
+   "video": "video/H10-9341fa1a7e.mp4",
+   "poster": "video/H10-26705b6d4c.jpg",
+   "saiz": 6211074
+  },
+  {
+   "kod": "H11",
+   "siri": "H",
+   "bab": 11,
+   "tajuk": "Lead, follow-up, laporan pagi",
+   "ebook": "Hermes v2 · Bab 11",
+   "video": "video/H11-125f13828c.mp4",
+   "poster": "video/H11-dd02e5a02b.jpg",
+   "saiz": 5871409
+  },
+  {
+   "kod": "H12",
+   "siri": "H",
+   "bab": 12,
+   "tajuk": "AI balas WhatsApp 24 jam, cara rasmi",
+   "ebook": "Hermes v2 · Bab 12",
+   "video": "video/H12-66c078cf7f.mp4",
+   "poster": "video/H12-55c7e6f6f3.jpg",
+   "saiz": 5771857
+  },
+  {
+   "kod": "H13",
+   "siri": "H",
+   "bab": 13,
+   "tajuk": "Keselamatan 24 jam",
+   "ebook": "Hermes v2 · Bab 13",
+   "video": "video/H13-6de63cdd43.mp4",
+   "poster": "video/H13-4b887a908f.jpg",
+   "saiz": 5852663
+  }
+ ]
+}

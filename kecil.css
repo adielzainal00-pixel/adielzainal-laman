@@ -73,3 +73,8 @@ code{background:#EEEEEC;border-radius:6px}
 
 /* Seragam semua kotak (draf-seragam-semua) */
 .kotak,.borang{background:linear-gradient(135deg,#D3E3FD,#E9DDFF 55%,#FFDAD6);border:0}
+
+.siri-video{font:400 1.2rem/1.2 var(--f-serif);margin:22px 0 4px}
+.video-bab{display:grid;gap:8px;margin:6px 0 14px}
+.video-tajuk{margin:0;font-weight:600}
+.video-bab video{width:100%;max-width:360px;aspect-ratio:9/16;background:#000;border:1px solid var(--gelap)}

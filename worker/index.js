@@ -8,11 +8,18 @@
 // Rahsia (wrangler secret): BCL_TOKEN (token API BCL, kebenaran API Read sahaja), KUNCI (tandatangan pautan).
 // Pemboleh ubah (wrangler.jsonc vars): BORANG_META, BORANG_HERMES (ID borang BCL, dipisah koma), BENARKAN_UJIAN ("1" semasa Test Mode).
 import DATA from "./produk.json";
+import VIDEO from "./video.json";
 
 const HAD = 5;                    // muat turun setiap fail, setiap pesanan
 const SAH_SAAT = 30 * 60;         // pautan muat turun sah
 const SIMPAN_SAAT = 6 * 3600;     // rekod pesanan disimpan dalam KV (kurangkan panggilan API BCL)
 const TAKJUMPA_SAAT = 600;        // no. pesanan yang tiada: tak tanya BCL semula selama ini
+
+const VIDEO_SAAT = 3 * 3600;      // pautan video sah (pembeli tonton dalam laman)
+// Siri video bab mengikut produk: C = Claude Untuk Pemula, H = Hermes v2. Pakej Autopilot = kedua-duanya.
+const SIRI_VIDEO = { claude: ["C"], autopilot: ["C", "H"], hermes: ["H"] };
+// Produk yang belum ada fail dalam produk.json (PDF akhir belum siap) tetap boleh buka halaman akses untuk video.
+const PRODUK_LAIN = { claude: { nama: "Claude Untuk Pemula", fail: [] }, autopilot: { nama: "Pakej Bisnes Autopilot", fail: [] } };
 
 const KEPALA = { "Cache-Control": "no-store", "X-Robots-Tag": "noindex, nofollow", "Referrer-Policy": "no-referrer" };
 
@@ -22,6 +29,7 @@ export default {
     try {
       if (url.pathname === "/api/akses" && req.method === "POST") return await akses(req, env);
       if (url.pathname === "/api/fail" && req.method === "GET") return await muatTurun(url, req, env);
+      if (url.pathname === "/api/video" && req.method === "GET") return await video(url, req, env);
       if (url.pathname === "/api/kit" && req.method === "POST") return await kitBerbayar(req, env);
     } catch (e) {
       console.log("ralat", e && e.stack || e);
@@ -40,7 +48,7 @@ async function akses(req, env) {
   let b;
   try { b = await req.json(); } catch { return json({ ok: false, ralat: "format" }, 400); }
   const pid = String(b.produk || "");
-  const produk = DATA.produk[pid];
+  const produk = DATA.produk[pid] || PRODUK_LAIN[pid];
   const pesanan = String(b.pesanan || "").toUpperCase().replace(/\s+/g, "");
   const emel = String(b.emel || "").trim().toLowerCase();
   if (!produk || !/^[A-Z0-9][A-Z0-9_-]{2,40}$/.test(pesanan) || !/^[^@\s]{1,64}@[^@\s]{1,190}\.[^@\s]{2,}$/.test(emel)) {
@@ -60,7 +68,16 @@ async function akses(req, env) {
       url: `/api/fail?o=${encodeURIComponent(pesanan)}&p=${pid}&f=${f.id}&e=${exp}&s=${s}`,
     });
   }
-  return json({ ok: true, nama: rek.nama, produk: produk.nama, fail });
+  const vexp = Math.floor(Date.now() / 1000) + VIDEO_SAAT;
+  const siri = SIRI_VIDEO[pid] || [];
+  const video = [];
+  for (const v of VIDEO.bab || []) {
+    if (!siri.includes(v.siri)) continue;
+    const s = await tandatangan(env.KUNCI, `${pesanan}|${pid}|vid:${v.kod}|${vexp}`);
+    const asas = `/api/video?o=${encodeURIComponent(pesanan)}&p=${pid}&k=${v.kod}&e=${vexp}&s=${s}`;
+    video.push({ kod: v.kod, siri: v.siri, bab: v.bab, tajuk: v.tajuk, ebook: v.ebook, url: asas, poster: asas + "&j=poster" });
+  }
+  return json({ ok: true, nama: rek.nama, produk: produk.nama, fail, video });
 }
 
 // Semak pesanan dengan BCL (rekod disimpan 6 jam dalam KV). Pulang { rek } atau { ralat: Response }.
@@ -148,6 +165,8 @@ function kenalProduk(d, m, env) {
   const meta = senarai(env.BORANG_META), hermes = senarai(env.BORANG_HERMES);
   if (meta.length ? meta.includes(fid) : teks.includes("meta ads")) out.push("meta");
   if (hermes.length ? hermes.includes(fid) : teks.includes("hermes")) out.push("hermes");
+  if (teks.includes("claude untuk pemula")) out.push("claude");
+  if (teks.includes("autopilot")) out.push("autopilot");
   // kit berbayar: item atau tajuk borang "Kit <KATA KUNCI>" -> "kit-<kata kunci>"
   for (const m of teks.matchAll(/\bkit\s+([a-z0-9-]{2,30})\b/g)) if (!out.includes("kit-" + m[1])) out.push("kit-" + m[1]);
   return out;
@@ -196,6 +215,33 @@ async function muatTurun(url, req, env) {
       "Content-Disposition": `attachment; filename="${fail.nama_muat}"`,
     },
   });
+}
+
+// ---------- GET /api/video ----------
+// Video bab untuk pembeli sahaja: pautan bertandatangan (HMAC, sah 3 jam), dimainkan dalam laman (sokong Range untuk Safari/iPhone).
+async function video(url, req, env) {
+  const q = (k) => url.searchParams.get(k) || "";
+  const o = q("o").toUpperCase(), pid = q("p"), kod = q("k"), e = q("e"), s = q("s"), poster = q("j") === "poster";
+  const v = (VIDEO.bab || []).find((x) => x.kod === kod);
+  if (!v || !(SIRI_VIDEO[pid] || []).includes(v.siri) || !env.KUNCI || !env.MUAT_TURUN) return new Response("Tidak sah", { status: 400, headers: KEPALA });
+  if (!/^\d{10}$/.test(e) || Number(e) < Date.now() / 1000) return new Response("Pautan tamat. Muat semula halaman akses.", { status: 410, headers: KEPALA });
+  if (!(await sahkan(env.KUNCI, `${o}|${pid}|vid:${kod}|${e}`, s))) return new Response("Tidak sah", { status: 403, headers: KEPALA });
+  if (await env.MUAT_TURUN.get("sekat:" + o)) return new Response("Akses ditutup", { status: 403, headers: KEPALA });
+
+  const data = env.PRODUK && (await env.PRODUK.get(poster ? v.poster : v.video, "arrayBuffer"));
+  if (!data) return new Response("Video tidak dapat dibuka sekarang", { status: 502, headers: KEPALA });
+  const jenis = poster ? "image/jpeg" : "video/mp4";
+  const h = { ...KEPALA, "Cache-Control": "private, max-age=600", "Content-Type": jenis, "Content-Disposition": "inline", "Accept-Ranges": "bytes" };
+  const n = data.byteLength;
+  const julat = !poster && /^bytes=(\d*)-(\d*)$/.exec(req.headers.get("Range") || "");
+  if (julat && (julat[1] || julat[2])) {
+    let a = julat[1] ? Number(julat[1]) : n - Number(julat[2]);
+    const b = julat[1] && julat[2] ? Math.min(Number(julat[2]), n - 1) : n - 1;
+    if (a < 0) a = 0;
+    if (a >= n || a > b) return new Response(null, { status: 416, headers: { ...h, "Content-Range": `bytes */${n}` } });
+    return new Response(data.slice(a, b + 1), { status: 206, headers: { ...h, "Content-Range": `bytes ${a}-${b}/${n}`, "Content-Length": String(b - a + 1) } });
+  }
+  return new Response(data, { headers: { ...h, "Content-Length": String(n) } });
 }
 
 // ---------- alat ----------

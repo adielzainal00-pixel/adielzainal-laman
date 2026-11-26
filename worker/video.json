@@ -269,6 +269,26 @@
    "video": "video/H13-6de63cdd43.mp4",
    "poster": "video/H13-4b887a908f.jpg",
    "saiz": 5852663
+  },
+  {
+   "kod": "H14",
+   "siri": "H",
+   "bab": 14,
+   "tajuk": "Selepas 7 hari: minggu 2 hingga 4",
+   "ebook": "Hermes v2 · Bab 14",
+   "video": "video/H14-30fb9168d9.mp4",
+   "poster": "video/H14-6d1dc57217.jpg",
+   "saiz": 6398160
+  },
+  {
+   "kod": "H15",
+   "siri": "H",
+   "bab": 15,
+   "tajuk": "10 silap kami, dan bantuan",
+   "ebook": "Hermes v2 · Bab 15",
+   "video": "video/H15-24f6a61b32.mp4",
+   "poster": "video/H15-1af8e08f2d.jpg",
+   "saiz": 5992247
   }
  ]
 }

@@ -53,7 +53,6 @@ window.LAMAN = {
         "Pelan 7 hari: satu tugasan kecil setiap hari",
         "Video pendek setiap bab, kemas kini percuma dan kumpulan sokongan Telegram"
       ],
-      tambahan: { nama: "Sesi Pasang Bersama 1 jam", harga: 150 },
       bcl: "",
       bcl_tambahan: "",
       label: "Mula di sini"
@@ -75,10 +74,10 @@ window.LAMAN = {
         "Harga pakej ditolak penuh jika anda naik taraf ke coaching dalam 14 hari",
         "Kemas kini percuma dan kumpulan sokongan Telegram"
       ],
-      tambahan: { nama: "Sesi Pasang Bersama 1 jam", harga: 150 },
       bcl: "",
       bcl_tambahan: "",
-      label: "Paling berbaloi"
+      label: "Paling berbaloi",
+      utama: true
     },
     {
       id: "meta",
@@ -146,8 +145,7 @@ window.LAMAN = {
         "Harga yang sama untuk Google Meet atau bersemuka (lokasi disahkan selepas tempahan)"
       ],
       bcl: "",
-      label: "Fokus utama",
-      utama: true
+      label: "Dibimbing 1-to-1"
     },
     {
       id: "laju",

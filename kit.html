@@ -78,6 +78,22 @@
 <script>
 /* SENARAI KIT: tambah kit baru di sini sahaja. id = kata kunci huruf kecil (jadi pautan adielzainal.com/kit?k=id). Yang terbaru di atas. */
 var KIT = [
+  { id: "setup", kunci: "SETUP", tajuk: "Buat 5 benda ni dalam Claude (pelan hujung minggu)",
+    terang: "Lima langkah supaya Claude kenal anda dan kerja anda: dokumen about me, otak kedua, projek, connectors dan skill. Semua ada dalam claude.ai, termasuk pelan percuma (had 5 projek). Disemak di claude.com, 26 Nov 2026.",
+    kod: "Tanya aku 50 soalan tentang kerja aku, matlamat aku dan cara aku suka bekerja. Satu soalan pada satu masa. Bila habis, jadikan semua jawapan aku satu dokumen about me yang ringkas.",
+    kodTajuk: "Langkah 1, tampal dalam Claude:",
+    balut: true, salinLabel: "Salin prompt",
+    senarai: [
+      ["1. About me", "Jawab 50 soalan (guna voice to text di telefon kalau malas menaip). Simpan hasilnya sebagai about-me.md.", "https://claude.ai/new"],
+      ["2. Otak kedua", "Kumpul nota, dokumen dan kerja semasa dalam satu folder. Bila mula kerja, lampirkan fail yang berkaitan.", "https://claude.ai/new"],
+      ["3. Projek", "Buat projek berasingan untuk kerja, bisnes dan peribadi. Setiap satu ada fail dan arahan sendiri.", "https://claude.ai/projects"],
+      ["4. Connectors", "Sambung app yang anda dah guna. Mula dengan Google Drive supaya Claude cari fail sendiri.", "https://claude.com/marketplace/connectors-plugins"],
+      ["5. Skill", "Pasang satu skill untuk kerja mingguan, contohnya slide jualan dari nota anda.", "https://claude.com/skills"]
+    ],
+    tip: "Trik yang ramai terlepas: masukkan about-me.md dalam setiap projek, supaya Claude kenal anda dan kenal kerja tu sekali.",
+    pautan: "https://claude.com/pricing", label: "Semak apa ada dalam pelan anda",
+    /* Kit penuh berbayar: isi pautan borang BCL bila borang dibuka. Kosong = butang tak dipapar. */
+    penuh: { bcl: "", harga: "RM3", label: "Kit SETUP Penuh", terang: "Pelan Sabtu dan Ahad jam demi jam, 10 prompt siap guna (about me, arahan projek, susulan pelanggan), dan 3 idea skill mingguan untuk perniagaan kecil." } },
   { id: "agent", kunci: "AGENT", tajuk: "Ultracode: satu arahan, beratus agen dalam Claude Code",
     terang: "Ciri rasmi Claude Code (dynamic workflows). Claude lancarkan satu pasukan sub-agen, setiap satu ambil satu bahagian kerja, kemudian hasil dikumpul dalam satu jawapan. Berfungsi dalam Claude Code sahaja, pelan berbayar.",
     kod: "/effort ultracode",

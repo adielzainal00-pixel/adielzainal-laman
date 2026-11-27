@@ -41,7 +41,6 @@
   .beli-kit{display:grid;gap:10px;margin-top:12px;padding:14px;background:var(--kad2)}
   .beli-kit label{display:grid;gap:4px;font-size:.85rem;font-weight:600}
   .beli-kit input{padding:10px 12px;font:inherit;font-size:16px;border:1px solid var(--garis-kuat);background:var(--bg);color:inherit}
-  .beli-kit .kecil-kit{font-size:.8rem;margin:0}
   .beli-kit[hidden]{display:none}
   .buka-beli{border:0;cursor:pointer;font:inherit;font-weight:600}
   .kad-kit .harga-kit{font:800 1.5rem var(--f-tajuk);color:inherit;margin:2px 0 12px}
@@ -127,8 +126,7 @@ var KIT = [
         '<label>Nama<input name="nama" autocomplete="name" required maxlength="80"></label>' +
         '<label>E-mel (pautan kit dihantar ke sini)<input name="emel" type="email" autocomplete="email" required maxlength="120"></label>' +
         '<label>No. telefon<input name="tel" type="tel" autocomplete="tel" inputmode="tel" required maxlength="20" placeholder="012-345 6789"></label>' +
-        '<button class="butang-kit" type="submit">Bayar RM3 →</button>' +
-        '<p class="kecil-kit">Bayar dengan FPX di BCL. Selepas bayar, kit terus dibuka dan pautannya dihantar ke e-mel anda.</p>' +
+        '<button class="butang-kit" type="submit">Bayar RM3</button>' +
       '</form></article>';
   }).join("");
   var simpan = {};

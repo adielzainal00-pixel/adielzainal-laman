@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Adiel Zainal | Kit percuma dari Threads</title>
-<meta name="description" content="Semua kit dan pautan yang Adiel janjikan di Threads: LOOP, MOTION, CHEAT dan lain-lain.">
+<title>Adiel Zainal | Kit dari Threads · RM3</title>
+<meta name="description" content="Kit dari content Threads Adiel: SETUP, AGENT, MOTION, LOOP dan lain-lain. RM3 sekit.">
 <meta name="theme-color" content="#FFFFFF">
-<meta property="og:title" content="Kit percuma Adiel Zainal · AI untuk pemilik perniagaan">
+<meta property="og:title" content="Kit Adiel Zainal · AI untuk pemilik perniagaan">
 <meta property="og:image" content="https://adielzainal.com/aset/og.png">
 <meta property="og:url" content="https://adielzainal.com/kit">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23FFD60A'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='900' font-size='34' text-anchor='middle' fill='%23111'%3EA%3C/text%3E%3C/svg%3E">
@@ -38,6 +38,11 @@
   .kad-kit pre.kod.balut{white-space:pre-wrap;font-size:.9rem}
   .penuh-kit{margin:14px 0;padding:14px;border-radius:14px;background:linear-gradient(135deg,rgba(56,189,248,.12),rgba(99,102,241,.14));border:1px solid rgba(99,102,241,.35)}
   .penuh-kit p{margin:0 0 10px}
+  .beli-kit{display:grid;gap:10px;margin-top:12px;padding:14px;background:var(--kad2)}
+  .beli-kit label{display:grid;gap:4px;font-size:.85rem;font-weight:600}
+  .beli-kit input{padding:10px 12px;font:inherit;font-size:16px;border:1px solid var(--garis-kuat);background:var(--bg);color:inherit}
+  .beli-kit .kecil-kit{font-size:.8rem;margin:0}
+  .buka-beli{border:0;cursor:pointer;font:inherit;font-weight:600}
   .salin{margin:0 0 12px;padding:6px 12px;font-size:.82rem;border:1px solid var(--garis);background:var(--kad2);cursor:pointer}
   .seterusnya{margin-top:30px;padding:20px;border:1px solid var(--garis-kuat);text-align:left}
   .seterusnya h2{font-size:1.2rem;margin:0 0 6px}
@@ -55,13 +60,13 @@
   <div class="kabus" aria-hidden="true"></div>
   <nav aria-label="Utama"><a class="jenama" href="index.html">Adiel Zainal</a><div class="menu"><a href="index.html#sistem">Automasi</a><a href="index.html#produk">Program</a></div></nav>
   <a class="lencana" href="#senarai">Kit anda ada di bawah, skrol ↓</a>
-  <div class="pil"><p><span>Salam Kejayaan 😊</span><br>Kit percuma untuk anda</p><span class="tanda" aria-hidden="true"><i></i></span></div>
-  <div class="peranan"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" aria-hidden="true"><path d="M6 6l12 12M18 8v10H8"/></svg>Kit percuma<br>dari Threads</div>
+  <div class="pil"><p><span>Salam Kejayaan 😊</span><br>Kit anda, RM3 sekit</p><span class="tanda" aria-hidden="true"><i></i></span></div>
+  <div class="peranan"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" aria-hidden="true"><path d="M6 6l12 12M18 8v10H8"/></svg>Kit RM3<br>dari Threads</div>
   <h1 class="nama" id="nama">Adiel Zainal</h1>
 </header>
 <main class="kit isi-a">
-  <h2 class="tajuk-a">Kit percuma dari Threads</h2>
-  <p class="ringkas">Semua pautan yang saya janjikan di Threads, dikumpulkan di satu tempat. Pilih yang anda perlukan.</p>
+  <h2 class="tajuk-a">Kit dari Threads</h2>
+  <p class="ringkas">Semua kit dari content saya di Threads, dikumpulkan di satu tempat. RM3 sekit, sekali bayar. Selepas bayar, kit terus dibuka dan dihantar ke e-mel anda.</p>
   <div class="senarai" id="senarai"></div>
 
   <section class="seterusnya" aria-label="Langkah seterusnya">
@@ -76,73 +81,27 @@
 </main>
 <footer class="kaki-ssm" style="text-align:center;font-size:.8rem;color:var(--pudar,#777);padding:28px 16px 120px;border-top:1px solid var(--garis,#e5e5e5)">© Adiel Zainal · SASS ONE WORLDWIDE · No. Pendaftaran SSM: 202603017072 (JR0186691-K)</footer>
 <script>
-/* SENARAI KIT: tambah kit baru di sini sahaja. id = kata kunci huruf kecil (jadi pautan adielzainal.com/kit?k=id). Yang terbaru di atas. */
+/* SENARAI KIT (awam): tajuk dan ringkasan sahaja. Isi penuh setiap kit dalam KV PRODUK kit/<id>.json
+   (sumber: repo peribadi Agensi-ai, kit-berbayar/<id>.json; muat naik dengan alat/terbit_kit.sh).
+   Kit baru: tambah item "Kit <KUNCI>" RM3 dalam borang BCL 23113 (slug kit), kemudian salin ID item ke medan item di bawah. */
+var BORANG_KIT = "https://sassoneworldwide.bcl.my/form/kit";
 var KIT = [
-  { id: "setup", kunci: "SETUP", tajuk: "Buat 5 benda ni dalam Claude (pelan hujung minggu)",
-    terang: "Lima langkah supaya Claude kenal anda dan kerja anda: dokumen about me, otak kedua, projek, connectors dan skill. Semua ada dalam claude.ai, termasuk pelan percuma (had 5 projek). Disemak di claude.com, 26 Nov 2026.",
-    kod: "Tanya aku 50 soalan tentang kerja aku, matlamat aku dan cara aku suka bekerja. Satu soalan pada satu masa. Bila habis, jadikan semua jawapan aku satu dokumen about me yang ringkas.",
-    kodTajuk: "Langkah 1, tampal dalam Claude:",
-    balut: true, salinLabel: "Salin prompt",
-    senarai: [
-      ["1. About me", "Jawab 50 soalan (guna voice to text di telefon kalau malas menaip). Simpan hasilnya sebagai about-me.md.", "https://claude.ai/new"],
-      ["2. Otak kedua", "Kumpul nota, dokumen dan kerja semasa dalam satu folder. Bila mula kerja, lampirkan fail yang berkaitan.", "https://claude.ai/new"],
-      ["3. Projek", "Buat projek berasingan untuk kerja, bisnes dan peribadi. Setiap satu ada fail dan arahan sendiri.", "https://claude.ai/projects"],
-      ["4. Connectors", "Sambung app yang anda dah guna. Mula dengan Google Drive supaya Claude cari fail sendiri.", "https://claude.com/marketplace/connectors-plugins"],
-      ["5. Skill", "Pasang satu skill untuk kerja mingguan, contohnya slide jualan dari nota anda.", "https://claude.com/skills"]
-    ],
-    tip: "Trik yang ramai terlepas: masukkan about-me.md dalam setiap projek, supaya Claude kenal anda dan kenal kerja tu sekali.",
-    pautan: "https://claude.com/pricing", label: "Semak apa ada dalam pelan anda",
-    /* Kit penuh berbayar: isi pautan borang BCL bila borang dibuka. Kosong = butang tak dipapar. */
-    penuh: { bcl: "", harga: "RM3", label: "Kit SETUP Penuh", terang: "Pelan Sabtu dan Ahad jam demi jam, 10 prompt siap guna (about me, arahan projek, susulan pelanggan), dan 3 idea skill mingguan untuk perniagaan kecil." } },
-  { id: "agent", kunci: "AGENT", tajuk: "Ultracode: satu arahan, beratus agen dalam Claude Code",
-    terang: "Ciri rasmi Claude Code (dynamic workflows). Claude lancarkan satu pasukan sub-agen, setiap satu ambil satu bahagian kerja, kemudian hasil dikumpul dalam satu jawapan. Berfungsi dalam Claude Code sahaja, pelan berbayar.",
-    kod: "/effort ultracode",
-    kodTajuk: "Hidupkan untuk satu sesi, taip dalam Claude Code:",
-    tip: "Untuk satu tugasan sahaja, taip perkataan ultracode dalam arahan anda, contohnya \"ultracode: lancarkan 50 sub-agen dan bina laman web aku\". Had: 16 agen serentak, 1,000 agen setiap larian. Token digunakan jauh lebih banyak, jadi mula dengan saiz small di /config. Pengguna Pro perlu hidupkan Dynamic workflows di /config dahulu.",
-    pautan: "https://code.claude.com/docs/en/workflows", label: "Baca dokumen rasmi",
-    /* Kit penuh berbayar: isi pautan borang BCL bila borang dibuka. Kosong = butang tak dipapar. */
-    penuh: { bcl: "", harga: "RM3", label: "Kit AGENT Penuh", terang: "5 contoh tugasan ultracode untuk perniagaan kecil, templat arahan saiz pasukan, dan cara jeda serta sambung semula." } },
-  { id: "belajar", kunci: "BELAJAR", tajuk: "Watch: Claude tengok video YouTube dan belajar skill",
-    terang: "Skill percuma (bradautomates/claude-video, ~21.7K bintang, MIT). Claude ambil frame dan transkrip video, kemudian anda minta dia jadikan skill. Berfungsi dalam Claude Code sahaja, bukan Claude Chat atau Cowork.",
-    kod: "/plugin marketplace add bradautomates/claude-video\n/plugin install watch@claude-video",
-    kodTajuk: "Cara install, taip dalam Claude Code:",
-    tip: "Kemudian taip /watch <link YouTube> dan minta: \"Tengok video ni, belajar apa yang dia ajar, dan jadikan dia skill yang aku boleh guna selama-lamanya.\" Windows perlu Python, FFmpeg, yt-dlp dan Deno (arahan winget ada dalam README).",
-    pautan: "https://github.com/bradautomates/claude-video", label: "Buka di GitHub",
-    /* Kit penuh berbayar: isi pautan borang BCL bila borang dibuka. Kosong = butang tak dipapar. */
-    penuh: { bcl: "", harga: "RM3", label: "Kit BELAJAR Penuh", terang: "Prompt penuh yang saya guna untuk tukar video jadi skill, 3 contoh perniagaan (susulan jualan, sebut harga, SOP staf) dan langkah pasang Windows." } },
-  { id: "creator", kunci: "CREATOR", tajuk: "5 Claude Skill untuk Creator",
-    terang: "Lima skill Claude untuk kerja content creator. Setiap satu ada butang Copy install.",
-    tip: "Tekan \u201cCopy install\u201d untuk setiap skill, tampal dalam Terminal, dan siap.",
-    pautan: "https://claude.ai/artifact/P5apZvE5buSEjDdBoA4k5W", label: "Buka kit" },
-  { id: "repo", kunci: "REPO", tajuk: "5 repo GitHub yang saya guna sendiri",
-    terang: "Semua percuma dan open source. Bintang disemak 23 Nov 2026.",
-    senarai: [
-      ["Claude skills (Anthropic)", "Skill rasmi untuk Claude. ~199K bintang.", "https://github.com/anthropics/skills"],
-      ["HyperFrames (HeyGen)", "Buat dan edit video guna kod. ~89K bintang.", "https://github.com/heygen-com/hyperframes"],
-      ["Remotion", "Buat video dengan React. Percuma untuk individu dan syarikat kecil. ~75K bintang.", "https://github.com/remotion-dev/remotion"],
-      ["Lemo-Opuscar", "99 gaya filem animasi untuk Claude Code. ~20K bintang.", "https://github.com/lemomo-ai/lemo-opuscar"],
-      ["yt-dlp", "Muat turun video untuk rujukan. ~210K bintang.", "https://github.com/yt-dlp/yt-dlp"]
-    ],
-    kod: "Apa repo ni, selamat ke untuk aku guna, dan macam mana dia boleh bantu bisnes aku?",
-    kodTajuk: "Salin link repo, masukkan dalam Claude Code, kemudian tanya:", salinLabel: "Salin soalan", balut: true,
-    tip: "Sebelum install, semak jumlah bintang dan tarikh kemas kini terakhir, dan minta Claude baca kod repo itu dahulu.",
-    pautan: "https://github.com/anthropics/skills", label: "Mula dengan Claude skills" },
-  { id: "motion", kunci: "MOTION", tajuk: "Lemo-Opuscar: 99 gaya filem untuk Claude Code",
-    terang: "Projek open source untuk buat motion graphics guna kod, tanpa AI video. Watercolor, kartun lama, LEGO, pulau 3D.",
-    kod: "claude plugin marketplace add lemomo-ai/lemo-opuscar\nclaude plugin install lemo-opuscar@lemolab",
-    kodTajuk: "Cara install, taip dalam Terminal:",
-    tip: "Kemudian dalam Claude Code, tetapkan /effort high dan minta saiz 1080x1920 kalau nak untuk Reels.",
-    pautan: "https://github.com/lemomo-ai/lemo-opuscar", label: "Buka di GitHub",
-    pautan2: "https://lemomo-ai.github.io/lemo-opuscar/", label2: "Galeri 99 gaya (tengok filem contoh)",
-    /* Kit penuh berbayar: isi pautan borang BCL bila borang dibuka. Kosong = butang tak dipapar. */
-    penuh: { bcl: "", harga: "RM3", label: "Kit MOTION Penuh", terang: "Prompt penuh Claude Code + SOP 4 langkah yang saya guna untuk video animasi TikTok." } },
-  { id: "loop", kunci: "LOOP", tajuk: "Kit /goal: 5 syarat siap untuk Claude Code",
-    terang: "Suruh Claude semak kerja sendiri guna /plan, /goal dan /review. Siap dengan 5 syarat /goal yang boleh terus copy.",
-    tip: "Mula dengan syarat /goal nombor 2 (baiki semua test). Yang tu paling mudah untuk nampak hasilnya.",
-    pautan: "https://claude.ai/artifact/QF2L9Yj2V8scGj7UdcqoHY", label: "Buka kit" },
-  { id: "cheat", kunci: "CHEAT", tajuk: "Cheat sheet: 7 command Claude Code untuk beginner",
-    terang: "Plan Mode, undo, menyambung sesi lama dan cara membantu Claude memahami struktur projek anda.",
-    tip: "", pautan: "https://claude.ai/artifact/7A6VNzEcp3bFrUV9Bh3nj5", label: "Buka cheat sheet" }
+  { id: "setup", kunci: "SETUP", item: 46487, tajuk: "Buat 5 benda ni dalam Claude (pelan hujung minggu)",
+    terang: "Lima langkah supaya Claude kenal anda dan kerja anda: about me, otak kedua, projek, connectors dan skill. Termasuk prompt 50 soalan siap salin." },
+  { id: "agent", kunci: "AGENT", item: 46495, tajuk: "Ultracode: satu arahan, beratus agen dalam Claude Code",
+    terang: "Cara hidupkan pasukan sub-agen dalam Claude Code, command yang tepat, had dan cara jimat token." },
+  { id: "belajar", kunci: "BELAJAR", item: 46496, tajuk: "Watch: Claude tengok video YouTube dan belajar skill",
+    terang: "Skill percuma yang buat Claude tengok video dan jadikannya skill. Command install dan prompt yang saya guna." },
+  { id: "creator", kunci: "CREATOR", item: 46497, tajuk: "5 Claude Skill untuk Creator",
+    terang: "Lima skill Claude untuk kerja content creator, setiap satu dengan butang Copy install." },
+  { id: "repo", kunci: "REPO", item: 46498, tajuk: "5 repo GitHub yang saya guna sendiri",
+    terang: "Lima repo percuma yang saya guna untuk video dan automasi, berserta soalan semakan keselamatan sebelum install." },
+  { id: "motion", kunci: "MOTION", item: 46499, tajuk: "Lemo-Opuscar: 99 gaya filem untuk Claude Code",
+    terang: "Buat motion graphics guna kod: command install, tetapan untuk Reels dan galeri 99 gaya." },
+  { id: "loop", kunci: "LOOP", item: 46500, tajuk: "Kit /goal: 5 syarat siap untuk Claude Code",
+    terang: "Suruh Claude semak kerja sendiri guna /plan, /goal dan /review, dengan 5 syarat /goal siap salin." },
+  { id: "cheat", kunci: "CHEAT", item: 46501, tajuk: "Cheat sheet: 7 command Claude Code untuk beginner",
+    terang: "Plan Mode, undo, sambung sesi lama dan cara bantu Claude faham struktur projek anda." }
 ];
 (function () {
   var C = window.LAMAN || {};
@@ -150,21 +109,44 @@ var KIT = [
   var k = "";
   try { k = (new URLSearchParams(location.search).get("k") || location.hash.slice(1) || "").toLowerCase(); } catch (e) {}
   try { sessionStorage.setItem("dari", "Threads"); } catch (e) {}
-  var senarai = KIT.filter(function (x) { return x.pautan; });
-  document.getElementById("senarai").innerHTML = senarai.map(function (x) {
+  document.getElementById("senarai").innerHTML = KIT.map(function (x) {
     return '<article class="kad-kit' + (x.id === k ? " sasar" : "") + '" id="' + esc(x.id) + '">' +
       '<span class="kunci">' + esc(x.kunci) + '</span><h2>' + esc(x.tajuk) + '</h2><p>' + esc(x.terang) + '</p>' +
-      (x.senarai ? '<ol class="repo">' + x.senarai.map(function (r) { return '<li><a href="' + esc(r[2]) + '" target="_blank" rel="noopener">' + esc(r[0]) + ' →</a><span>' + esc(r[1]) + '</span></li>'; }).join("") + '</ol>' : '') +
-      (x.kod ? '<p style="margin:0 0 6px">' + esc(x.kodTajuk || "") + '</p><pre class="kod' + (x.balut ? ' balut' : '') + '"><code>' + esc(x.kod) + '</code></pre><button type="button" class="salin" data-kod="' + esc(x.kod) + '">' + esc(x.salinLabel || "Salin command") + '</button>' : '') +
-      (x.tip ? '<p class="tip">💡 ' + esc(x.tip) + '</p>' : '') +
-      (x.penuh && x.penuh.bcl ? '<div class="penuh-kit"><p><b>' + esc(x.penuh.label) + ' · ' + esc(x.penuh.harga) + '</b><br>' + esc(x.penuh.terang) + '</p><a class="butang-kit" href="' + esc(x.penuh.bcl) + '" rel="noopener">Dapatkan · ' + esc(x.penuh.harga) + ' →</a></div>' : '') +
-      '<div class="butang-baris"><a class="butang-kit" href="' + esc(x.pautan) + '" target="_blank" rel="noopener">' + esc(x.label) + ' →</a>' +
-      (x.pautan2 ? '<a class="butang-kit kedua" href="' + esc(x.pautan2) + '" target="_blank" rel="noopener">' + esc(x.label2) + ' →</a>' : '') + '</div></article>';
+      '<button type="button" class="butang-kit buka-beli">Dapatkan kit · RM3 →</button>' +
+      '<form class="beli-kit" data-item="' + esc(x.item) + '" hidden>' +
+        '<label>Nama<input name="nama" autocomplete="name" required maxlength="80"></label>' +
+        '<label>E-mel (pautan kit dihantar ke sini)<input name="emel" type="email" autocomplete="email" required maxlength="120"></label>' +
+        '<label>No. telefon<input name="tel" type="tel" autocomplete="tel" inputmode="tel" required maxlength="20" placeholder="012-345 6789"></label>' +
+        '<button class="butang-kit" type="submit">Teruskan bayar RM3 →</button>' +
+        '<p class="kecil-kit">Bayar dengan FPX di BCL. Selepas bayar, kit terus dibuka dan pautannya dihantar ke e-mel anda.</p>' +
+      '</form></article>';
   }).join("");
-  Array.prototype.forEach.call(document.querySelectorAll(".salin"), function (b) {
+  var simpan = {};
+  try { simpan = JSON.parse(localStorage.getItem("pembeli_kit") || "{}"); } catch (e) {}
+  Array.prototype.forEach.call(document.querySelectorAll(".buka-beli"), function (b) {
     b.addEventListener("click", function () {
-      var t = b.getAttribute("data-kod");
-      (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function () { b.textContent = "Disalin ✓"; }, function () { b.textContent = "Salin manual dari kotak atas"; });
+      var f = b.nextElementSibling;
+      f.hidden = !f.hidden;
+      if (!f.hidden) {
+        if (simpan.nama && !f.nama.value) f.nama.value = simpan.nama;
+        if (simpan.emel && !f.emel.value) f.emel.value = simpan.emel;
+        if (simpan.tel && !f.tel.value) f.tel.value = simpan.tel;
+        f.nama.focus();
+      }
+    });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll(".beli-kit"), function (f) {
+    f.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      if (!f.reportValidity()) return;
+      var nama = f.nama.value.trim(), emel = f.emel.value.trim(), tel = f.tel.value.replace(/\D/g, "");
+      if (tel.charAt(0) === "0") tel = "6" + tel;
+      else if (tel.indexOf("60") !== 0) tel = "60" + tel;
+      try { localStorage.setItem("pembeli_kit", JSON.stringify({ nama: nama, emel: emel, tel: f.tel.value.trim() })); } catch (e) {}
+      var q = new URLSearchParams();
+      q.set("qty_" + f.getAttribute("data-item"), "1");
+      q.set("name", nama); q.set("email", emel); q.set("phone", tel);
+      location.href = BORANG_KIT + "?" + q.toString();
     });
   });
   if (k) { var el = document.getElementById(k); if (el) setTimeout(function () { el.scrollIntoView({ behavior: "smooth", block: "start" }); }, 150); }

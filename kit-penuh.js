@@ -16,8 +16,8 @@
     belum_aktif: "Kit ini sedang disediakan. Cuba lagi sebentar, atau mesej saya dengan no. pesanan anda.",
     sistem: "Sistem tak dapat semak pesanan sekarang. Cuba lagi dalam beberapa minit."
   };
-  if (!/^[a-z0-9-]{2,30}$/.test(kit)) { mesej.textContent = "Pautan kit tidak lengkap. Buka semula pautan dalam e-mel anda."; butang.disabled = true; return; }
-  document.getElementById("kit-kicker").textContent = "Kit " + kit.toUpperCase() + " · Penuh";
+  if (kit && !/^[a-z0-9-]{2,30}$/.test(kit)) kit = "";
+  document.getElementById("kit-kicker").textContent = kit ? "Kit " + kit.toUpperCase() : "Kit anda";
 
   var pq = (q.get("pesanan") || "").trim(), eq = (q.get("e") || "").trim();
   if (/^[A-Za-z0-9][A-Za-z0-9_-]{2,40}$/.test(pq)) f.pesanan.value = pq.toUpperCase();
@@ -26,8 +26,14 @@
   function el(tag, cls, teks) { var e = document.createElement(tag); if (cls) e.className = cls; if (teks != null) e.textContent = teks; return e; }
 
   function papar(j) {
-    var k = j.kit || {};
     isi.textContent = "";
+    var senarai = j.kits && j.kits.length ? j.kits.map(function (x) { return x.kit; }) : [j.kit || {}];
+    senarai.forEach(function (k, i) { if (i) isi.appendChild(el("hr", "")); paparSatu(k); });
+    f.hidden = true;
+    isi.hidden = false;
+  }
+
+  function paparSatu(k) {
     if (k.tajuk) isi.appendChild(el("h2", "", k.tajuk));
     if (k.ringkas) isi.appendChild(el("p", "lead", k.ringkas));
     (k.bahagian || []).forEach(function (b) {
@@ -49,9 +55,13 @@
         isi.appendChild(s);
       }
       if (b.tip) isi.appendChild(el("p", "nota", "💡 " + b.tip));
+      (b.pautan || []).forEach(function (p) {
+        if (!/^https:\/\//.test(p.url || "")) return;
+        var a = el("a", "btn", (p.label || p.url) + " →");
+        a.href = p.url; a.target = "_blank"; a.rel = "noopener";
+        var w = el("p", ""); w.appendChild(a); isi.appendChild(w);
+      });
     });
-    f.hidden = true;
-    isi.hidden = false;
   }
 
   function hantar() {

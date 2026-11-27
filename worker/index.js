@@ -98,7 +98,7 @@ async function semakPesanan(pesanan, emel, pid, env) {
   }
   // e-mel salah dan pesanan tiada beri jawapan yang sama (orang tak boleh teka pesanan siapa wujud)
   if (rek.emel !== emel) return { ralat: json({ ok: false, ralat: "tak_jumpa" }, 404) };
-  if (!rek.produk.includes(pid)) return { ralat: json({ ok: false, ralat: "produk_lain" }, 403) };
+  if (pid && !rek.produk.includes(pid)) return { ralat: json({ ok: false, ralat: "produk_lain" }, 403) };
   return { rek };
 }
 
@@ -113,17 +113,24 @@ async function kitBerbayar(req, env) {
   const id = String(b.kit || "").toLowerCase();
   const pesanan = String(b.pesanan || "").toUpperCase().replace(/\s+/g, "");
   const emel = String(b.emel || "").trim().toLowerCase();
-  if (!/^[a-z0-9-]{2,30}$/.test(id) || !/^[A-Z0-9][A-Z0-9_-]{2,40}$/.test(pesanan) || !/^[^@\s]{1,64}@[^@\s]{1,190}\.[^@\s]{2,}$/.test(emel)) {
+  if ((id && !/^[a-z0-9-]{2,30}$/.test(id)) || !/^[A-Z0-9][A-Z0-9_-]{2,40}$/.test(pesanan) || !/^[^@\s]{1,64}@[^@\s]{1,190}\.[^@\s]{2,}$/.test(emel)) {
     return json({ ok: false, ralat: "format" }, 400);
   }
-  const isi = env.PRODUK && (await env.PRODUK.get("kit/" + id + ".json", "json"));
-  if (!isi) return json({ ok: false, ralat: "belum_aktif" }, 503);
-  const semak = await semakPesanan(pesanan, emel, "kit-" + id, env);
+  // Satu borang BCL "Kit Keyword" boleh ada banyak item: tanpa id (atau id bukan dalam pesanan) = buka semua kit dalam pesanan.
+  const semak = await semakPesanan(pesanan, emel, null, env);
   if (semak.ralat) return semak.ralat;
+  const dibeli = semak.rek.produk.filter((p) => p.startsWith("kit-")).map((p) => p.slice(4));
+  const pilih = id && dibeli.includes(id) ? [id] : dibeli;
+  const kits = [];
+  for (const k of pilih) {
+    const isi = env.PRODUK && (await env.PRODUK.get("kit/" + k + ".json", "json"));
+    if (isi) kits.push({ id: k, kit: isi });
+  }
+  if (!kits.length) return json({ ok: false, ralat: dibeli.length ? "belum_aktif" : "produk_lain" }, dibeli.length ? 503 : 403);
   const log = (await env.MUAT_TURUN.get("logkit:" + pesanan, "json")) || [];
-  log.push({ t: new Date().toISOString(), k: id, ip: req.headers.get("CF-Connecting-IP") || "" });
+  log.push({ t: new Date().toISOString(), k: kits.map((x) => x.id).join(","), ip: req.headers.get("CF-Connecting-IP") || "" });
   await env.MUAT_TURUN.put("logkit:" + pesanan, JSON.stringify(log.slice(-30)));
-  return json({ ok: true, nama: semak.rek.nama, kit: isi });
+  return json({ ok: true, nama: semak.rek.nama, kit: kits[0].kit, kits });
 }
 
 async function cariPesanan(no, pid, env) {

@@ -23,7 +23,7 @@ const SIRI_VIDEO = { claude: ["C"], autopilot: ["C", "H"], hermes: ["H"] };
 const PRODUK_LAIN = { claude: { nama: "Claude Untuk Pemula", fail: [] }, autopilot: { nama: "Pakej Bisnes Autopilot", fail: [] } };
 
 // Kit RM3 (borang BCL 23113): pembeli ebook dapat semua kit ini percuma. Kit baru: tambah id di sini juga.
-const KIT_SEMUA = ["setup", "agent", "belajar", "creator", "repo", "motion", "loop", "cheat"];
+const KIT_SEMUA = ["setup", "agent", "belajar", "creator", "repo", "motion", "loop", "cheat", "edit"];
 const PRODUK_EBOOK = ["claude", "autopilot"];
 
 const KEPALA = { "Cache-Control": "no-store", "X-Robots-Tag": "noindex, nofollow", "Referrer-Policy": "no-referrer" };

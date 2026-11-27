@@ -98,22 +98,8 @@
    Kit baru: tambah item "Kit <KUNCI>" RM3 dalam borang BCL 23113 (slug kit), kemudian salin ID item ke medan item di bawah. */
 var BORANG_KIT = "https://sassoneworldwide.bcl.my/form/kit";
 var KIT = [
-  { id: "edit", kunci: "EDIT", tajuk: "5 step edit video dalam Claude (tak nampak macam AI)",
-    terang: "Cara saya edit setiap reel guna Claude Code: satu folder, tiga tool percuma, ikut style video yang anda suka, storyboard dulu, kemudian simpan style jadi skill. Tool disemak di GitHub, 27 Nov 2026.",
-    kod: "Pasang FFmpeg, HyperFrames dan yt-dlp untuk aku. Jangan banyak tanya, buat je. Bila siap, beritahu aku arahan untuk semak setiap satu.",
-    kodTajuk: "Langkah 2, tampal dalam Claude Code:",
-    balut: true, salinLabel: "Salin prompt",
-    senarai: [
-      ["1. Claude Code + satu folder", "Buka app Claude, pilih Code (bukan Chat), mula sesi baru dan pilih folder video anda.", "https://claude.com/download"],
-      ["2. FFmpeg", "Potong, cantum dan mix video. Percuma.", "https://github.com/FFmpeg/FFmpeg"],
-      ["2. HyperFrames", "Kapsyen dan grafik bergerak guna kod. ~91K bintang.", "https://github.com/heygen-com/hyperframes"],
-      ["2. yt-dlp", "Muat turun video rujukan supaya Claude boleh tengok frame demi frame. ~211K bintang.", "https://github.com/yt-dlp/yt-dlp"],
-      ["3-5. Ikut style, storyboard, skill", "Tampal link reel yang anda suka, minta storyboard dulu sebelum render, kemudian minta Claude simpan style anda jadi skill.", "https://claude.com/skills"]
-    ],
-    tip: "Prompt langkah 3: \"Edit footage dalam folder ni ikut style reel ni: <link>. Buat storyboard dulu, satu still setiap babak, jangan render sebelum aku kata ok.\" Lepas siap: \"Simpan style edit ni jadi skill supaya next time kau terus ikut.\"",
-    pautan: "https://github.com/heygen-com/hyperframes", label: "Mula dengan HyperFrames",
-    /* Kit penuh berbayar: isi pautan borang BCL bila borang dibuka. Kosong = butang tak dipapar. */
-    penuh: { bcl: "", harga: "RM3", label: "Kit EDIT Penuh", terang: "SOP edit penuh saya: audit video rujukan, storyboard 3 babak sehalaman, muzik berlesen, SFX setiap animasi, dan versi telefon bawah 20 MB." } },
+  { id: "edit", kunci: "EDIT", item: 46582, tajuk: "5 step edit video dalam Claude (tak nampak macam AI)",
+    terang: "Cara saya edit setiap reel guna Claude Code: satu folder, tiga tool percuma, ikut style video yang anda suka, storyboard dulu, kemudian simpan style jadi skill." },
   { id: "setup", kunci: "SETUP", item: 46487, tajuk: "Buat 5 benda ni dalam Claude (pelan hujung minggu)",
     terang: "Lima langkah supaya Claude kenal anda dan kerja anda: about me, otak kedua, projek, connectors dan skill. Termasuk prompt 50 soalan siap salin." },
   { id: "agent", kunci: "AGENT", item: 46495, tajuk: "Ultracode: satu arahan, beratus agen dalam Claude Code",

@@ -38,7 +38,6 @@ window.LAMAN = {
   produk: [
     {
       id: "claude",
-      status: "akan_datang",          // buang baris ini bila borang BCL dibuka
       jenis: "Ebook + video",
       nama: "Claude Untuk Pemula",
       harga: 97,
@@ -53,13 +52,12 @@ window.LAMAN = {
         "Pelan 7 hari: satu tugasan kecil setiap hari",
         "Video pendek setiap bab, kemas kini percuma dan kumpulan sokongan Telegram"
       ],
-      bcl: "",
+      bcl: "https://sassoneworldwide.bcl.my/form/meta-ads-automation",
       bcl_tambahan: "",
       label: "Mula di sini"
     },
     {
       id: "autopilot",
-      status: "akan_datang",
       jenis: "2 ebook + video",
       nama: "Pakej Bisnes Autopilot",
       harga: 177,
@@ -74,7 +72,7 @@ window.LAMAN = {
         "Harga pakej ditolak penuh jika anda naik taraf ke coaching dalam 14 hari",
         "Kemas kini percuma dan kumpulan sokongan Telegram"
       ],
-      bcl: "",
+      bcl: "https://sassoneworldwide.bcl.my/form/hermes",
       bcl_tambahan: "",
       label: "Paling berbaloi",
       utama: true
@@ -127,7 +125,6 @@ window.LAMAN = {
     },
     {
       id: "coaching",
-      status: "akan_datang",
       jenis: "1-to-1",
       nama: "Coaching Automasi 1-to-1",
       harga: 977,                     // satu harga: Google Meet atau bersemuka
@@ -144,7 +141,7 @@ window.LAMAN = {
         "Isi borang pra-sesi semasa membuat tempahan",
         "Harga yang sama untuk Google Meet atau bersemuka (lokasi disahkan selepas tempahan)"
       ],
-      bcl: "",
+      bcl: "https://sassoneworldwide.bcl.my/booking/coaching",
       label: "Dibimbing 1-to-1"
     },
     {

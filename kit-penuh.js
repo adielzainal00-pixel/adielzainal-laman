@@ -75,6 +75,8 @@
     }).then(function (r) { return r.json(); }).then(function (j) {
       if (!j.ok) { mesej.textContent = RALAT[j.ralat] || RALAT.sistem; return; }
       papar(j);
+      // simpan nama + e-mel supaya borang kit RM3 seterusnya terus terisi (kit.html, localStorage "pembeli_kit")
+      try { var lama = JSON.parse(localStorage.getItem("pembeli_kit") || "{}"); localStorage.setItem("pembeli_kit", JSON.stringify({ nama: j.nama || lama.nama || "", emel: f.emel.value.trim(), tel: lama.tel || "" })); } catch (e) {}
     }).catch(function () { mesej.textContent = RALAT.sistem; })
       .then(function () { butang.disabled = false; tunggu.hidden = true; });
   }

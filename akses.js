@@ -33,6 +33,8 @@
     }).then(function (r) { return r.json(); }).then(function (j) {
       if (!j.ok) { mesej.textContent = RALAT[j.ralat] || RALAT.sistem; return; }
       hasil.textContent = "";
+      // simpan nama + e-mel supaya borang kit RM3 seterusnya terus terisi (kit.html, localStorage "pembeli_kit")
+      try { var lama = JSON.parse(localStorage.getItem("pembeli_kit") || "{}"); localStorage.setItem("pembeli_kit", JSON.stringify({ nama: j.nama || lama.nama || "", emel: f.emel.value.trim(), tel: lama.tel || "" })); } catch (e) {}
       hasil.appendChild(el("p", "lead", "Terima kasih, " + (j.nama || "pembeli") + "." + (j.fail.length ? " Fail anda sedia:" : "")));
       j.fail.forEach(function (x) {
         var a = el("a", /^pdf/.test(x.id) ? "fail" : "fail kedua");

@@ -33,6 +33,8 @@
     }).then(function (r) { return r.json(); }).then(function (j) {
       if (!j.ok) { mesej.textContent = RALAT[j.ralat] || RALAT.sistem; return; }
       hasil.textContent = "";
+      // simpan nama + e-mel supaya borang kit RM3 seterusnya terus terisi (kit.html, localStorage "pembeli_kit")
+      try { var lama = JSON.parse(localStorage.getItem("pembeli_kit") || "{}"); localStorage.setItem("pembeli_kit", JSON.stringify({ nama: j.nama || lama.nama || "", emel: f.emel.value.trim(), tel: lama.tel || "" })); } catch (e) {}
       hasil.appendChild(el("p", "lead", "Terima kasih, " + (j.nama || "pembeli") + "." + (j.fail.length ? " Fail anda sedia:" : "")));
       j.fail.forEach(function (x) {
         var a = el("a", /^pdf/.test(x.id) ? "fail" : "fail kedua");
@@ -62,6 +64,14 @@
           k.appendChild(vid);
           hasil.appendChild(k);
         });
+      }
+      if (produk === "claude" || produk === "autopilot") {
+        // Bonus pembeli ebook: semua kit keyword (RM3 sekit) percuma, guna no. pesanan + e-mel yang sama.
+        hasil.appendChild(el("h2", "", "Bonus: semua kit keyword"));
+        hasil.appendChild(el("p", "nota", "Sebagai pembeli ebook, semua kit dari content saya (biasanya RM3 sekit) percuma untuk anda."));
+        var bk = el("a", "btn", "Buka semua kit percuma →");
+        bk.href = "/kit-penuh?" + new URLSearchParams({ pesanan: f.pesanan.value.trim().toUpperCase(), e: f.emel.value.trim() }).toString();
+        hasil.appendChild(bk);
       }
       hasil.appendChild(el("p", "nota", "Setiap PDF dicap dengan nama, e-mel dan no. pesanan anda. Pautan di atas sah 30 minit; selepas itu masukkan semula no. pesanan."));
       hasil.hidden = false;

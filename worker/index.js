@@ -13,7 +13,8 @@ import VIDEO from "./video.json";
 const HAD = 5;                    // muat turun setiap fail, setiap pesanan
 const SAH_SAAT = 30 * 60;         // pautan muat turun sah
 const SIMPAN_SAAT = 6 * 3600;     // rekod pesanan disimpan dalam KV (kurangkan panggilan API BCL)
-const TAKJUMPA_SAAT = 600;        // no. pesanan yang tiada: tak tanya BCL semula selama ini
+const TAKJUMPA_SAAT = 60;         // no. pesanan yang TIADA dalam BCL (404): tak tanya BCL semula selama ini. Pesanan belum dibayar tidak di-cache.
+const BELUM_BAYAR = { belum: true }; // cariPesanan: pesanan wujud tetapi bayaran belum disahkan (status bukan 3)
 
 const VIDEO_SAAT = 3 * 3600;      // pautan video sah (pembeli tonton dalam laman)
 // Siri video bab mengikut produk: C = Claude Untuk Pemula, H = Hermes v2. Pakej Autopilot = kedua-duanya.
@@ -42,7 +43,14 @@ export default {
     if (url.pathname.startsWith("/fail/") || url.pathname.startsWith("/api/")) {
       return new Response("Tiada", { status: 404, headers: KEPALA });
     }
-    return env.ASSETS.fetch(req);
+    const res = await env.ASSETS.fetch(req);
+    // Pautan keyword ditaip dengan huruf besar atau slash di hujung (/LOOP, /Motion/): _redirects hanya padan huruf kecil tepat.
+    if (res.status === 404 && req.method === "GET") {
+      const kw = url.pathname.replace(/^\/+|\/+$/g, "").toLowerCase();
+      const id = kw === "skill" ? "creator" : kw;
+      if (KIT_SEMUA.includes(id)) return Response.redirect(url.origin + "/kit?k=" + id, 302);
+    }
+    return res;
   },
 };
 
@@ -94,6 +102,8 @@ async function semakPesanan(pesanan, emel, pid, env) {
     const cache = caches.default, kunciCache = new Request("https://cache.adielzainal.invalid/takjumpa/" + pesanan);
     if (await cache.match(kunciCache)) return { ralat: json({ ok: false, ralat: "tak_jumpa" }, 404) };
     rek = await cariPesanan(pesanan, pid, env);
+    // Bayaran belum disahkan BCL (pembeli baru pulang dari FPX/DuitNow): jangan cache, suruh cuba sebentar lagi.
+    if (rek === BELUM_BAYAR) return { ralat: json({ ok: false, ralat: "belum_bayar" }, 409) };
     if (!rek) {
       await cache.put(kunciCache, new Response("1", { headers: { "Cache-Control": "max-age=" + TAKJUMPA_SAAT } }));
       return { ralat: json({ ok: false, ralat: "tak_jumpa" }, 404) };
@@ -157,12 +167,12 @@ async function cariPesanan(no, pid, env) {
     if (d && d.main_data) {                                     // GET /transactions/{no}: butiran penuh
       const m = d.main_data;
       if ((m.transaction_type || "live") !== "live" && !ujian) return null;
-      if (!(m.is_paid === true || m.is_paid === 1) || Number(m.status) !== 3) return null;
+      if (!(m.is_paid === true || m.is_paid === 1) || Number(m.status) !== 3) return BELUM_BAYAR;
       return { nama: bersih(m.payer_name), emel: String(m.payer_email || "").trim().toLowerCase(), produk: kenalProduk(d, m, env) };
     }
     if (ujian && d && d.transaction) {                          // GET /transaction/{no}: Test Mode, tiada maklumat borang
       const t = d.transaction;
-      if (Number(t.status) !== 3) return null;
+      if (Number(t.status) !== 3) return BELUM_BAYAR;
       return { nama: bersih(t.payer_name), emel: String(t.payer_email || "").trim().toLowerCase(), produk: [pid], ujian: true };
     }
   }
@@ -179,8 +189,17 @@ function kenalProduk(d, m, env) {
   if (hermes.length ? hermes.includes(fid) : teks.includes("hermes")) out.push("hermes");
   if (teks.includes("claude untuk pemula")) out.push("claude");
   if (teks.includes("autopilot")) out.push("autopilot");
-  // kit berbayar: item atau tajuk borang "Kit <KATA KUNCI>" -> "kit-<kata kunci>"
-  for (const m of teks.matchAll(/\bkit\s+([a-z0-9-]{2,30})\b/g)) if (!out.includes("kit-" + m[1])) out.push("kit-" + m[1]);
+  // Coaching 1-to-1 (tempahan BCL 990): bonus Pakej Bisnes Autopilot percuma (keputusan Adiel 27 Nov 2026).
+  // Ikut tajuk borang sahaja, supaya item Autopilot yang menyebut "naik taraf ke coaching" tidak tersalah kenal.
+  if (String(d.form_title || "").toLowerCase().includes("coaching")) {
+    out.push("coaching");
+    if (!out.includes("autopilot")) out.push("autopilot");
+  }
+  // kit berbayar: nama ITEM "Kit <KATA KUNCI>" sahaja (tajuk borang "Kit Keyword ..." bukan kit), dan hanya kit yang wujud
+  const itemTeks = (m.items || []).map((i) => String(i && i.item || "")).join(" ").toLowerCase();
+  for (const x of itemTeks.matchAll(/\bkit\s+([a-z0-9-]{2,30})\b/g)) {
+    if (KIT_SEMUA.includes(x[1]) && !out.includes("kit-" + x[1])) out.push("kit-" + x[1]);
+  }
   return out;
 }
 

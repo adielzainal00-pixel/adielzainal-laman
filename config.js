@@ -32,7 +32,7 @@ window.LAMAN = {
   // Selepas "tamat", laman terus tunjuk harga_biasa sahaja (kiraan masa dan harga potong hilang sendiri).
   promo: {
     tajuk: "Promosi hujung tahun",
-    tamat: "2026-12-31T23:59:59+08:00"   // 31 Dis 2026, 11:59 malam waktu Malaysia
+    tamat: "2026-12-31T23:59:00+08:00"   // 31 Dis 2026, 11:59 malam waktu Malaysia
   },
 
   produk: [
@@ -50,7 +50,7 @@ window.LAMAN = {
         "Sunting video TikTok dan Reels dengan Claude, tanpa kemahiran menyunting",
         "Claude urus Meta Ads: laporan mingguan dan draf iklan, anda yang meluluskan",
         "Pelan 7 hari: satu tugasan kecil setiap hari",
-        "Video pendek setiap bab, kemas kini percuma dan kumpulan sokongan Telegram"
+        "Video pendek setiap bab dan kemas kini percuma"
       ],
       bcl: "https://sassoneworldwide.bcl.my/form/meta-ads-automation",
       bcl_tambahan: "",
@@ -69,8 +69,8 @@ window.LAMAN = {
         "Ebook Hermes: Pekerja AI 24 Jam, edisi baharu yang bersambung terus dengan ebook Claude",
         "Pelan 7 hari merentas dua ebook, dengan automasi pertama anda sebagai matlamat hari ke-7",
         "AI membalas WhatsApp 24 jam cara rasmi, serta laporan dan kerja berjadual ke Telegram",
-        "Harga pakej ditolak penuh jika anda naik taraf ke coaching dalam 14 hari",
-        "Kemas kini percuma dan kumpulan sokongan Telegram"
+        "Harga pakej (RM177) ditolak penuh jika anda naik taraf ke coaching dalam 14 hari",
+        "Kemas kini percuma"
       ],
       bcl: "https://sassoneworldwide.bcl.my/form/hermes",
       bcl_tambahan: "",
@@ -129,7 +129,7 @@ window.LAMAN = {
       nama: "Coaching Automasi 1-to-1",
       harga: 977,                     // satu harga: Google Meet atau bersemuka
       harga_biasa: 1499,
-      nota: "sesi sehingga 3 jam · Google Meet atau bersemuka",
+      nota: "sesi sehingga 3 jam · Google Meet atau bersemuka (KL dan Selangor)",
       // Dua cara (Google Meet / bersemuka), dua servis dalam borang tempahan BCL, harga sama.
       ringkas: "Kita pasang pekerja AI dalam perniagaan anda, bersama-sama. Anda belajar Hermes, Meta Ads dan Claude sepanjang proses, dan pulang dengan pekerja AI yang sudah berjalan.",
       isi: [
@@ -139,7 +139,8 @@ window.LAMAN = {
         "Pintu kelulusan dan butang henti dipasang sejak awal",
         "Ringkasan dan tugasan susulan dalam masa 24 jam",
         "Isi borang pra-sesi semasa membuat tempahan",
-        "Harga yang sama untuk Google Meet atau bersemuka (lokasi disahkan selepas tempahan)"
+        "Bonus: Pakej Bisnes Autopilot (ebook + video bab) dan semua kit keyword, percuma",
+        "Harga yang sama untuk Google Meet atau bersemuka di KL dan Selangor (lokasi disahkan selepas tempahan)"
       ],
       bcl: "https://sassoneworldwide.bcl.my/booking/coaching",
       label: "Dibimbing 1-to-1"

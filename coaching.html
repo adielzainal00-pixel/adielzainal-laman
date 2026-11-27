@@ -18,7 +18,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,500..800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=27">
 <link rel="stylesheet" href="hero-a.css?v=11">
-<script src="config.js?v=22"></script>
+<script src="config.js?v=29"></script>
 <!-- Halaman ini dipautkan dari WhatsApp 0377. Polisi WhatsApp melarang pautan ke jualan produk digital,
      jadi halaman ini HANYA tentang coaching (servis): jangan tambah produk digital, pautan ke laman utama atau senarai produk. -->
 </head>
@@ -82,7 +82,7 @@
       <div class="faq">
         <details><summary>Adakah saya perlu tahu coding?</summary><p>Tidak. Saya sendiri bukan developer. Kita menggunakan alat yang boleh diurus sendiri oleh pemilik perniagaan selepas sesi.</p></details>
         <details><summary>Apakah yang perlu saya sediakan?</summary><p>Selepas membuat tempahan, anda mengisi borang pra-sesi yang ringkas: jenis perniagaan, kerja yang paling banyak mengambil masa dan akaun yang anda gunakan. Dengan itu, masa sesi digunakan sepenuhnya untuk membina.</p></details>
-        <details><summary>Dalam talian atau bersemuka?</summary><p>Kedua-duanya pada harga yang sama. Sesi dalam talian melalui Google Meet. Untuk sesi bersemuka, lokasi disahkan selepas tempahan.</p></details>
+        <details><summary>Dalam talian atau bersemuka?</summary><p>Kedua-duanya pada harga yang sama. Sesi dalam talian melalui Google Meet. Sesi bersemuka hanya di KL dan Selangor (ruang kerja bersama atau kafe yang tenang); lokasi disahkan selepas tempahan. Di luar KL dan Selangor, pilih Google Meet.</p></details>
         <details><summary>Bagaimana jika pemasangan belum selesai?</summary><p>Sesi berlangsung sehingga 3 jam, dan matlamatnya ialah pekerja AI anda sudah berjalan sebelum sesi tamat. Anda juga akan menerima ringkasan dan tugasan susulan dalam masa 24 jam supaya boleh meneruskannya sendiri.</p></details>
         <details><summary>Bagaimana cara membuat tempahan?</summary><p data-tempah-nota>Tekan butang pada kad harga di atas.</p></details>
       </div>
@@ -130,7 +130,7 @@
   var pautan = !belum && p.bcl ? p.bcl : wa(belum ? "Hi Adiel, saya nak tempah Coaching Automasi 1-to-1. Boleh maklumkan tarikh yang ada?" : "Hi Adiel, saya nak tempah Coaching Automasi 1-to-1 (" + rm(harga) + ").");
   var label = !belum && p.bcl ? "Tempah & bayar →" : "Tempah melalui WhatsApp →";
   $("[data-tempah-nota]").textContent = !belum && p.bcl
-    ? "Tekan Tempah & bayar. Anda dibawa ke halaman bayaran BCL.my yang selamat (FPX, kad atau e-wallet) dan pilih tarikh sesi di situ."
+    ? "Tekan Tempah & bayar. Anda dibawa ke halaman bayaran BCL.my yang selamat (FPX, atau DuitNow QR dengan e-wallet seperti Touch 'n Go, Grab dan Boost) dan pilih tarikh sesi di situ."
     : "Tekan butang pada kad harga. WhatsApp akan buka; saya balas dengan tarikh yang ada dan cara bayaran yang selamat.";
   $("#kad-coaching").innerHTML = '<article class="kad produk utama" id="p-coaching">' +
     (p.label ? '<span class="label">' + esc(p.label) + "</span>" : "") +

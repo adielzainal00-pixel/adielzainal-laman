@@ -15,9 +15,10 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%231C1D20'/%3E%3Ctext x='32' y='43' font-family='Arial' font-size='30' text-anchor='middle' fill='%23FFFFFF'%3EA%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@8..144,400;8..144,500;8..144,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@8..144,400;8..144,500;8..144,600;8..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="aset/pantai-penuh-1600.webp">
 <link rel="stylesheet" href="cahaya.css?v=4">
+<link rel="stylesheet" href="pratonton.css?v=1">
 <script src="config.js?v=22"></script>
 </head>
 <body>
@@ -122,6 +123,21 @@
     </div>
   </section>
 
+  <section class="sek pratonton" id="buku">
+    <p class="pt-lbl">Intip dalam buku</p>
+    <h2>Setiap langkah ada gambar. <span>Setiap bab ada video.</span></h2>
+    <p class="pt-lead">Bukan buku teks. Tengok skrin, tekan butang bernombor, siap. Intip tools, hack dan prompt di dalamnya sekarang, tanpa daftar.</p>
+    <div class="pt-cta"><button type="button" class="pt-btn" data-buka-bab>👀 Intip isi buku percuma</button><a class="pt-lnk" href="#produk">Lihat harga ›</a></div>
+    <div class="buku-3d"><img src="aset/intip/kulit-claude.webp" alt="Kulit ebook Claude Untuk Pemula" width="300" height="532"><img src="aset/intip/kulit-hermes.webp" alt="Kulit ebook Hermes: Pekerja AI 24 Jam" width="300" height="532"></div>
+    <p class="pt-lbl">Tools yang anda guna dalam buku</p>
+    <div class="pt-tools"><span>Claude</span><span>Claude Code</span><span>Claude in Chrome</span><span>Hermes Agent</span><span>Telegram</span><span>Notion</span><span>Zernio · WhatsApp rasmi</span><span>Meta Ads</span><span>Google Sheets + Apps Script</span><span>Docker</span><span>GitHub</span><span>HyperFrames</span><span>ffmpeg</span><span>yt-dlp</span><span>ElevenLabs</span><span>Mixkit</span></div>
+    <div class="pt-hack"><div><span class="hk">Hack · Claude Code</span><p>Tekan <code>Shift + Tab</code> berulang sampai nampak <b>plan</b>. Claude rancang dulu, tak ubah apa-apa.</p></div>
+    <div><span class="hk">Hack · Hermes</span><p>Akhiri arahan kerja dengan <code>[SILENT]</code>. Tiada isu, tiada mesej. Telegram anda kekal senyap.</p></div>
+    <div><span class="hk">Hack · Bercakap</span><p>Tampal caption lama dan tulis <i>"ikut gaya ini"</i>. Claude tiru nada anda terus.</p></div></div>
+    <div class="dinding" data-dinding></div>
+    <div class="pt-angka"><div><b>53</b><span>halaman Claude, bergambar</span></div><div><b>28</b><span>halaman Hermes</span></div><div><b>29</b><span>video kartun, satu setiap bab</span></div><div><b>7</b><span>hari ke automasi pertama</span></div></div>
+  </section>
+
   <section class="sek" id="produk">
     <h2 class="muncul">Pilih cara anda bermula.</h2>
     <div class="produk-sub muncul"><p class="p" data-bila-bcl="Coaching: pekerja AI dipasang bersama dalam perniagaan anda. Ebook: panduan lengkap untuk anda bina sendiri. Bayar terus di sini melalui FPX, kad atau e-dompet; ebook akan sampai ke e-mel anda dalam beberapa minit." data-ikut-saluran="Coaching: pekerja AI dipasang bersama dalam perniagaan anda. Ebook: panduan lengkap untuk anda bina sendiri. Tekan butang beli dan hantar nama produk kepada saya melalui DM Instagram.">Coaching: pekerja AI dipasang bersama dalam perniagaan anda. Ebook: panduan lengkap untuk anda bina sendiri. Ebook dijual di laman ini sahaja dan dihantar ke e-mel; coaching boleh ditempah melalui WhatsApp.</p></div>
@@ -179,6 +195,7 @@
   <p class="sosial" id="sosial"></p>
   <p id="sah"></p>
   <p>© <span id="tahun"></span> Adiel Zainal · <a href="privasi.html">Privasi</a> · <a href="terma">Terma</a> · <a href="links.html">Semua pautan</a></p>
+  <div class="ukiran" aria-hidden="true"><span>adielzainal</span></div>
 </footer>
 
 <div class="bar-bawah" id="bar-bawah">
@@ -186,7 +203,8 @@
   <a class="sb" href="#kuiz">Kuiz</a>
 </div>
 
-<script src="app.js?v=22"></script>
+<script src="app.js?v=23"></script>
 <script src="cahaya.js?v=1"></script>
+<script src="intip.js?v=1"></script>
 </body>
 </html>

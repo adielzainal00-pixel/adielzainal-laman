@@ -47,7 +47,7 @@
       try { dari = sessionStorage.getItem("dari") || ""; } catch (e) {}
     }
   } catch (e) {}
-  if (dari) {
+  if (dari && $("#dari")) {
     var chip = $("#dari");
     chip.textContent = "Salam Kejayaan 😊";
     chip.hidden = false;
@@ -307,7 +307,7 @@
       '<button type="button" class="kuiz-balik" id="ulang">Ulang kuiz</button></p></div>';
     $("#ulang").addEventListener("click", function () { jawapan = {}; langkah = 0; lukisSoalan(); });
   }
-  lukisSoalan();
+  if (kotak) lukisSoalan();   // laman tanpa kuiz: langkau
 
   // ---------- 7. Kalkulator jam terbuang ----------
   var iLead = $("#i-lead"), iAdmin = $("#i-admin"), iKadar = $("#i-kadar");
@@ -320,8 +320,10 @@
     $("#h-rm").textContent = Math.round(jam * Number(iKadar.value)).toLocaleString("en-MY");
     $("#h-separuh").textContent = Math.round(jam / 2) + " jam";
   }
-  [iLead, iAdmin, iKadar].forEach(function (i) { i.addEventListener("input", kira); });
-  kira();
+  if (iLead && iAdmin && iKadar) {   // laman tanpa kalkulator: langkau
+    [iLead, iAdmin, iKadar].forEach(function (i) { i.addEventListener("input", kira); });
+    kira();
+  }
 
   // ---------- 8. WhatsApp statik, bar bawah, analitik, SEO ----------
   pasangWa(document);

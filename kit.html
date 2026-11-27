@@ -41,9 +41,12 @@
   .beli-kit{display:grid;gap:10px;margin-top:12px;padding:14px;background:var(--kad2)}
   .beli-kit label{display:grid;gap:4px;font-size:.85rem;font-weight:600}
   .beli-kit input{padding:10px 12px;font:inherit;font-size:16px;border:1px solid var(--garis-kuat);background:var(--bg);color:inherit}
-  .beli-kit[hidden]{display:none}
-  .buka-beli{border:0;cursor:pointer;font:inherit;font-weight:600}
-  .kad-kit .harga-kit{font:800 1.5rem var(--f-tajuk);color:inherit;margin:2px 0 12px}
+  .tambah-kit{font-size:.9rem}
+  .tambah-kit summary{cursor:pointer;font-weight:600;padding:4px 0}
+  .pilih-kit{display:flex!important;gap:10px;align-items:flex-start;font-weight:400!important;padding:6px 0;border-top:1px solid var(--garis)}
+  .pilih-kit input{margin-top:3px;width:18px;height:18px;flex:none;padding:0}
+  .pilih-kit b{font-size:.78rem;letter-spacing:.05em}
+  .beli-kit .butang-kit{border:0;cursor:pointer;font:inherit;font-weight:600}
   /* Mod satu kit (/<keyword> -> kit?k=<id>): satu skrin, tajuk + RM3 + borang terus terbuka */
   .lain-kit{display:none}
   .satu .hero-a,.satu .tajuk-a,.satu .ringkas,.satu .seterusnya,.satu .kad-kit{display:none}
@@ -118,32 +121,41 @@ var KIT = [
   var k = "";
   try { k = (new URLSearchParams(location.search).get("k") || location.hash.slice(1) || "").toLowerCase(); } catch (e) {}
   try { sessionStorage.setItem("dari", "Threads"); } catch (e) {}
+  // Senarai: setiap kad ke skrin satu kit (kit?k=<id>), sama macam pautan /<keyword>.
   document.getElementById("senarai").innerHTML = KIT.map(function (x) {
     return '<article class="kad-kit' + (x.id === k ? " sasar" : "") + '" id="' + esc(x.id) + '">' +
-      '<span class="kunci">' + esc(x.kunci) + '</span><h2>' + esc(x.tajuk) + '</h2><p>' + esc(x.terang) + '</p><p class="harga-kit">RM3</p>' +
-      '<button type="button" class="butang-kit buka-beli">Dapatkan kit · RM3 →</button>' +
-      '<form class="beli-kit" data-item="' + esc(x.item) + '" hidden>' +
-        '<label>Nama<input name="nama" autocomplete="name" required maxlength="80"></label>' +
-        '<label>E-mel (pautan kit dihantar ke sini)<input name="emel" type="email" autocomplete="email" required maxlength="120"></label>' +
-        '<label>No. telefon<input name="tel" type="tel" autocomplete="tel" inputmode="tel" required maxlength="20" placeholder="012-345 6789"></label>' +
-        '<button class="butang-kit" type="submit">Bayar RM3</button>' +
-      '</form></article>';
+      '<span class="kunci">' + esc(x.kunci) + '</span><h2>' + esc(x.tajuk) + '</h2><p>' + esc(x.terang) + '</p>' +
+      '<a class="butang-kit buka-beli" href="kit?k=' + esc(x.id) + '">Dapatkan kit · RM3 →</a></article>';
   }).join("");
   var simpan = {};
   try { simpan = JSON.parse(localStorage.getItem("pembeli_kit") || "{}"); } catch (e) {}
-  function isi(f) {
-    if (simpan.nama && !f.nama.value) f.nama.value = simpan.nama;
-    if (simpan.emel && !f.emel.value) f.emel.value = simpan.emel;
-    if (simpan.tel && !f.tel.value) f.tel.value = simpan.tel;
-  }
-  Array.prototype.forEach.call(document.querySelectorAll(".buka-beli"), function (b) {
-    b.addEventListener("click", function () {
-      var f = b.nextElementSibling;
-      f.hidden = !f.hidden;
-      if (!f.hidden) { isi(f); f.nama.focus(); }
+  // Datang dari /<keyword>: satu skrin untuk kit itu, borang terus terbuka dan terisi, boleh tambah kit lain.
+  var utama = null;
+  KIT.forEach(function (x) { if (x.id === k) utama = x; });
+  if (utama) {
+    document.body.classList.add("satu");
+    var sasar = document.getElementById(utama.id);
+    var lain = KIT.filter(function (x) { return x.id !== utama.id; });
+    var f = document.createElement("form");
+    f.className = "beli-kit";
+    f.innerHTML =
+      '<label>Nama<input name="nama" autocomplete="name" required maxlength="80"></label>' +
+      '<label>E-mel (pautan kit dihantar ke sini)<input name="emel" type="email" autocomplete="email" required maxlength="120"></label>' +
+      '<label>No. telefon<input name="tel" type="tel" autocomplete="tel" inputmode="tel" required maxlength="20" placeholder="012-345 6789"></label>' +
+      '<details class="tambah-kit"><summary>Tambah kit lain (RM3 sekit)</summary>' +
+        lain.map(function (x) {
+          return '<label class="pilih-kit"><input type="checkbox" name="tambah" value="' + esc(x.item) + '"><span><b>' + esc(x.kunci) + '</b> ' + esc(x.tajuk) + '</span></label>';
+        }).join("") +
+      '</details>' +
+      '<button class="butang-kit" type="submit">Bayar RM3</button>';
+    sasar.appendChild(f);
+    var bayar = f.querySelector("button[type=submit]");
+    if (simpan.nama) f.nama.value = simpan.nama;
+    if (simpan.emel) f.emel.value = simpan.emel;
+    if (simpan.tel) f.tel.value = simpan.tel;
+    f.addEventListener("change", function () {
+      bayar.textContent = "Bayar RM" + 3 * (1 + f.querySelectorAll("input[name=tambah]:checked").length);
     });
-  });
-  Array.prototype.forEach.call(document.querySelectorAll(".beli-kit"), function (f) {
     f.addEventListener("submit", function (ev) {
       ev.preventDefault();
       if (!f.reportValidity()) return;
@@ -152,18 +164,12 @@ var KIT = [
       else if (tel.indexOf("60") !== 0) tel = "60" + tel;
       try { localStorage.setItem("pembeli_kit", JSON.stringify({ nama: nama, emel: emel, tel: f.tel.value.trim() })); } catch (e) {}
       var q = new URLSearchParams();
-      q.set("qty_" + f.getAttribute("data-item"), "1");
+      q.set("qty_" + utama.item, "1");
+      Array.prototype.forEach.call(f.querySelectorAll("input[name=tambah]:checked"), function (c) { q.set("qty_" + c.value, "1"); });
       q.set("name", nama); q.set("email", emel); q.set("phone", tel);
       location.href = BORANG_KIT + "?" + q.toString();
     });
-  });
-  // Datang dari /<keyword>: satu skrin untuk kit itu sahaja, borang terus terbuka dan terisi.
-  var sasar = k && KIT.some(function (x) { return x.id === k; }) ? document.getElementById(k) : null;
-  if (sasar) {
-    document.body.classList.add("satu");
-    var fs = sasar.querySelector(".beli-kit");
-    fs.hidden = false; isi(fs);
-    document.title = "Kit " + k.toUpperCase() + " · RM3 | Adiel Zainal";
+    document.title = "Kit " + utama.kunci + " · RM3 | Adiel Zainal";
     window.scrollTo(0, 0);
   }
   document.getElementById("ke-produk").href = "index.html?dari=threads#produk";

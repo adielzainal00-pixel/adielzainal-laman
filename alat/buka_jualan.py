@@ -1,6 +1,6 @@
 """Buka jualan terus di laman bila borang BCL siap.
 
-  uv run --no-project python alat/buka_jualan.py meta=https://... hermes=https://... coaching=https://...
+  uv run --no-project python alat/buka_jualan.py claude=https://... autopilot=https://... coaching=https://...
 
 Boleh beri satu, dua atau tiga produk sahaja. Untuk setiap produk yang diberi:
   - isi pautan bcl dalam config.js
@@ -15,7 +15,7 @@ from pathlib import Path
 
 L = Path(__file__).resolve().parents[1]
 CONFIG = L / "config.js"
-SAH = {"meta", "hermes", "coaching"}
+SAH = {"meta", "hermes", "coaching", "claude", "autopilot"}
 
 
 def blok(s, pid):

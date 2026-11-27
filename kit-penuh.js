@@ -11,6 +11,7 @@
   var RALAT = {
     format: "Semak semula no. pesanan dan e-mel anda.",
     tak_jumpa: "Tak jumpa pesanan dengan no. pesanan dan e-mel ini. Kalau anda baru bayar, tunggu 1 minit dan cuba lagi.",
+    belum_bayar: "Bayaran anda sedang disahkan oleh bank. Halaman ini akan cuba semula sendiri; jika masih tiada, tekan butang dalam 1 minit.",
     produk_lain: "Pesanan ini untuk produk lain. Buka pautan dalam e-mel kit yang anda beli.",
     disekat: "Akses untuk pesanan ini telah ditutup. Mesej saya jika ini satu kesilapan.",
     belum_aktif: "Kit ini sedang disediakan. Cuba lagi sebentar, atau mesej saya dengan no. pesanan anda.",
@@ -64,6 +65,7 @@
     });
   }
 
+  var cubaan = 0;
   function hantar() {
     mesej.textContent = "";
     butang.disabled = true;
@@ -73,7 +75,12 @@
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ kit: kit, pesanan: f.pesanan.value, emel: f.emel.value })
     }).then(function (r) { return r.json(); }).then(function (j) {
-      if (!j.ok) { mesej.textContent = RALAT[j.ralat] || RALAT.sistem; return; }
+      if (!j.ok) {
+        mesej.textContent = RALAT[j.ralat] || RALAT.sistem;
+        // Baru pulang dari BCL: bayaran mungkin belum direkod. Cuba semula sendiri (3 kali, 20 saat).
+        if ((j.ralat === "belum_bayar" || j.ralat === "tak_jumpa") && cubaan < 3) { cubaan++; setTimeout(hantar, 20000); }
+        return;
+      }
       papar(j);
       // simpan nama + e-mel supaya borang kit RM3 seterusnya terus terisi (kit.html, localStorage "pembeli_kit")
       try { var lama = JSON.parse(localStorage.getItem("pembeli_kit") || "{}"); localStorage.setItem("pembeli_kit", JSON.stringify({ nama: j.nama || lama.nama || "", emel: f.emel.value.trim(), tel: lama.tel || "" })); } catch (e) {}

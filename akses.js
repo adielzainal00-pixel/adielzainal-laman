@@ -4,6 +4,7 @@
   if (!f) return;
   var produk = f.getAttribute("data-produk");
   var butang = f.querySelector("button[type=submit]");
+  var labelAsal = butang.textContent;
   var mesej = document.getElementById("mesej-akses");
   var hasil = document.getElementById("hasil-akses");
   var RALAT = {
@@ -11,6 +12,7 @@
     tak_jumpa: "Tak jumpa pesanan dengan no. pesanan dan e-mel ini. Guna e-mel yang anda isi semasa bayar, dan no. pesanan dalam resit BCL (contoh: BCL-01234).",
     produk_lain: "Pesanan ini untuk produk lain. Buka pautan akses dalam e-mel produk yang anda beli.",
     disekat: "Akses untuk pesanan ini telah ditutup. Mesej saya jika ini satu kesilapan.",
+    belum_bayar: "Bayaran anda sedang disahkan oleh bank. Tunggu 1 minit, kemudian tekan butang sekali lagi.",
     belum_aktif: "Sistem muat turun sedang disediakan. Cuba lagi sebentar, atau mesej saya dengan no. pesanan anda.",
     sistem: "Sistem tak dapat semak pesanan sekarang. Cuba lagi dalam beberapa minit."
   };
@@ -77,6 +79,6 @@
       hasil.hidden = false;
       f.hidden = true;
     }).catch(function () { mesej.textContent = RALAT.sistem; })
-      .then(function () { butang.disabled = false; butang.textContent = "Dapatkan fail saya →"; });
+      .then(function () { butang.disabled = false; butang.textContent = labelAsal; });
   });
 })();

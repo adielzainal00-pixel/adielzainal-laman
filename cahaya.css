@@ -219,3 +219,15 @@ img,video{max-width:100%;display:block}
 .msg,.pilihan button,.hasil,.kira-hasil,.bid b{background:transparent;border:1px solid var(--garis-s);box-shadow:none}
 .msg .ok button+button{background:transparent}
 .kuiz-bar{background:rgba(255,255,255,.5)}
+
+/* Kad "Paling berbaloi" menonjol: Gelap premium (Adiel pilih 27 Nov 2026) */
+@media(min-width:861px){.grid-produk{align-items:center}.produk.utama{transform:scale(1.06);z-index:2}}
+.produk:not(.utama){opacity:.92}
+.produk.utama{background:linear-gradient(160deg,#1E1B4B,#312E81 55%,#4C1D95)!important;box-shadow:0 30px 70px rgba(49,46,129,.45),0 0 0 1px #6366F1!important;color:#fff}
+.produk.utama h3,.produk.utama .harga .nilai{color:#fff}
+.produk.utama .jenis{color:#A5B4FC}
+.produk.utama .ringkas,.produk.utama>ul li,.produk.utama .harga small,.produk.utama .harga s,.produk.utama .tambahan,.produk.utama .tambahan-nota,.produk.utama .mod-harga li{color:#C7D2FE!important}
+.produk.utama>ul li{border-top-color:#ffffff22}
+.produk.utama>ul li:before{border-color:#A5B4FC}
+.produk.utama .label{background:linear-gradient(90deg,#FBBF24,#F59E0B);color:#1E1B4B;font-weight:700}
+.produk.utama .btn{background:linear-gradient(135deg,#38BDF8,#818CF8)!important;color:#fff!important;border:0!important;box-shadow:0 10px 30px rgba(129,140,248,.5)}

@@ -129,7 +129,7 @@ window.LAMAN = {
       nama: "Coaching Automasi 1-to-1",
       harga: 977,                     // satu harga: Google Meet atau bersemuka
       harga_biasa: 1499,
-      nota: "sesi sehingga 3 jam · Google Meet atau bersemuka (Lembah Klang)",
+      nota: "sesi sehingga 3 jam · Google Meet atau bersemuka (KL dan Selangor)",
       // Dua cara (Google Meet / bersemuka), dua servis dalam borang tempahan BCL, harga sama.
       ringkas: "Kita pasang pekerja AI dalam perniagaan anda, bersama-sama. Anda belajar Hermes, Meta Ads dan Claude sepanjang proses, dan pulang dengan pekerja AI yang sudah berjalan.",
       isi: [
@@ -140,7 +140,7 @@ window.LAMAN = {
         "Ringkasan dan tugasan susulan dalam masa 24 jam",
         "Isi borang pra-sesi semasa membuat tempahan",
         "Bonus: Pakej Bisnes Autopilot (ebook + video bab) dan semua kit keyword, percuma",
-        "Harga yang sama untuk Google Meet atau bersemuka di Lembah Klang (lokasi disahkan selepas tempahan)"
+        "Harga yang sama untuk Google Meet atau bersemuka di KL dan Selangor (lokasi disahkan selepas tempahan)"
       ],
       bcl: "https://sassoneworldwide.bcl.my/booking/coaching",
       label: "Dibimbing 1-to-1"

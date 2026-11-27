@@ -63,6 +63,14 @@
           hasil.appendChild(k);
         });
       }
+      if (produk === "claude" || produk === "autopilot") {
+        // Bonus pembeli ebook: semua kit keyword (RM3 sekit) percuma, guna no. pesanan + e-mel yang sama.
+        hasil.appendChild(el("h2", "", "Bonus: semua kit keyword"));
+        hasil.appendChild(el("p", "nota", "Sebagai pembeli ebook, semua kit dari content saya (biasanya RM3 sekit) percuma untuk anda."));
+        var bk = el("a", "btn", "Buka semua kit percuma →");
+        bk.href = "/kit-penuh?" + new URLSearchParams({ pesanan: f.pesanan.value.trim().toUpperCase(), e: f.emel.value.trim() }).toString();
+        hasil.appendChild(bk);
+      }
       hasil.appendChild(el("p", "nota", "Setiap PDF dicap dengan nama, e-mel dan no. pesanan anda. Pautan di atas sah 30 minit; selepas itu masukkan semula no. pesanan."));
       hasil.hidden = false;
       f.hidden = true;

@@ -21,11 +21,23 @@ const SIRI_VIDEO = { claude: ["C"], autopilot: ["C", "H"], hermes: ["H"] };
 // Produk yang belum ada fail dalam produk.json (PDF akhir belum siap) tetap boleh buka halaman akses untuk video.
 const PRODUK_LAIN = { claude: { nama: "Claude Untuk Pemula", fail: [] }, autopilot: { nama: "Pakej Bisnes Autopilot", fail: [] } };
 
+// Kit RM3: adielzainal.com/<keyword> terus ke borang BCL 23113 (slug kit) dengan item kit dah dipilih.
+// Pembeli lama: nama + e-mel diisi dari kuki "pembeli" (dipasang selepas /api/kit atau /api/akses berjaya).
+// Kit baru: tambah item "Kit <KUNCI>" RM3 dalam borang 23113, ID item di sini, laluan dalam wrangler.jsonc run_worker_first, dan kad dalam kit.html.
+const BORANG_KIT = "https://sassoneworldwide.bcl.my/form/kit";
+const KIT_ITEM = { setup: 46487, agent: 46495, belajar: 46496, creator: 46497, repo: 46498, motion: 46499, loop: 46500, cheat: 46501 };
+const KIT_ALIAS = { skill: "creator" };
+const PRODUK_EBOOK = ["claude", "autopilot"];   // pembeli ebook dapat semua kit percuma
+const KUKI = "pembeli";
+
 const KEPALA = { "Cache-Control": "no-store", "X-Robots-Tag": "noindex, nofollow", "Referrer-Policy": "no-referrer" };
 
 export default {
   async fetch(req, env) {
     const url = new URL(req.url);
+    const kw = url.pathname.slice(1).replace(/\/$/, "").toLowerCase();
+    const kid = KIT_ALIAS[kw] || kw;
+    if (req.method === "GET" && Object.prototype.hasOwnProperty.call(KIT_ITEM, kid)) return keBorangKit(kid, req);
     try {
       if (url.pathname === "/api/akses" && req.method === "POST") return await akses(req, env);
       if (url.pathname === "/api/fail" && req.method === "GET") return await muatTurun(url, req, env);
@@ -77,7 +89,7 @@ async function akses(req, env) {
     const asas = `/api/video?o=${encodeURIComponent(pesanan)}&p=${pid}&k=${v.kod}&e=${vexp}&s=${s}`;
     video.push({ kod: v.kod, siri: v.siri, bab: v.bab, tajuk: v.tajuk, ebook: v.ebook, url: asas, poster: asas + "&j=poster" });
   }
-  return json({ ok: true, nama: rek.nama, produk: produk.nama, fail, video });
+  return denganKuki(json({ ok: true, nama: rek.nama, produk: produk.nama, fail, video }), rek);
 }
 
 // Semak pesanan dengan BCL (rekod disimpan 6 jam dalam KV). Pulang { rek } atau { ralat: Response }.
@@ -119,7 +131,8 @@ async function kitBerbayar(req, env) {
   // Satu borang BCL "Kit Keyword" boleh ada banyak item: tanpa id (atau id bukan dalam pesanan) = buka semua kit dalam pesanan.
   const semak = await semakPesanan(pesanan, emel, null, env);
   if (semak.ralat) return semak.ralat;
-  const dibeli = semak.rek.produk.filter((p) => p.startsWith("kit-")).map((p) => p.slice(4));
+  const ebook = semak.rek.produk.some((p) => PRODUK_EBOOK.includes(p));
+  const dibeli = ebook ? Object.keys(KIT_ITEM) : semak.rek.produk.filter((p) => p.startsWith("kit-")).map((p) => p.slice(4));
   const pilih = id && dibeli.includes(id) ? [id] : dibeli;
   const kits = [];
   for (const k of pilih) {
@@ -130,7 +143,7 @@ async function kitBerbayar(req, env) {
   const log = (await env.MUAT_TURUN.get("logkit:" + pesanan, "json")) || [];
   log.push({ t: new Date().toISOString(), k: kits.map((x) => x.id).join(","), ip: req.headers.get("CF-Connecting-IP") || "" });
   await env.MUAT_TURUN.put("logkit:" + pesanan, JSON.stringify(log.slice(-30)));
-  return json({ ok: true, nama: semak.rek.nama, kit: kits[0].kit, kits });
+  return denganKuki(json({ ok: true, nama: semak.rek.nama, bonus: ebook, kit: kits[0].kit, kits }), semak.rek);
 }
 
 async function cariPesanan(no, pid, env) {
@@ -287,6 +300,30 @@ async function sahkan(rahsia, mesej, s) {
   let beza = 0;
   for (let i = 0; i < s.length; i++) beza |= jangka.charCodeAt(i) ^ s.charCodeAt(i);
   return beza === 0;
+}
+
+// GET /<keyword>: 302 ke borang BCL kit, item dipilih, nama + e-mel pembeli lama diisi.
+function keBorangKit(id, req) {
+  const q = new URLSearchParams();
+  q.set("qty_" + KIT_ITEM[id], "1");
+  const p = bacaKuki(req);
+  const nama = bersih(p.n).replace(/[^\p{L}\p{N} .'@-]/gu, "").slice(0, 80);
+  const emel = String(p.e || "").trim().toLowerCase();
+  if (nama) q.set("name", nama);
+  if (/^[^@\s]{1,64}@[^@\s]{1,190}\.[^@\s]{2,}$/.test(emel)) q.set("email", emel);
+  return new Response(null, { status: 302, headers: { ...KEPALA, Location: BORANG_KIT + "?" + q.toString() } });
+}
+function bacaKuki(req) {
+  const c = req.headers.get("Cookie") || "";
+  const m = c.match(/(?:^|;)\s*pembeli=([^;]+)/);   // nama kuki = KUKI
+  if (!m) return {};
+  try { const o = JSON.parse(decodeURIComponent(m[1])); return o && typeof o === "object" ? o : {}; } catch { return {}; }
+}
+function denganKuki(res, rek) {
+  if (!rek || !rek.emel) return res;
+  const v = encodeURIComponent(JSON.stringify({ n: String(rek.nama || "").slice(0, 80), e: rek.emel }));
+  res.headers.append("Set-Cookie", `${KUKI}=${v}; Max-Age=31536000; Path=/; Secure; HttpOnly; SameSite=Lax`);
+  return res;
 }
 
 function json(obj, status = 200) {

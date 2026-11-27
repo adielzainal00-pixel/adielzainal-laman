@@ -38,12 +38,6 @@
   .kad-kit pre.kod.balut{white-space:pre-wrap;font-size:.9rem}
   .penuh-kit{margin:14px 0;padding:14px;border-radius:14px;background:linear-gradient(135deg,rgba(56,189,248,.12),rgba(99,102,241,.14));border:1px solid rgba(99,102,241,.35)}
   .penuh-kit p{margin:0 0 10px}
-  .beli-kit{display:grid;gap:10px;margin-top:12px;padding:14px;background:var(--kad2)}
-  .beli-kit label{display:grid;gap:4px;font-size:.85rem;font-weight:600}
-  .beli-kit input{padding:10px 12px;font:inherit;font-size:16px;border:1px solid var(--garis-kuat);background:var(--bg);color:inherit}
-  .beli-kit .kecil-kit{font-size:.8rem;margin:0}
-  .beli-kit[hidden]{display:none}
-  .buka-beli{border:0;cursor:pointer;font:inherit;font-weight:600}
   .salin{margin:0 0 12px;padding:6px 12px;font-size:.82rem;border:1px solid var(--garis);background:var(--kad2);cursor:pointer}
   .seterusnya{margin-top:30px;padding:20px;border:1px solid var(--garis-kuat);text-align:left}
   .seterusnya h2{font-size:1.2rem;margin:0 0 6px}
@@ -67,7 +61,7 @@
 </header>
 <main class="kit isi-a">
   <h2 class="tajuk-a">Kit dari Threads</h2>
-  <p class="ringkas">Semua kit dari content saya di Threads, dikumpulkan di satu tempat. RM3 sekit, sekali bayar. Selepas bayar, kit terus dibuka dan dihantar ke e-mel anda.</p>
+  <p class="ringkas">Semua kit dari content saya di Threads, dikumpulkan di satu tempat. RM3 sekit, bayar FPX. Selepas bayar, kit terus dibuka. Dah beli ebook Claude Untuk Pemula atau Pakej Bisnes Autopilot? Semua kit percuma untuk anda: buka dari halaman akses ebook.</p>
   <div class="senarai" id="senarai"></div>
 
   <section class="seterusnya" aria-label="Langkah seterusnya">
@@ -84,8 +78,8 @@
 <script>
 /* SENARAI KIT (awam): tajuk dan ringkasan sahaja. Isi penuh setiap kit dalam KV PRODUK kit/<id>.json
    (sumber: repo peribadi Agensi-ai, kit-berbayar/<id>.json; muat naik dengan alat/terbit_kit.sh).
-   Kit baru: tambah item "Kit <KUNCI>" RM3 dalam borang BCL 23113 (slug kit), kemudian salin ID item ke medan item di bawah. */
-var BORANG_KIT = "https://sassoneworldwide.bcl.my/form/kit";
+   Butang "/<id>" dikendalikan worker/index.js (keBorangKit): terus ke borang BCL 23113 dengan kit dipilih.
+   Kit baru: tambah item dalam borang BCL, KIT_ITEM + run_worker_first dalam worker, dan kad di bawah. */
 var KIT = [
   { id: "setup", kunci: "SETUP", item: 46487, tajuk: "Buat 5 benda ni dalam Claude (pelan hujung minggu)",
     terang: "Lima langkah supaya Claude kenal anda dan kerja anda: about me, otak kedua, projek, connectors dan skill. Termasuk prompt 50 soalan siap salin." },
@@ -113,43 +107,9 @@ var KIT = [
   document.getElementById("senarai").innerHTML = KIT.map(function (x) {
     return '<article class="kad-kit' + (x.id === k ? " sasar" : "") + '" id="' + esc(x.id) + '">' +
       '<span class="kunci">' + esc(x.kunci) + '</span><h2>' + esc(x.tajuk) + '</h2><p>' + esc(x.terang) + '</p>' +
-      '<button type="button" class="butang-kit buka-beli">Dapatkan kit · RM3 →</button>' +
-      '<form class="beli-kit" data-item="' + esc(x.item) + '" hidden>' +
-        '<label>Nama<input name="nama" autocomplete="name" required maxlength="80"></label>' +
-        '<label>E-mel (pautan kit dihantar ke sini)<input name="emel" type="email" autocomplete="email" required maxlength="120"></label>' +
-        '<label>No. telefon<input name="tel" type="tel" autocomplete="tel" inputmode="tel" required maxlength="20" placeholder="012-345 6789"></label>' +
-        '<button class="butang-kit" type="submit">Teruskan bayar RM3 →</button>' +
-        '<p class="kecil-kit">Bayar dengan FPX di BCL. Selepas bayar, kit terus dibuka dan pautannya dihantar ke e-mel anda.</p>' +
-      '</form></article>';
+      '<a class="butang-kit" href="/' + esc(x.id) + '">Dapatkan kit · RM3 →</a>' +
+      '</article>';
   }).join("");
-  var simpan = {};
-  try { simpan = JSON.parse(localStorage.getItem("pembeli_kit") || "{}"); } catch (e) {}
-  Array.prototype.forEach.call(document.querySelectorAll(".buka-beli"), function (b) {
-    b.addEventListener("click", function () {
-      var f = b.nextElementSibling;
-      f.hidden = !f.hidden;
-      if (!f.hidden) {
-        if (simpan.nama && !f.nama.value) f.nama.value = simpan.nama;
-        if (simpan.emel && !f.emel.value) f.emel.value = simpan.emel;
-        if (simpan.tel && !f.tel.value) f.tel.value = simpan.tel;
-        f.nama.focus();
-      }
-    });
-  });
-  Array.prototype.forEach.call(document.querySelectorAll(".beli-kit"), function (f) {
-    f.addEventListener("submit", function (ev) {
-      ev.preventDefault();
-      if (!f.reportValidity()) return;
-      var nama = f.nama.value.trim(), emel = f.emel.value.trim(), tel = f.tel.value.replace(/\D/g, "");
-      if (tel.charAt(0) === "0") tel = "6" + tel;
-      else if (tel.indexOf("60") !== 0) tel = "60" + tel;
-      try { localStorage.setItem("pembeli_kit", JSON.stringify({ nama: nama, emel: emel, tel: f.tel.value.trim() })); } catch (e) {}
-      var q = new URLSearchParams();
-      q.set("qty_" + f.getAttribute("data-item"), "1");
-      q.set("name", nama); q.set("email", emel); q.set("phone", tel);
-      location.href = BORANG_KIT + "?" + q.toString();
-    });
-  });
   if (k) { var el = document.getElementById(k); if (el) setTimeout(function () { el.scrollIntoView({ behavior: "smooth", block: "start" }); }, 150); }
   document.getElementById("ke-produk").href = "index.html?dari=threads#produk";
   var wa = String(C.whatsapp || "").replace(/\D/g, "");

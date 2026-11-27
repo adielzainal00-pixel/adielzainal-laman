@@ -6,13 +6,4 @@
 /l/t      /links?dari=threads    302
 /l/ig     /links?dari=instagram  302
 /l/tt     /links?dari=tiktok     302
-# Kit RM3 dari DM Threads (kata kunci komen)
-/loop     /kit?k=loop     302
-/motion   /kit?k=motion   302
-/cheat    /kit?k=cheat    302
-/repo     /kit?k=repo     302
-/belajar  /kit?k=belajar  302
-/agent    /kit?k=agent    302
-/setup    /kit?k=setup    302
-/creator  /kit?k=creator  302
-/skill    /kit?k=creator  302
+# Kit RM3 (/loop, /motion, /agent ...): dikendalikan worker/index.js keBorangKit, terus ke borang BCL

@@ -15,7 +15,8 @@
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "none",
     // Worker dulu untuk API dan fail produk (fail templat tak boleh dibuka terus)
-    "run_worker_first": ["/api/*", "/fail/*"]
+    // + pautan keyword kit RM3 (302 terus ke borang BCL, lihat KIT_ITEM dalam worker/index.js)
+    "run_worker_first": ["/api/*", "/fail/*", "/setup", "/agent", "/belajar", "/creator", "/skill", "/repo", "/motion", "/loop", "/cheat"]
   },
   "kv_namespaces": [
     // kiraan muat turun, rekod pesanan (6 jam), log IP, senarai sekat (sekat:<no. pesanan>)

@@ -55,16 +55,4 @@
     });
   });
 
-  // video bab: main bila kelihatan sahaja (ringan di telefon)
-  if ("IntersectionObserver" in window) {
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (x) { var v = x.target; if (x.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else v.pause(); });
-    }, { threshold: 0.3 });
-    $$("video[data-auto]").forEach(function (v) { io.observe(v); });
-  }
-
-  // FAQ: satu terbuka pada satu masa
-  $$(".faq details").forEach(function (d) {
-    d.addEventListener("toggle", function () { if (d.open) $$(".faq details").forEach(function (o) { if (o !== d) o.open = false; }); });
-  });
 })();

@@ -15,59 +15,77 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%231C1D20'/%3E%3Ctext x='32' y='43' font-family='Arial' font-size='30' text-anchor='middle' fill='%23FFFFFF'%3EA%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@8..144,400;8..144,500;8..144,600;8..144,800&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="aset/intip/kulit-claude.webp">
-<link rel="stylesheet" href="laman.css?v=3">
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@8..144,400;8..144,500;8..144,600;8..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="aset/pantai-penuh-1600.webp">
+<link rel="stylesheet" href="cahaya.css?v=4">
+<link rel="stylesheet" href="pratonton.css?v=1">
 <script src="config.js?v=22"></script>
 </head>
 <body>
 <a class="langkau" href="#utama">Langkau ke kandungan</a>
-<a class="promo-bar" id="promo-bar" href="#produk" hidden>
+
+<nav class="nav" aria-label="Utama"><div class="d">
+  <a class="logo" href="#">Adiel <i>Zainal</i></a>
+  <div class="m"><a href="#sistem">Automasi</a><a href="#bukti">Rekod</a><a href="#produk">Program</a><a href="#tentang">Tentang</a><a href="#soalan">Soalan</a></div>
+  <a class="pb" href="#" data-wa="Hi Adiel, saya nak tanya pasal automasi AI untuk bisnes saya.">WhatsApp</a>
+</div></nav>
+
+<header class="hero">
+  <a class="promo-bar" id="promo-bar" href="#produk" hidden>
     <i aria-hidden="true"></i><b data-promo-tajuk>Promosi hujung tahun</b>
     <span class="promo-bar-masa">tamat dalam <b data-kira="h">0</b> hari <b data-kira="j">00</b>:<b data-kira="m">00</b>:<b data-kira="d">00</b></span>
   </a>
-<header class="nav"><a class="logo" href="#">Adiel <em>Zainal</em></a>
-<nav aria-label="Utama"><a href="#buku">Ebook</a><a href="#produk">Harga</a><a href="#soalan">Soalan</a></nav>
-<a class="btn btn-kecil" href="#produk">Dapatkan ebook</a></header>
-
-<section class="hero"><div class="cahaya"></div><div class="hero-in">
-<p class="kecil-lbl">Automasi AI untuk pemilik bisnes</p>
-<h1>Kerja harian diurus <span class="aksen-t">pekerja AI</span> anda.</h1>
-<p class="lead"><span id="dari" hidden></span> Ebook bergambar + video kartun setiap bab. Untuk pemilik bisnes yang bukan orang IT.</p>
-<div class="cta"><a class="btn btn-utama" href="#produk">Dapatkan ebook</a><a class="btn btn-garis" href="#" data-buka-bab>Intip isi buku percuma</a></div>
-<div class="hero-duo"><div class="telefon"><video data-auto muted loop playsinline preload="none" poster="aset/intip/klip-C00.jpg" src="aset/intip/klip-C00.mp4"></video></div>
-</div></div></section>
+  <h1>Kerja harian diurus <span>pekerja AI</span> anda.</h1>
+  <p><span id="dari">Salam Kejayaan 😊</span> Saya membantu pemilik perniagaan automasikan Meta Ads, laporan, CRM dan khidmat pelanggan dengan AI. Anda fokus membina perniagaan, dan hanya meluluskan.</p>
+  <div class="cta"><a class="pb" href="#produk">Lihat program</a><a class="sb" href="#portfolio">Tonton portfolio, 80 saat</a></div>
+  <div class="panel">
+    <figure class="foto muncul"><img src="aset/pantai-penuh-1600.webp" srcset="aset/pantai-penuh-1600.webp 1600w, aset/pantai-penuh-hd.webp 2360w" sizes="(max-width: 860px) 92vw, 640px" alt="Adiel Zainal di pantai" width="1600" height="1906" fetchpriority="high"></figure>
+    <div class="kad-ai muncul" aria-label="Contoh kerja pekerja AI">
+      <h3><i aria-hidden="true"></i>Pekerja AI anda, pagi ini</h3>
+      <div class="msg"><small>07:00 · Laporan iklan</small>Laporan semalam siap. 17 daripada 17 semakan lulus. RM2.94 setiap perbualan WhatsApp.</div>
+      <div class="msg"><small>07:02 · CRM</small>3 lead baru ingin membeli. Sudah direkod dalam Google Sheet, draf susulan sedia.</div>
+      <div class="msg"><small>07:05 · Meta Ads</small>Cadangan: naikkan bajet iklan sejuk beku 20%. Luluskan?<div class="ok"><button type="button" data-jawab="Baik, dilaksanakan. Laporan saya hantar petang nanti.">Lulus</button><button type="button" data-jawab="Baik, tiada apa diubah. Saya tanya semula esok.">Tunggu dulu</button></div><p class="balas" aria-live="polite"></p></div>
+      <div class="msg"><small>Malam tadi · AI Customer Service</small>4 pelanggan dijawab. 1 diserahkan kepada anda.</div>
+      <p class="nota">Contoh paparan. Tiada perubahan dibuat tanpa kelulusan anda.</p>
+    </div>
+  </div>
+</header>
 
 <main id="utama">
-<section class="seksyen bukti-s"><p class="kecil-lbl">Rekod sebenar, bukan janji</p><div class="bukti"><div><b>171</b><span>bisnes pernah kami urus iklan</span></div><div><b>708</b><span>perbualan WhatsApp dari iklan, 90 hari</span></div><div><b>RM7.60</b><span>purata kos setiap perbualan</span></div></div>
-<p class="nota">Data agensi SASS ONE, 2025–2026. Hasil setiap bisnes berbeza.</p></section>
+  <section class="sek">
+    <div class="angka muncul">
+      <div><b>171</b><span>pelanggan agensi iklan SASS ONE</span></div>
+      <div><b>17</b><span>semakan automatik sebelum setiap laporan dihantar</span></div>
+      <div><b>RM7.60</b><span>purata kos setiap perbualan WhatsApp</span></div>
+      <div><b>24 jam</b><span>AI bekerja, anda membuat keputusan akhir</span></div>
+    </div>
+  </section>
 
-<section class="seksyen panel lembut"><p class="kecil-lbl">Kenapa pekerja AI</p>
-<h2>Kerja yang sama, <span class="aksen-t">tanpa anda perlu ada.</span></h2><div class="banding"><div class="bd-x"><span>✕</span>Balas WhatsApp sendiri sampai tengah malam</div><div class="bd-v"><span>✓</span>AI CS rasmi balas 24 jam, anda hanya luluskan</div><div class="bd-x"><span>✕</span>Buka Ads Manager setiap pagi</div><div class="bd-v"><span>✓</span>Laporan iklan sampai ke Telegram sebelum anda bangun</div><div class="bd-x"><span>✕</span>Upah editor untuk setiap video</div><div class="bd-v"><span>✓</span>Claude sunting video dari klip telefon anda</div><div class="bd-x"><span>✕</span>Bayar agensi setiap bulan</div><div class="bd-v"><span>✓</span>Pekerja AI milik anda sendiri, kerja 24 jam</div></div></section>
+  <section class="sek" id="sistem">
+    <h2 class="muncul">Empat bidang, satu pekerja AI.</h2>
+    <p class="p muncul">Semua sistem ini sedang berjalan dalam perniagaan saya sendiri, bukan demo. Dalam coaching, kita pasangkannya bersama. Dalam ebook, anda membinanya sendiri.</p>
+    <div class="bid">
+      <div class="muncul"><b>17/17</b><h3>Automasi laporan</h3><p>Data ditarik daripada Meta dan melalui 17 semakan sebelum dihantar ke WhatsApp. Jika satu gagal, laporan ditahan dan anda dimaklumkan.</p></div>
+      <div class="muncul"><b>Anda lulus</b><h3>Automasi Meta Ads</h3><p>Claude membaca prestasi kempen, mencadangkan bajet dan menyediakan draf iklan. Tiada perubahan tanpa kelulusan anda.</p></div>
+      <div class="muncul"><b>Google Sheet</b><h3>Automasi CRM</h3><p>Mesej WhatsApp dilabel (ingin membeli, bertanya harga, aduan) dan dimasukkan ke Google Sheet. Senarai susulan disediakan setiap hari.</p></div>
+      <div class="muncul"><b>24 jam</b><h3>AI Customer Service</h3><p>Pekerja AI menjawab pertanyaan melalui WhatsApp rasmi, dan menyerahkan perbualan kepada anda apabila perlu.</p></div>
+    </div>
+    <div class="henti muncul"><i aria-hidden="true"></i><p><b>Satu arahan, AI berhenti.</b> Pada bila-bila masa, anda boleh menghentikan AI dari telefon dan mengambil alih sendiri.</p></div>
+  </section>
 
-<section id="buku" class="seksyen panel pentas"><p class="kecil-lbl">Intip dalam buku</p>
-<h2>Setiap langkah ada gambar. <span class="aksen-t">Setiap bab ada video.</span></h2>
-<p class="lead">Bukan buku teks. Tengok skrin, tekan butang bernombor, siap. Intip tools, hack dan prompt di dalamnya sekarang, tanpa daftar.</p>
-<div class="cta"><a class="btn btn-utama" href="#" data-buka-bab>👀 Intip isi buku percuma</a><a class="lnk" href="#produk">Lihat harga ›</a></div>
-<div class="buku-3d besar"><img src="aset/intip/kulit-claude.webp" alt="Kulit ebook Claude Untuk Pemula"><img src="aset/intip/kulit-hermes.webp" alt="Kulit ebook Hermes Pekerja AI 24 Jam"></div>
-<p class="kecil-lbl">Tools yang anda guna dalam buku</p>
-<div class="tools"><span>Claude</span><span>Claude Code</span><span>Claude in Chrome</span><span>Hermes Agent</span><span>Telegram</span><span>Notion</span><span>Zernio · WhatsApp rasmi</span><span>Meta Ads</span><span>Google Sheets + Apps Script</span><span>Docker</span><span>GitHub</span><span>HyperFrames</span><span>ffmpeg</span><span>yt-dlp</span><span>ElevenLabs</span><span>Mixkit</span></div>
-<div class="hack3"><div><span class="hk">Hack · Claude Code</span><p>Tekan <code>Shift + Tab</code> berulang sampai nampak <b>plan</b>. Claude rancang dulu, tak ubah apa-apa.</p></div>
-<div><span class="hk">Hack · Hermes</span><p>Akhiri arahan kerja dengan <code>[SILENT]</code>. Tiada isu, tiada mesej. Telegram anda kekal senyap.</p></div>
-<div><span class="hk">Hack · Bercakap</span><p>Tampal caption lama dan tulis <i>"ikut gaya ini"</i>. Claude tiru nada anda terus.</p></div></div>
-<div class="dinding" data-dinding></div>
-<div class="angka"><div><b>53</b><span>halaman Claude, bergambar</span></div><div><b>28</b><span>halaman Hermes</span></div><div><b>29</b><span>video kartun, satu setiap bab</span></div><div><b>7</b><span>hari ke automasi pertama</span></div></div></section>
+  <section class="sek portfolio" id="portfolio">
+    <div class="video muncul"><video controls playsinline preload="none" poster="aset/portfolio-poster.webp?v=draf5" width="720" height="1280"><source src="aset/portfolio.mp4?v=draf5" type="video/mp4"></video></div>
+    <div class="muncul">
+      <h2 class="kiri">Kerja saya, dalam 80 saat.</h2>
+      <p class="p kiri">Rekod prestasi agensi saya, sistem automasi yang saya bina dan maklum balas pelanggan. Video ini turut saya sunting sendiri menggunakan AI.</p>
+      <ol class="senarai-kerja"><li>Laporan iklan automatik ke WhatsApp</li><li>Lead WhatsApp terus ke Google Sheet</li><li>Hermes: pekerja AI 24 jam</li><li>Kandungan dan video dengan AI</li><li>Rekod prestasi: iklan Meta untuk 171 pelanggan</li></ol>
+      <figure class="suara"><figcaption><b>Nota suara pelanggan</b> · Kereta sewa</figcaption><blockquote>“Hari ni semua kereta sold out dah.”</blockquote><audio controls preload="none" src="aset/suara-kereta-sewa.mp3"></audio></figure>
+    </div>
+  </section>
 
-<section class="seksyen panel lembut"><p class="kecil-lbl">Video setiap bab</p>
-<h2>Malas baca? <span class="aksen-t">Tonton 40 saat.</span></h2>
-<p class="lead">Setiap bab bermula dengan video kartun yang terangkan idea besar. Semua dibuat dengan Claude Code, cara yang sama anda belajar dalam buku.</p>
-<div class="klip"><video data-auto muted loop playsinline preload="none" poster="aset/intip/klip-C00.jpg" src="aset/intip/klip-C00.mp4"></video>
-<video data-auto muted loop playsinline preload="none" poster="aset/intip/klip-C01.jpg" src="aset/intip/klip-C01.mp4"></video>
-<video data-auto muted loop playsinline preload="none" poster="aset/intip/klip-H00.jpg" src="aset/intip/klip-H00.mp4"></video></div></section>
-
-<section class="seksyen panel lembut bukti-penuh" id="bukti" hidden>
+  <section class="sek" id="bukti" hidden>
     <h2 class="muncul" id="bukti-tajuk">Sebelum automasi, 171 pelanggan.</h2>
-    <p class="p">Asas kepada semua yang saya kongsikan: akaun iklan pelanggan agensi saya, SASS ONE, bagi tempoh 90 hari terakhir. Nama pelanggan tidak didedahkan.</p>
+    <p class="p muncul">Asas kepada semua yang saya kongsikan: akaun iklan pelanggan agensi saya, SASS ONE, bagi tempoh 90 hari terakhir. Nama pelanggan tidak didedahkan.</p>
     <div id="bukti-angka" class="angka-kecil"></div>
     <div class="galeri-kepala" id="galeri-kepala" hidden>
       <h3>Kos setiap perbualan WhatsApp, ikut industri</h3>
@@ -76,14 +94,54 @@
     <div class="galeri" id="bukti-kes" hidden aria-label="Kes sebenar ikut industri"></div>
     <p class="galeri-nota" id="galeri-nota" hidden>Kempen mesej WhatsApp dengan tawaran yang jelas jauh lebih menjimatkan berbanding boost post teks dalam industri yang sama. Ini contoh sebenar, bukan jaminan hasil.</p>
     <h2 class="muncul kata-tajuk">Kata pelanggan.</h2>
-    <p class="p">Petikan mesej WhatsApp sebenar daripada pelanggan agensi saya. Nama dirahsiakan.</p>
+    <p class="p muncul">Petikan mesej WhatsApp sebenar daripada pelanggan agensi saya. Nama dirahsiakan.</p>
     <div class="testimoni" id="bukti-testimoni"></div>
   </section>
 
-<section id="produk" class="seksyen panel putih"><p class="kecil-lbl">Pilih satu</p>
-<h2>Satu kali bayar. <span class="aksen-t">Milik anda selamanya.</span></h2>
-<div class="produk-sub"><p class="p" data-bila-bcl="Coaching: pekerja AI dipasang bersama dalam perniagaan anda. Ebook: panduan lengkap untuk anda bina sendiri. Bayar terus di sini melalui FPX, kad atau e-dompet; ebook akan sampai ke e-mel anda dalam beberapa minit." data-ikut-saluran="Coaching: pekerja AI dipasang bersama dalam perniagaan anda. Ebook: panduan lengkap untuk anda bina sendiri. Tekan butang beli dan hantar nama produk kepada saya melalui DM Instagram.">Coaching: pekerja AI dipasang bersama dalam perniagaan anda. Ebook: panduan lengkap untuk anda bina sendiri. Ebook dijual di laman ini sahaja dan dihantar ke e-mel; coaching boleh ditempah melalui WhatsApp.</p></div>
-<div class="promo-kira" id="promo-kira" hidden>
+  <section class="sek dua">
+    <div id="kuiz" class="kotak muncul">
+      <h2 class="kiri">Dari mana anda patut bermula?</h2>
+      <p class="p kiri">Tiga soalan ringkas. Saya cadangkan satu langkah yang paling sesuai.</p>
+      <div class="kuiz" id="kuiz-kotak" aria-live="polite"></div>
+    </div>
+    <div id="kira" class="kotak muncul">
+      <h2 class="kiri">Berapa jam seminggu untuk kerja berulang?</h2>
+      <p class="p kiri">Laraskan ikut minggu biasa anda. Ini anggaran anda sendiri, bukan janji saya.</p>
+      <form class="kira" id="kira-borang" onsubmit="return false">
+        <label for="i-lead">Membalas lead &amp; susulan WhatsApp <output id="o-lead">6 jam</output></label>
+        <input type="range" id="i-lead" min="0" max="30" value="6">
+        <label for="i-admin">Laporan, rekod resit &amp; pentadbiran <output id="o-admin">4 jam</output></label>
+        <input type="range" id="i-admin" min="0" max="25" value="4">
+        <label for="i-kadar">Nilai masa anda sejam <output id="o-kadar">RM50</output></label>
+        <input type="range" id="i-kadar" min="10" max="300" step="10" value="50">
+        <div class="kira-hasil">
+          <p><span id="h-jam">43</span> jam sebulan</p>
+          <p class="besar">RM<span id="h-rm">2,167</span><small>sebulan untuk kerja berulang</small></p>
+          <p>Jika AI mengambil alih separuh sahaja, anda memperoleh semula <b id="h-separuh">22 jam</b> setiap bulan.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="sek pratonton" id="buku">
+    <p class="pt-lbl">Intip dalam buku</p>
+    <h2>Setiap langkah ada gambar. <span>Setiap bab ada video.</span></h2>
+    <p class="pt-lead">Bukan buku teks. Tengok skrin, tekan butang bernombor, siap. Intip tools, hack dan prompt di dalamnya sekarang, tanpa daftar.</p>
+    <div class="pt-cta"><button type="button" class="pt-btn" data-buka-bab>👀 Intip isi buku percuma</button><a class="pt-lnk" href="#produk">Lihat harga ›</a></div>
+    <div class="buku-3d"><img src="aset/intip/kulit-claude.webp" alt="Kulit ebook Claude Untuk Pemula" width="300" height="532"><img src="aset/intip/kulit-hermes.webp" alt="Kulit ebook Hermes: Pekerja AI 24 Jam" width="300" height="532"></div>
+    <p class="pt-lbl">Tools yang anda guna dalam buku</p>
+    <div class="pt-tools"><span>Claude</span><span>Claude Code</span><span>Claude in Chrome</span><span>Hermes Agent</span><span>Telegram</span><span>Notion</span><span>Zernio · WhatsApp rasmi</span><span>Meta Ads</span><span>Google Sheets + Apps Script</span><span>Docker</span><span>GitHub</span><span>HyperFrames</span><span>ffmpeg</span><span>yt-dlp</span><span>ElevenLabs</span><span>Mixkit</span></div>
+    <div class="pt-hack"><div><span class="hk">Hack · Claude Code</span><p>Tekan <code>Shift + Tab</code> berulang sampai nampak <b>plan</b>. Claude rancang dulu, tak ubah apa-apa.</p></div>
+    <div><span class="hk">Hack · Hermes</span><p>Akhiri arahan kerja dengan <code>[SILENT]</code>. Tiada isu, tiada mesej. Telegram anda kekal senyap.</p></div>
+    <div><span class="hk">Hack · Bercakap</span><p>Tampal caption lama dan tulis <i>"ikut gaya ini"</i>. Claude tiru nada anda terus.</p></div></div>
+    <div class="dinding" data-dinding></div>
+    <div class="pt-angka"><div><b>53</b><span>halaman Claude, bergambar</span></div><div><b>28</b><span>halaman Hermes</span></div><div><b>29</b><span>video kartun, satu setiap bab</span></div><div><b>7</b><span>hari ke automasi pertama</span></div></div>
+  </section>
+
+  <section class="sek" id="produk">
+    <h2 class="muncul">Pilih cara anda bermula.</h2>
+    <div class="produk-sub muncul"><p class="p" data-bila-bcl="Coaching: pekerja AI dipasang bersama dalam perniagaan anda. Ebook: panduan lengkap untuk anda bina sendiri. Bayar terus di sini melalui FPX, kad atau e-dompet; ebook akan sampai ke e-mel anda dalam beberapa minit." data-ikut-saluran="Coaching: pekerja AI dipasang bersama dalam perniagaan anda. Ebook: panduan lengkap untuk anda bina sendiri. Tekan butang beli dan hantar nama produk kepada saya melalui DM Instagram.">Coaching: pekerja AI dipasang bersama dalam perniagaan anda. Ebook: panduan lengkap untuk anda bina sendiri. Ebook dijual di laman ini sahaja dan dihantar ke e-mel; coaching boleh ditempah melalui WhatsApp.</p></div>
+    <div class="promo-kira" id="promo-kira" hidden>
           <p class="promo-kira-tajuk" data-promo-tajuk>Promosi hujung tahun</p>
           <p class="promo-kira-nota">Harga promosi sehingga <span data-promo-tarikh>31 Disember 2026</span>, 11:59 malam. Selepas tarikh itu, harga biasa dikenakan.</p>
           <div class="promo-kira-masa" role="timer" aria-label="Baki masa promosi">
@@ -93,44 +151,60 @@
             <div><b data-kira="d">00</b><span>saat</span></div>
           </div>
         </div>
-<div class="grid-produk" id="senarai-produk"></div>
-<p class="nota tengah">FPX · kad · e-dompet melalui BCL.my &nbsp;·&nbsp; Pembatalan 7 hari jika belum muat turun</p></section>
+    <div class="grid-produk" id="senarai-produk"></div>
+  </section>
 
-<section id="tentang" class="seksyen panel lembut tentang"><img src="aset/pantai-potret.webp" alt="Adiel Zainal" width="760" height="950">
-<div><p class="kecil-lbl">Siapa saya</p><h2>Dulu saya urus iklan 171 bisnes dengan tangan.</h2>
-<p class="lead">Sekarang pekerja AI yang buat. Saya Adiel, pengasas SASS ONE. Saya ajar pemilik bisnes buat sistem yang sama, dalam Bahasa Melayu, tanpa jargon.</p>
-<a class="btn btn-garis" href="#" data-wa="Hi Adiel, saya ada soalan pasal automasi AI.">Tanya di WhatsApp</a></div></section>
+  <section class="sek" id="tentang">
+    <div class="tentang tanpa-foto">
+      <div class="muncul">
+        <h2 class="kiri">Dari agensi iklan, ke automasi.</h2>
+        <p class="p kiri">Saya membina SASS ONE, agensi iklan Meta yang pernah menguruskan 171 pelanggan. Pada awalnya, semua kerja dilakukan secara manual: iklan, laporan dan WhatsApp. Sedikit demi sedikit, saya serahkan kerja berulang itu kepada AI, dengan pintu kelulusan di setiap langkah, dan belajar daripada setiap kesilapan. Hari ini, tumpuan saya satu: membantu pemilik perniagaan membina automasi yang sama.</p>
+        <ul class="prinsip">
+          <li><b>AI bekerja, anda meluluskan.</b> Setiap sistem dilengkapi pintu kelulusan.</li>
+          <li><b>Satu kerja dahulu.</b> Mulakan dengan kerja yang paling banyak mengambil masa.</li>
+          <li><b>Alat rasmi.</b> Tiada bot tidak rasmi yang boleh menyebabkan nombor anda disekat.</li>
+          <li><b>Tanpa latar belakang IT.</b> Jika anda boleh menggunakan WhatsApp, anda boleh mengikutinya.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-<section id="soalan" class="seksyen panel lembut faq"><p class="kecil-lbl">Soalan</p><h2>Sebelum anda beli.</h2>
-<details><summary>Bilakah promosi berakhir?</summary><p>Pada 31 Disember 2026, 11:59 malam. Selepas itu, harga biasa dikenakan: ebook RM169 setiap satu dan coaching 1-to-1 RM1,499 (dalam talian atau bersemuka).</p></details>
-<details><summary>Apakah yang ditawarkan sekarang?</summary><p>Tiga pilihan. Ebook Claude Untuk Pemula: mula guna Claude dari kosong untuk iklan, kandungan, video dan Meta Ads. Pakej Bisnes Autopilot: ebook Claude bersama ebook Hermes: Pekerja AI 24 Jam, supaya kerja Claude berjalan sendiri. Coaching Automasi 1-to-1: kita pasang pekerja AI dalam perniagaan anda bersama-sama, sambil anda belajar Hermes, Meta Ads dan Claude.</p></details>
-<details><summary>Adakah anda masih menguruskan iklan untuk pelanggan?</summary><p>Tumpuan saya kini ialah automasi, melalui coaching dan ebook. Rekod prestasi iklan di laman ini ialah pengalaman agensi saya, SASS ONE, dan menjadi asas kepada sistem yang saya kongsikan.</p></details>
-<details><summary>Bagaimana cara membeli?</summary><p data-bila-bcl="Tekan Beli sekarang pada kad produk. Anda akan dibawa ke halaman bayaran BCL.my yang selamat (FPX, kad atau e-dompet). Selepas pembayaran, pautan muat turun ebook dihantar terus ke e-mel anda. Untuk coaching, anda memilih tarikh dan masa sesi semasa membuat pembayaran." data-ikut-saluran="Tekan butang beli pada kad produk. DM Instagram akan dibuka; tulis nama produk yang anda mahu, dan saya akan menghantar butiran pembayaran. Ebook dihantar dalam bentuk PDF.">Ebook hanya boleh dibeli di laman ini (pembayaran selamat melalui BCL.my) dan dihantar ke e-mel anda; ebook tidak dijual melalui WhatsApp. Coaching boleh ditempah melalui WhatsApp atau di <a href="coaching">halaman coaching</a>.</p></details>
-<details><summary>Ada kos lain selain ebook?</summary><p>Ya, dan kami tulis terus terang dalam buku: langganan Claude Pro (semak harga semasa di claude.ai). Untuk Hermes, sewa VPS dan caj mesej WhatsApp Meta dibayar terus kepada penyedia.</p></details>
-<details><summary>Adakah saya perlu tahu coding?</summary><p>Tidak. Saya sendiri bukan developer. Semua yang saya ajar direka untuk pemilik perniagaan tanpa latar belakang IT.</p></details>
-<details><summary>Selamatkah membiarkan AI berbual dengan pelanggan?</summary><p>Itulah sebabnya setiap sistem saya mempunyai pintu kelulusan dan butang henti. AI bermula dengan draf yang anda luluskan, dan hanya menjawab sendiri untuk soalan yang selamat, selepas diuji.</p></details>
-<details><summary>Adakah maklum balas di laman ini benar-benar daripada pelanggan?</summary><p>Ya. Semuanya petikan mesej WhatsApp sebenar daripada pelanggan agensi saya. Nama dirahsiakan untuk menjaga privasi mereka.</p></details>
-<details><summary>Ada refund?</summary><p>Tiada pulangan wang selepas fail dimuat turun. Jika anda belum memuat turun apa-apa, anda boleh minta pembatalan dalam 7 hari. Terma penuh di <a href="terma">halaman Terma</a>.</p></details>
-<details><summary>Ebook dikemas kini?</summary><p>Ya, percuma. Bila tools berubah, kami kemas kini ebook dan versi baru diletak di halaman akses anda.</p></details>
-<details><summary>Bagaimana untuk bermula?</summary><p><a href="#" data-wa="Hi Adiel, saya nak mula. Bisnes saya: ">Hubungi saya di WhatsApp</a> dan kongsikan jenis perniagaan anda serta cabaran terbesar anda sekarang.</p></details>
-</section>
+  <section class="sek" id="soalan">
+    <h2 class="muncul">Soalan yang kerap ditanya</h2>
+    <div class="faq">
+      <details><summary>Bilakah promosi berakhir?</summary><p>Pada 31 Disember 2026, 11:59 malam. Selepas itu, harga biasa dikenakan: ebook RM169 setiap satu dan coaching 1-to-1 RM1,499 (dalam talian atau bersemuka).</p></details>
+      <details><summary>Apakah yang ditawarkan sekarang?</summary><p>Tiga pilihan. Ebook Claude Untuk Pemula: mula guna Claude dari kosong untuk iklan, kandungan, video dan Meta Ads. Pakej Bisnes Autopilot: ebook Claude bersama ebook Hermes: Pekerja AI 24 Jam, supaya kerja Claude berjalan sendiri. Coaching Automasi 1-to-1: kita pasang pekerja AI dalam perniagaan anda bersama-sama, sambil anda belajar Hermes, Meta Ads dan Claude.</p></details>
+      <details><summary>Adakah anda masih menguruskan iklan untuk pelanggan?</summary><p>Tumpuan saya kini ialah automasi, melalui coaching dan ebook. Rekod prestasi iklan di laman ini ialah pengalaman agensi saya, SASS ONE, dan menjadi asas kepada sistem yang saya kongsikan.</p></details>
+      <details><summary>Bagaimana cara membeli?</summary><p data-bila-bcl="Tekan Beli sekarang pada kad produk. Anda akan dibawa ke halaman bayaran BCL.my yang selamat (FPX, kad atau e-dompet). Selepas pembayaran, pautan muat turun ebook dihantar terus ke e-mel anda. Untuk coaching, anda memilih tarikh dan masa sesi semasa membuat pembayaran." data-ikut-saluran="Tekan butang beli pada kad produk. DM Instagram akan dibuka; tulis nama produk yang anda mahu, dan saya akan menghantar butiran pembayaran. Ebook dihantar dalam bentuk PDF.">Ebook hanya boleh dibeli di laman ini (pembayaran selamat melalui BCL.my) dan dihantar ke e-mel anda; ebook tidak dijual melalui WhatsApp. Coaching boleh ditempah melalui WhatsApp atau di <a href="coaching">halaman coaching</a>.</p></details>
+      <details><summary>Adakah saya perlu tahu coding?</summary><p>Tidak. Saya sendiri bukan developer. Semua yang saya ajar direka untuk pemilik perniagaan tanpa latar belakang IT.</p></details>
+      <details><summary>Selamatkah membiarkan AI berbual dengan pelanggan?</summary><p>Itulah sebabnya setiap sistem saya mempunyai pintu kelulusan dan butang henti. AI bermula dengan draf yang anda luluskan, dan hanya menjawab sendiri untuk soalan yang selamat, selepas diuji.</p></details>
+      <details><summary>Adakah maklum balas di laman ini benar-benar daripada pelanggan?</summary><p>Ya. Semuanya petikan mesej WhatsApp sebenar daripada pelanggan agensi saya. Nama dirahsiakan untuk menjaga privasi mereka.</p></details>
+      <details><summary>Bagaimana untuk bermula?</summary><p><a href="#" data-wa="Hi Adiel, saya nak mula. Bisnes saya: ">Hubungi saya di WhatsApp</a> dan kongsikan jenis perniagaan anda serta cabaran terbesar anda sekarang.</p></details>
+    </div>
+  </section>
+
+  <section class="sek penutup muncul">
+    <h2>Jom automasikan <span>perniagaan anda.</span></h2>
+    <p class="p">Kongsikan jenis perniagaan anda dan kerja yang paling banyak mengambil masa. Saya akan membalas sendiri.</p>
+    <a class="pb" href="#" data-wa="Hi Adiel, saya nak automasikan bisnes saya. Kerja yang paling makan masa: ">WhatsApp saya</a>
+  </section>
 </main>
 
-<footer id="hujung" class="kaki panel"><div class="kaki-grid">
-<div class="kaki-1"><a class="logo" href="#">Adiel <em>Zainal</em></a><p><span data-isi="peranan">Automasi AI untuk perniagaan</span></p>
-<a class="btn btn-utama btn-kecil2" href="#produk">Dapatkan ebook →</a></div>
-<div><h4>Syarikat</h4><p id="sah"></p><p><a href="#" data-wa="Hi Adiel">WhatsApp saya</a></p></div>
-<div><h4>Ebook</h4><a href="#produk">Claude Untuk Pemula</a><a href="#produk">Pakej Bisnes Autopilot</a><a href="#" data-buka-bab>Intip isi buku</a><a href="coaching">Coaching 1-to-1</a></div>
-<div><h4>Bantuan</h4><a href="#soalan">Soalan lazim</a><a href="terma">Terma</a><a href="privasi.html">Privasi</a><a href="links.html">Semua pautan</a><p class="sosial" id="sosial"></p></div>
-</div><div class="kaki-bawah"><span>© <span id="tahun"></span> Adiel Zainal · SASS ONE WORLDWIDE. Hak cipta terpelihara.</span><span><a href="terma">Terma</a> · <a href="privasi.html">Privasi</a></span></div>
-<div class="ukiran" aria-hidden="true"><span>adielzainal</span></div></footer>
+<footer class="kaki">
+  <p><b data-isi="nama">Adiel Zainal</b> · <span data-isi="peranan">Automasi AI untuk perniagaan</span></p>
+  <p class="sosial" id="sosial"></p>
+  <p id="sah"></p>
+  <p>© <span id="tahun"></span> Adiel Zainal · <a href="privasi.html">Privasi</a> · <a href="terma">Terma</a> · <a href="links.html">Semua pautan</a></p>
+  <div class="ukiran" aria-hidden="true"><span>adielzainal</span></div>
+</footer>
 
 <div class="bar-bawah" id="bar-bawah">
-  <a class="btn btn-utama" href="#produk">Lihat ebook</a>
-  <a class="btn btn-garis" href="#" data-wa="Hi Adiel, saya nak tanya pasal automasi AI untuk bisnes saya.">WhatsApp</a>
+  <a class="pb" href="#" data-wa="Hi Adiel, saya nak tanya pasal automasi AI untuk bisnes saya.">WhatsApp saya</a>
+  <a class="sb" href="#kuiz">Kuiz</a>
 </div>
 
 <script src="app.js?v=23"></script>
+<script src="cahaya.js?v=1"></script>
 <script src="intip.js?v=1"></script>
 </body>
 </html>

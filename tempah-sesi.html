@@ -44,7 +44,7 @@
 
   <div class="kaki"><span>© Adiel Zainal · SASS ONE WORLDWIDE · No. Pendaftaran SSM: 202603017072 (JR0186691-K)</span><a href="/">Kembali ke laman utama</a></div>
 </main>
-<script src="/config.js?v=30"></script>
+<script src="/config.js?v=31"></script>
 <script>
   (function () {
     var C = window.LAMAN || {};
@@ -52,7 +52,7 @@
     var k = q.get("k") === "video" ? "video" : "automasi";
     var pesanan = (q.get("pesanan") || "").replace(/[^\w-]/g, "").slice(0, 40);
     var emel = (q.get("e") || "").trim().slice(0, 120);
-    var nama = k === "video" ? "Coaching Edit Video dengan Claude 1-to-1" : "Coaching Automasi Bisnes 1-to-1";
+    var nama = "Coaching Automasi 1-to-1"; // k=video (borang lama) dikekalkan untuk senarai persediaan video
     document.getElementById("nama-sesi").textContent = nama;
     if (pesanan) {
       document.getElementById("no-pesanan").textContent = pesanan;

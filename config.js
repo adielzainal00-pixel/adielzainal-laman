@@ -19,6 +19,11 @@ window.LAMAN = {
   hubungi: { jenis: "whatsapp", label: "WhatsApp" },
   whatsapp: "601127560377",          // nombor jualan WhatsApp
 
+  // Coaching: pembeli bayar dulu di BCL, kemudian pilih slot di /tempah-sesi (Calendly).
+  // Isi pautan acara Calendly Adiel di sini, contoh "https://calendly.com/adielzainal/coaching".
+  // Kosong = /tempah-sesi tunjuk butang WhatsApp untuk atur slot.
+  calendly: "https://calendly.com/adielzainal00/coaching",
+
   sosial: {
     threads: "https://www.threads.com/@adielzainal._",
     instagram: "https://www.instagram.com/adielzainal._/",
@@ -126,23 +131,49 @@ window.LAMAN = {
     {
       id: "coaching",
       jenis: "1-to-1",
-      nama: "Coaching Automasi 1-to-1",
+      nama: "Coaching 1-to-1",
       harga: 977,                     // satu harga: Google Meet atau bersemuka
       harga_biasa: 1499,
       nota: "sesi sehingga 3 jam · Google Meet atau bersemuka (KL dan Selangor)",
-      // Dua cara (Google Meet / bersemuka), dua servis dalam borang tempahan BCL, harga sama.
-      ringkas: "Kita pasang pekerja AI dalam perniagaan anda, bersama-sama. Anda belajar Hermes, Meta Ads dan Claude sepanjang proses, dan pulang dengan pekerja AI yang sudah berjalan.",
+      // Satu harga untuk kedua-dua pilihan dan kedua-dua cara (Google Meet / bersemuka). Cara sesi dipilih dalam borang BCL.
+      ringkas: "Dua pilihan, satu harga: pasang pekerja AI dalam perniagaan anda, atau belajar edit video dengan Claude. Hands-on, dalam akaun dan footage anda sendiri.",
       isi: [
-        "30 minit audit: pilih kerja pertama untuk pekerja AI anda",
-        "Sehingga 2 jam 30 minit memasang pekerja AI bersama dalam perniagaan anda, sehingga ia berjalan",
-        "Belajar asas Hermes, Meta Ads dan Claude semasa membina",
-        "Pintu kelulusan dan butang henti dipasang sejak awal",
+        "Dua pilihan: Automasi Bisnes, atau Edit Video dengan Claude",
+        "Sesi sehingga 3 jam, hands-on dalam akaun anda sendiri",
+        "Bayar dulu, kemudian pilih tarikh dan masa sesi terus selepas bayar",
         "Ringkasan dan tugasan susulan dalam masa 24 jam",
-        "Isi borang pra-sesi semasa membuat tempahan",
         "Bonus: Pakej Bisnes Autopilot (ebook + video bab) dan semua kit keyword, percuma",
         "Harga yang sama untuk Google Meet atau bersemuka di KL dan Selangor (lokasi disahkan selepas tempahan)"
       ],
-      bcl: "https://sassoneworldwide.bcl.my/booking/coaching",
+      bcl: "https://sassoneworldwide.bcl.my/form/coaching-automasi",
+      // Dua pilihan (macam Akid Ahmad): borang bayaran BCL sendiri setiap satu, slot dipilih selepas bayar.
+      pilihan: [
+        {
+          id: "automasi",
+          nama: "Coaching Automasi Bisnes",
+          ringkas: "Kita pasang pekerja AI dalam perniagaan anda, bersama-sama: balas WhatsApp, susulan lead, laporan iklan atau rekod resit. Anda belajar Hermes, Meta Ads dan Claude sepanjang proses.",
+          isi: [
+            "30 minit audit: pilih kerja pertama untuk pekerja AI",
+            "Sehingga 2 jam 30 minit memasang bersama sehingga ia berjalan",
+            "Pintu kelulusan dan butang henti sejak awal",
+            "Ringkasan dan tugasan susulan dalam 24 jam"
+          ],
+          bcl: "https://sassoneworldwide.bcl.my/form/coaching-automasi"
+        },
+        {
+          id: "video",
+          nama: "Coaching Edit Video dengan Claude",
+          ringkas: "Saya bimbing anda edit video guna Claude, hands-on dengan footage anda sendiri, dari footage mentah sampai siap untuk TikTok dan Reels.",
+          isi: [
+            "Pasang Claude Code, FFmpeg, HyperFrames dan yt-dlp di laptop anda",
+            "Edit ikut style video rujukan yang anda suka",
+            "Kapsyen, motion graphic, muzik dan SFX",
+            "Storyboard dulu, baru render; simpan style jadi skill",
+            "Langganan Claude disediakan sendiri"
+          ],
+          bcl: "https://sassoneworldwide.bcl.my/form/coaching-video"
+        }
+      ],
       label: "Dibimbing 1-to-1"
     },
     {

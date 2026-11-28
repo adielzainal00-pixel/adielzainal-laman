@@ -136,7 +136,13 @@
           esc(p.tambahan.nama) + " (" + rm(p.tambahan.harga) + ")</label>") : "") +
       (ebookTanpaBcl(p)
         ? '<span class="btn btn-penuh" aria-disabled="true" style="opacity:.55;cursor:default">' + labelBeli(p) + "</span>"
-        : '<a class="btn btn-penuh" data-beli="' + esc(p.id) + '" href="' + esc(pautanBeli(p, false)) +
+        : (p.pilihan && p.pilihan.length && !belum(p))
+          // Coaching: satu butang setiap pilihan (bayar dulu di BCL, pilih slot selepas bayar)
+          ? p.pilihan.map(function (x, n) {
+              return '<a class="btn btn-penuh' + (n ? " btn-garis" : "") + '" data-beli="' + esc(p.id) + '" href="' + esc(x.bcl) +
+                '" target="_blank" rel="noopener">Tempah: ' + esc(x.nama.replace(/^Coaching /, "")) + " →</a>";
+            }).join("") + '<p class="tambahan-nota">Bayar terus (FPX, DuitNow QR atau e-wallet), kemudian pilih slot.</p>'
+          : '<a class="btn btn-penuh" data-beli="' + esc(p.id) + '" href="' + esc(pautanBeli(p, false)) +
           '" target="_blank" rel="noopener">' + labelBeli(p) + "</a>") +
       "</div></article>";
   }).join("");

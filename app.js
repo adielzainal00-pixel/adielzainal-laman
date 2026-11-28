@@ -118,7 +118,7 @@
         (promo ? ' <s class="asal">' + rm(m.harga_biasa) + "</s>" : "") + "</li>";
     }).join("") + "</ul>";
   }
-  function labelBeli(p) { if (ebookTanpaBcl(p)) return "Dibuka tak lama lagi"; if (belum(p)) return "Maklumkan saya bila dibuka →"; return p.bcl ? "Beli sekarang →" : (viaIG ? "DM untuk beli →" : "Beli melalui WhatsApp →"); }
+  function labelBeli(p) { if (ebookTanpaBcl(p)) return "Dibuka tak lama lagi"; if (belum(p)) return "Maklumkan saya bila dibuka →"; if (p.id === "coaching" && p.bcl) return "Bayar " + rm(hargaKini(p)) + " & Tempah Sesi →"; return p.bcl ? "Beli sekarang →" : (viaIG ? "DM untuk beli →" : "Beli melalui WhatsApp →"); }
 
   $("#senarai-produk").innerHTML = PRODUK.map(function (p) {
     return '<article class="kad produk' + (p.utama ? " utama" : "") + '" id="p-' + esc(p.id) + '">' +

@@ -22,7 +22,7 @@ window.LAMAN = {
   // Coaching: pembeli bayar dulu di BCL, kemudian pilih slot di /tempah-sesi (Calendly).
   // Isi pautan acara Calendly Adiel di sini, contoh "https://calendly.com/adielzainal/coaching".
   // Kosong = /tempah-sesi tunjuk butang WhatsApp untuk atur slot.
-  calendly: "",
+  calendly: "https://calendly.com/adielzainal00/coaching",
 
   sosial: {
     threads: "https://www.threads.com/@adielzainal._",

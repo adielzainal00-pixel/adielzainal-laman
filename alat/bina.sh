@@ -5,6 +5,6 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 rm -rf dist && mkdir -p dist
-cp index.html coaching.html links.html kit.html privasi.html terima-kasih.html terma.html kit-penuh.html config.js app.js akses.js kit-penuh.js style.css kecil.css _redirects _headers robots.txt gaya-a.css gaya-a.js hero-a.css cahaya.css cahaya.js pratonton.css intip.js dist/
+cp index.html coaching.html links.html kit.html privasi.html terima-kasih.html terma.html kit-penuh.html tempah-sesi.html config.js app.js akses.js kit-penuh.js style.css kecil.css _redirects _headers robots.txt gaya-a.css gaya-a.js hero-a.css cahaya.css cahaya.js pratonton.css intip.js dist/
 cp -r aset akses dist/
 echo "dist/ siap: $(find dist -type f | wc -l) fail"
